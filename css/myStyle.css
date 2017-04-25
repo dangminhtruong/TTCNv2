@@ -1,0 +1,566 @@
+/*----------Index.php CSS--------*/
+
+.navbarLeft{
+  padding-left: 20%;
+}
+.carousel-inner{
+	max-height: 62vh;
+  width: 100%;
+}
+#DungHanhBrand{
+    color: white;
+}
+nav{
+  animation: 2s ease-out 0s 1 dropHeader;
+  font-family: font_Buttermilk;
+}
+
+.hrStyle1 {
+  background-color: #fff;
+	border-top: 2px dashed #8c8b8b;
+}
+
+#footer{
+  margin-top: 4vh;
+  background-color: black;
+}
+
+#footerMenu{
+  list-style-type:none;
+}
+#footerMenu a{
+    color: #ffffff;
+    text-align:left;
+}
+
+#footerContent{
+  padding-top: 2vh;
+  color: white;
+  font-family: cursive;
+}
+#footerContent:hover{
+  color: green;
+}
+#footerContent a:hover{
+  color: green;
+}
+/*------------Index.php CSS End------------------*/
+/*-------------TrangChu.php CSS-------------------*/
+body{
+	background-image: url("../images/solid.jpg");
+}
+#logoText{
+  font-size: 25vh;
+  font-family: 'Dancing Script', cursive;
+  animation-name: logoTextChangeColor;
+  animation-duration: 10s;
+  animation-delay: 5s;
+  animation-iteration-count: infinite;
+}
+@keyframes logoTextChangeColor {
+    0% {color: #c61aff;}
+    25% {color: black;}
+    50% {color: yellow;}
+    75% {color: green;}
+    100% {color: white;}
+}
+.main-text
+{
+    position: absolute;
+    top: 50px;
+    width: 96.66666666666666%;
+    color: #FFF;
+}
+#shortCap{
+    font-family: font_Buttermilk;
+}
+.btn-min-block
+{
+    min-width: 170px;
+    line-height: 26px;
+}
+.btn-clear
+{
+    color: #FFF;
+    background-color: transparent;
+    border-color: #FFF;
+    margin-right: 15px;
+}
+.btn-clear:hover
+{
+    color: #000;
+    background-color: #FFF;
+}
+.slbt{
+    font-weight: bold;
+}
+#sloganTrangChu{
+	padding-top: 3%;
+	padding-bottom: 3%;
+  background-color: white;
+  font-family: font_Buttermilk;
+}
+#sloganTrangChuTieuDe{
+	padding: 5px;
+	font-weight: bold;
+}
+#spmoi{
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+#spMoiContent{
+  padding-bottom: 2vh;
+	background-color: white;
+  padding-top: 4vh;
+}
+#price{
+  padding-bottom: 2vh;
+	background-color: white;
+}
+.buttonDatMua {
+    border: 0 none;
+    border-radius: 5px;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 10px;
+    min-width: 80px;
+		min-height: 20px;;
+    padding: 2px 2px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 #C26900;
+		margin-top: 15px;
+}
+
+.button_orange {
+    background-color: #FF910F;
+    box-shadow: 0 5px 0 #DB7700;
+}
+.button_orange:hover{
+  background-color: #003366;
+  box-shadow: 0 5px 0  #003366;
+}
+#sloganTrangChu2{
+  min-height: 25vh;
+  max-height: none;
+  margin-top: 4vh;
+  padding-bottom: 4vh;
+  background-color: #ffffff;
+}
+
+.rounded1{
+  border: 2px solid #33cc00;
+  border-radius: 25px;
+  text-align: center;
+  background-color: #ffffff;
+  min-height: 6vh;
+}
+.rounded1 p{
+  font-family: font_Buttermilk;
+  font-size: 20px;
+  font-weight: bold;
+  padding: inherit;
+}
+.rounded1:hover{
+  border: 2px solid #000000;
+}
+#giolamviec{
+  padding-top: 4vh;
+  height: inherit;
+}
+#sloganTrangChu2Content{
+  transition:transform 2s;
+}
+@keyframes dropHeader {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#giolamviec div{
+  text-align: center;
+}
+#gioLamViecContent{
+  padding-top: 2vh;
+  font-family: font_Buttermilk;
+  font-weight:bold;
+  color: #334d4d;
+}
+.hrStyle2 {
+	border-top: 1px solid #33cc00;
+	text-align: center;
+}
+.hrStyle2:after {
+	content: '§';
+	display: inline-block;
+	position: relative;
+	top: -14px;
+	padding: 0 10px;
+	background: #f0f0f0;
+	color: #8c8b8b;
+	font-size: 18px;
+	transform: rotate(60deg);
+	-moz-transform: rotate(60deg);
+	transform: rotate(60deg);
+}
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+#baiViet{
+  margin-top: 8vh;
+  background-color: #ffffff;
+  min-height: 25vh;
+}
+.container1 {
+    margin-top: 4vh;
+    position: relative;
+    width: inherit%;
+}
+
+.imagebv {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.container1:hover .imagebv {
+  opacity: 0.3;
+}
+
+.container1:hover .middle {
+  opacity: 1;
+}
+.tieudebv p{
+  text-align: center;
+  padding-top: 2vh;
+  font-weight: bold;
+  font-family: font_Buttermilk;
+}
+/*-----------------GioiThieu.php CSS------------------------------*/
+#gt_navbar{
+  min-height: 5vh;
+  max-height: 6vh;
+  background-color: black;
+}
+#gioiThieu{
+  padding-top: 2vh;
+  background-color: white;
+}
+#gt1_content{
+  font-size: 15px;
+  font-family: font_Buttermilk;
+}
+#gt_navbar{
+  min-height: 5vh;
+  max-height: 6vh;
+  background-color: black;
+}
+#gioiThieuTieuDe{
+  text-align: center;
+  font-family: font_Buttermilk;
+  font-weight: bold;
+  font-size: 20px;
+}
+#gioiThieu2{
+  background-color: white;
+  min-height: 25vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+.parallaxgt {
+    /* The image used */
+    background-image: url("../images/parallaxbg.jpg");
+
+    /* Set a specific height */
+    min-height: 55vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/*----------------------------------------------------------------*/
+.parallax {
+    /* The image used */
+    background-image: url("../images/para.jpg");
+
+    /* Set a specific height */
+    min-height: 35vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#cayAnQua{
+  padding-top: 4vh;
+}
+#cayAnQuaMenuTop{
+  padding-top: 2vh;;
+  background-color: #393535;
+  min-height: 8vh;
+  border-left: 6px solid black;
+  color: white;
+  font-family: font_Buttermilk;
+  font-weight: bold;
+  text-align: left;
+}
+#cayAnQuaMenuBottom{
+  background-color: white;
+  min-height: 13vh;
+}
+#cayAnQuaMenuBottom2{
+  padding-top: 2vh;
+  background-color: white;
+  min-height: 8vh;
+  font-family: font_Buttermilk;
+  font-weight: normal;
+}
+.cayAnQuaMenu{
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  background-color: white;
+  min-height: 8vh;
+  border-bottom: 1px dashed black;
+  font-family: font_Buttermilk;
+  font-weight: normal;
+}
+#thanhSapXep{
+  padding-top: 2vh;
+  min-height: 8vh;
+  background-color: white;
+  margin-bottom: 4vh;
+  font-family: font_Buttermilk;
+  font-weight: bold;
+}
+/*---------------------------------------------------------------*/
+#tintucHeader{
+  margin-top: 6vh;
+}
+.tieude_2 {
+    border-bottom: 5px solid #000;
+    margin-bottom: 70px;
+}
+
+.text-center.img_cnt {
+    margin: 15px 0;
+}
+
+.tieude>a {
+    text-decoration: none;
+    color: #000;
+}
+
+.row._1tin {
+    margin: 10px;
+}
+
+h3.title_new.text-center {
+    margin: 25px;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 30px;
+    font-weight: bold;
+}
+
+h2 {}
+
+.content_new {
+    box-shadow: 5px 6px 13px 6px #000;
+    box-sizing: 4px 4px 4px #ececec;
+    background-color: white;
+}
+.info{
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.contact_col {
+    text-align: center;
+    border: 4px solid #33cc00;
+    background: #33cc00;
+    color: #fff;
+    padding: 18px;
+    font-size: 19px;
+}
+.contact_col:hover {
+    text-align: center;
+    border: 4px solid #000;
+    background: #000;
+    color: #fff;
+    padding: 18px;
+    font-size: 19px;
+}
+/*----------------------------------------------------------------*/
+/*lienhe*/
+.lienhe_banner{
+  background-image: url('../images/bg_hoaqua.png');
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.add {
+    margin-bottom: 4%;
+}
+
+button.btn.btn-primary.send {
+    background: #ff8d00;
+    width: 100%;
+    border: 0;
+    text-transform: uppercase;
+    height: 50px;
+    font-size: 18px;
+    margin-top: 7%;
+}
+
+.top2_lienhe {
+    background: white;
+    color: black;
+    margin-top: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+span.danhdau {
+    color: #ff8d00;
+    font-size: 18px;
+}
+
+legend.contact {
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+/*-------------------------------------*/
+/*-----*/
+.hvr-bounce-to-right {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-to-right:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #2098D1;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-bounce-to-right:hover, .hvr-bounce-to-right:focus, .hvr-bounce-to-right:active {
+  color: white;
+}
+.hvr-bounce-to-right:hover:before, .hvr-bounce-to-right:focus:before, .hvr-bounce-to-right:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+/*----*/
+.hvr-shadow {
+
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+}
+.hvr-shadow:hover, .hvr-shadow:focus, .hvr-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Grow Shadow */
+.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+#bangSuaCay{
+    text-align: left;
+}
+/* Underline From Left */
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: black;
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+  right: 0;
+}

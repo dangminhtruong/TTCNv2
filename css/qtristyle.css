@@ -1,0 +1,120 @@
+/*------------QUAN TRI------------------*/
+.dangnhap{
+   padding-top: 20vh;
+   min-height:60vh;
+   text-align: center;
+}
+#DungHanhBrand{
+  color: white;
+}
+#qtriBody{
+  background-color:white;
+  background-image: none;
+}
+#qtri{
+  margin-top: 7vh;
+}
+#qtriLeft{
+  max-height: 100vh;
+  background-color: white;
+  font-family: font_Buttermilk;
+  font-weight:bolder;
+
+}
+.qtriLeftBar {
+    width: 100%;
+    background-color: inherit;
+    padding-top: 4vh;
+}
+.qtriLeftBarLi{
+  color: black;
+  text-decoration: none !important;
+}
+#qtriLeft2{
+  margin-top: 4vh;
+  height: 41vh;
+}
+#qtriPanel a{
+  color: black;
+}
+#qtriRight{
+  min-height: 100vh;
+  background-color: white;
+  text-align: center;
+  border-left: solid 1px;
+  position: relative;
+}
+#qtriRight div span{
+  font-family: font_Buttermilk;
+  font-weight: bold;
+}
+#formthemSanPham{
+  text-align: left;
+}
+#qLyCay{
+  min-height: 50vh;
+  padding-top: 4vh;
+}
+#qLyDonH{
+  min-height: 50vh;
+  padding-top: 4vh;
+}
+#qLyUser{
+  min-height: 50vh;
+  padding-top: 4vh;
+}
+#qLyThongKe{
+  min-height: 50vh;
+  padding-top: 4vh;
+}
+/*------------THEM CAY--------------------*/
+#themSanPhamMoi{
+  padding-top: 4vh;
+}
+.panel-gray{
+  background: #003d99;
+  color: white;
+}
+/* Grow Shadow */
+.hvr-grow-shadow {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+}
+.hvr-grow-shadow:hover, .hvr-grow-shadow:focus, .hvr-grow-shadow:active {
+  box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+#btnThemSanPhamGroup{
+  text-align: left;
+  padding-bottom: 10vh;
+}
+/*-------------SUA XOA SAN PHAM-----------------------*/
+#suaxoasanpham{
+    padding-top: 4vh;
+    position: relative;
+}
+.myscroll{
+    width: 100%;
+    height: 70vh;;
+    overflow: scroll;
+    overflow-x: hidden;
+    text-align: left;
+}
+#ghiChuSP{
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.dropdown-menu-center{
+  margin-left: 3vh;
+  margin-right: 3vh;
+  max-width: 100%;
+}
