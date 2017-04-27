@@ -1,6 +1,88 @@
 <!------------------------------------------------------------------->
   <div class="col-md-10" id="qtriRight">
     <!------------------------------------------------------>
+    <div class="modal fade bs-example-modal-sm" id="suaSPThanhCong" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <strong>Sửa sản phẩm thành công !</strong>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------>
+    <div class="modal fade bs-example-modal-sm" id="xoaSPThanhCong" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <strong>Xóa sản phẩm thành công !</strong>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------->
+    <div class="modal fade" id="SuaSanPhamModal" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Sửa sản phẩm</h4>
+          </div>
+          <div class="modal-body">
+            <div class="col-md-12" id="modal-body-form">
+            <form id="formSuaSanPham" action="../xuLy/xulysuasanpham.php"  method="post" enctype="multipart/form-data" class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label" id="">Loại sản phẩm: </label>
+                <div class="">
+                  <select class="form-control" name="loaiSanPham">
+                    <option value="cayanqua">Cây ăn quả</option>
+                    <option value="caycongtrinh">Cây công trình</option>
+                    <option value="hoacaycanh">Hoa cây cảnh</option>
+                    <option value="caylaygo">Cây lấy gỗ</option>
+                    <option value="khac">Khác...</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" id="" >Tên sản phẩm:</label>
+                <div class="">
+                  <input type = "text" hidden id="idSanPham" name = "idSanPham">
+                  <input type="text" class="form-control" name="tenSanPham" id="tenSanPham"  data-toggle="tooltip1" data-placement="top" title="Không để trống!" placeholder="Nhập tên sản phẩm">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" id="">Giá sản phẩm:</label>
+                <div class="">
+                  <input type="text" class="form-control" name="giaSanPham" id="giaSanPham" data-toggle="tooltip2" data-placement="bottom" title="Không để trống!" placeholder="Nhập giá sản phẩm">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" id="">Số lượng:</label>
+                <div class="">
+                  <input type="text" class="form-control" id="soLuongSanPham" name="soLuongSanPham" data-toggle="tooltip3" data-placement="bottom" title="Không để trống!" placeholder="Nhập số lượng sản phẩm">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label">Mô tả: </label>
+                <div class="">
+                     <textarea class="form-control" rows="6" id="moTaSanPham" name="moTaSanPham" data-toggle="tooltip4" data-placement="bottom" title="Không để trống!" placeholder="Thêm mô tả sản phầm"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label" >Thêm ảnh:</label>
+                <div class="">
+                  <input type="file" id="imageUpload"  name="imageUploadEdit" data-toggle="tooltip5" data-placement="left" title="Không để trống!">
+                </div>
+              </div>
+            </form>
+          </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success" form="formSuaSanPham" name="btnSuaSP">Xong</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+<!------------------------------------------->
+      </div>
+    </div>
     <!------------------------------------------------------>
     <div class="col-md-12" id="suaxoasanpham">
        <div class="well well-lg">
@@ -10,22 +92,17 @@
                 <i class="fa fa-search" aria-hidden="true"></i> Search
              </button>
               <div class="col-xs-8 col-md-6 col-md-push-3">
-                <input type="text" class="form-control dropdown" data-toggle="dropdown" id="timCayCanSua" placeholder="Nhập tên cây cần sửa...">
+                <input type="text" class="form-control dropdown" data-toggle="dropdown" id="timSanPhamCanSua" placeholder="Nhập tên sản phẩm cần sửa...">
                 <ul class="col-xs-11 col-md-11 dropdown-menu dropdown-menu dropdown-menu-center" role="menu">
-                  <li class="dropdown-header">Dropdown header 1</li>
-                  <li><a href="#">HTML</a></li>
-                  <li><a href="#">CSS</a></li>
-                  <li><a href="#">JavaScript</a></li>
+                  <li id="markToAdd" class="dropdown-header">Kết quả tìm kiếm</li>
                   <li class="divider"></li>
-                  <li class="dropdown-header">Dropdown header 2</li>
-                  <li><a href="#">About Us</a></li>
                 </ul>
               </div>
             </div>
         </form>
      </div>
    </div>
-   <div class="col-md-12">
+   <div class="col-md-12 myscroll">
        <table class="table table-hover">
         <thead>
           <tr>
@@ -34,39 +111,36 @@
             <th>Tên sản phẩm</th>
             <th>Loại sản phẩm</th>
             <th>Giá sản phẩm</th>
+            <th>Số lượng</th>
           </tr>
         </thead>
         <tbody>
+          <?php
+            $sql = "SELECT* FROM sanpham";
+            $sp = new database();
+            $sp->connectDb();
+            $sp->myQuery($sql);
+            while ($kq  = $sp->fetchData()) {
+
+          ?>
           <tr>
             <td>
-              <button type="button" class="btn btn-default btn-xs">Sửa</button>
-              <button type="button" class="btn btn-danger btn-xs">Xóa</button>
+              <button type="button" class="btn btn-default btn-xs btn-edit1" <?php echo "value = ".$kq['maSanPham']; ?>>
+                Sửa
+              </button>
+              <button type="button" class="btn btn-danger btn-xs btn-delete" <?php echo "value = ".$kq['maSanPham']; ?>>Xóa</button>
             </td>
-            <td>01</td>
-            <td>Chanh leo</td>
-            <td>Cây ăn quả</td>
-            <td>150000</td>
+            <td><?php echo $kq['maSanPham']; ?></td>
+            <td><?php echo $kq['tenSanPham']; ?></td>
+            <td><?php echo $kq['loaiSanPham']; ?></td>
+            <td><?php echo $kq['giaSanPham']; ?></td>
+            <td><?php echo $kq['soLuongSanPham']; ?></td>
           </tr>
-          <tr>
-            <td>
-              <button type="button" class="btn btn-default btn-xs">Sửa</button>
-              <button type="button" class="btn btn-danger btn-xs">Xóa</button>
-            </td>
-            <td>02</td>
-            <td>Cam v5</td>
-            <td>Cây ăn quả</td>
-            <td>12000</td>
-          </tr>
-          <tr>
-            <td>
-              <button type="button" class="btn btn-default btn-xs">Sửa</button>
-              <button type="button" class="btn btn-danger btn-xs">Xóa</button>
-            </td>
-            <td>03</td>
-            <td>Cam v5</td>
-            <td>Cây ăn quả</td>
-            <td>12000</td>
-          </tr>
+          <?php
+        }
+            $sp->freeQuery();
+            $sp->disconnectDb();
+             ?>
         </tbody>
     </table>
    </div>

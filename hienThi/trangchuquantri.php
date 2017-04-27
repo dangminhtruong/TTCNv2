@@ -16,7 +16,7 @@
         <span>Sửa - xóa sản phẩm</span>
       </div>
     </a>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=xemdanhsachsanpham">
+    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=quanlyloaisanpham">
       <div class="col-md-4 hvr-grow-shadow">
         <i class="fa fa-list-alt fa-5x" aria-hidden="true"></i><br/>
         <span>Quản lí loại sản phẩm</span>

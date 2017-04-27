@@ -69,8 +69,8 @@
               case 'suaxoasanpham':
                   include_once('suaxoasanpham.php');
                 break;
-              case 'xemdanhsachsanpham':
-                  include_once('xemdanhsachsanpham.php');
+              case 'quanlyloaisanpham':
+                  include_once('quanlyloaisanpham.php');
                 break;
               case 'dangxuat':
                   header('location:../xuLy/dangxuat.php');
@@ -106,7 +106,7 @@
        });
      </script>
   <?php unset($_SESSION['themSPThanhCong']); } ?>
-  //-----------------------------------------------
+  <!----------------------------------------------->
   <?php
    if (isset($_SESSION['themSPKhongThanhCong'])) { ?>
      <script>
@@ -115,5 +115,14 @@
       });
     </script>
  <?php unset($_SESSION['themSPKhongThanhCong']); } ?>
+ <!----------------------------------------------------->
+ <?php
+    if (isset($_SESSION['chinhsuathanhcong'])) { ?>
+      <script>
+       $(document).ready(function(){
+           $("#suaSPThanhCong").modal("show");
+       });
+     </script>
+<?php unset($_SESSION['chinhsuathanhcong']); } ?>
 </body>
 </html>

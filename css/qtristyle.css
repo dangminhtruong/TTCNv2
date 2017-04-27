@@ -51,6 +51,12 @@
 #formthemSanPham{
   text-align: left;
 }
+#formSuaSanPham{
+  text-align: left;
+}
+#modal-body-form{
+    padding-top: 4vh;
+}
 #qLyCay{
   min-height: 50vh;
   padding-top: 4vh;
@@ -67,7 +73,7 @@
   min-height: 50vh;
   padding-top: 4vh;
 }
-/*------------THEM CAY--------------------*/
+/*------------THEM SAN PHAM--------------------*/
 #themSanPhamMoi{
   padding-top: 4vh;
 }
@@ -108,13 +114,22 @@
     overflow-x: hidden;
     text-align: left;
 }
-#ghiChuSP{
-  overflow: scroll;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
 .dropdown-menu-center{
   margin-left: 3vh;
   margin-right: 3vh;
   max-width: 100%;
+}
+/*-------THEM LOAI SAN PHAM------------------*/
+
+#formThemLoaiSP{
+  text-align: left;
+}
+#loaiSPHCTitle{
+  padding-top: 4vh;
+}
+#loaiSPHC{
+  height: 30vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  text-align: left;
 }

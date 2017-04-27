@@ -16,7 +16,7 @@
     }
 
   //--------------------------
-    protected function connectDb(){
+    public function connectDb(){
       // Create connection
       $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
       // Check connection
@@ -25,7 +25,7 @@
       }
     }
   //--------------------------------
-    protected function disconnectDb(){
+    public function disconnectDb(){
       $this->conn->close();
     }
   //--------------------------------
@@ -33,7 +33,7 @@
     $this->result = $this->conn->query($sql);
    }
   //---------------------------------
-   protected function freeQuery(){
+   public function freeQuery(){
     if ($this->result)
       {
          mysqli_free_result($this->result);

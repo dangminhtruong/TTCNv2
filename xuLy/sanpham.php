@@ -12,8 +12,7 @@
     }
     //------------------------------
     public function kiemTraTrungSP($tenKTSP){
-      $this->tenKTSP = $tenKTSP;
-      $sql = "SELECT* FROM sanpham WHERE tenSanPham = '$this->tenKTSP'";
+      $sql = "SELECT* FROM sanpham WHERE tenSanPham = '$tenKTSP'";
       $this->myQuery($sql);
       if ($this->numRows() > 0) {
         return 'da ton tai';
@@ -24,15 +23,9 @@
     }
     //------------------------------
     public function themSanPham($tenSanPham,$giaSanPham,$loaiSanPham,$soLuongSanPham,$moTaSanPham,$anhSanPham){
-      $this->tenSanPham = $tenSanPham;
-      $this->giaSanPham = $giaSanPham;
-      $this->loaiSanPham = $loaiSanPham;
-      $this->soLuongSanPham = $soLuongSanPham;
-      $this->moTaSanPham = $moTaSanPham;
-      $this->anhSanPham = $anhSanPham;
-      if ($this->kiemTraTrungSP($this->tenSanPham) == 'chua ton tai') {
+      if ($this->kiemTraTrungSP($tenSanPham) == 'chua ton tai') {
         $sql = "INSERT INTO sanpham(tenSanPham,giaSanPham,loaiSanPham,soLuongSanPham,moTaSanPham,anhSanPham)
-                VALUES('$this->tenSanPham',$this->giaSanPham,'$this->loaiSanPham','$this->soLuongSanPham','$this->moTaSanPham','$this->anhSanPham')";
+                VALUES('$tenSanPham',$giaSanPham,'$loaiSanPham','$soLuongSanPham','$moTaSanPham','$anhSanPham')";
         $this->myQuery($sql);
         return 'Them san pham thanh cong';
       }
@@ -40,5 +33,69 @@
         return 'San pham da ton tai';
       }
     }
+    //--------------------------------
+    public function timKiemSanPham($tuKhoa){
+      $sql = "SELECT* FROM sanpham WHERE tenSanPham LIKE '%$tuKhoa%' ";
+      $this->myQuery($sql);
+      if ($this->numRows() > 0) {
+        while ($ketQuaTraVe = $this->fetchData()) {
+						$result[] = array(
+              'maS' => $ketQuaTraVe["maSanPham"],
+							'tenS' => $ketQuaTraVe["tenSanPham"],
+              'giaS' => $ketQuaTraVe["giaSanPham"],
+							'loaiS' => $ketQuaTraVe["loaiSanPham"],
+              'soLuongS' => $ketQuaTraVe["soLuongSanPham"],
+              'moTaS' =>  $ketQuaTraVe["moTasanPham"]
+						);
+					}
+        echo json_encode($result);
+      }
+      else {
+        $result[] = array(
+          'maS' => '....',
+          'tenS' => 'Không xác định',
+          'giaS' => '...',
+          'loaiS' => '...',
+          'soLuongS' => '...',
+          'moTaS' =>  '...'
+        );
+          echo json_encode($result);
+      }
+    }
+    //-------------------------------------------
+    public function xoaSanPham($spXoa){
+      $sql = "DELETE FROM sanpham WHERE maSanPham = '$spXoa'";
+      $this->myQuery($sql);
+    }
+    //--------------------------------------------
+    public function layThongTinTheoId($maSPS){
+      $sql = "SELECT* FROM sanpham WHERE maSanPham = '$maSPS' ";
+      $this->myQuery($sql);
+      if ($this->numRows() > 0) {
+        while ($ketQuaTraVe = $this->fetchData()) {
+            $result[] = array(
+              'maS' => $ketQuaTraVe["maSanPham"],
+              'tenS' => $ketQuaTraVe["tenSanPham"],
+              'giaS' => $ketQuaTraVe["giaSanPham"],
+              'loaiS' => $ketQuaTraVe["loaiSanPham"],
+              'soLuongS' => $ketQuaTraVe["soLuongSanPham"],
+              'moTaS' =>  $ketQuaTraVe["moTasanPham"]
+            );
+          }
+        echo json_encode($result);
+      }
+      else {
+        $result[] = array(
+          'maS' => '....',
+          'tenS' => 'Không xác định',
+          'giaS' => '...',
+          'loaiS' => '...',
+          'soLuongS' => '...',
+          'moTaS' =>  '...'
+        );
+          echo json_encode($result);
+      }
+    }
+    //--------------------------------------------------------------
   }
 ?>
