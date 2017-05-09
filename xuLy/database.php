@@ -7,7 +7,7 @@
     protected $servername = "localhost";
     protected $username = "root";
     protected $password = "";
-    protected $dbname = "dunghanh";
+    protected $dbname = "cuahangdunghanh";
     protected $conn = NULL;
     protected $result = NULL;
     function __construct()

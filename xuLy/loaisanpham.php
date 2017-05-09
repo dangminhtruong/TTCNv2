@@ -23,9 +23,9 @@
       }
     }
     //------------------------
-    public function themLoaiSanPham($tenLSPM,$moTaLoaiSP){
+    public function themLoaiSanPham($tenLSPM,$chiChuLoaiSP){
       if ($this->kiemTraTrungLoaiSP($tenLSPM) == 'NoExisted') {
-        $sql = "INSERT INTO loaisanpham(tenLoaiSP,moTaLoaiSP) VALUES('$tenLSPM','$moTaLoaiSP')";
+        $sql = "INSERT INTO loaisanpham(tenLoaiSP,ghiChu) VALUES('$tenLSPM','$chiChuLoaiSP')";
         $this->myQuery($sql);
         echo "Them moi loai san pham thanh cong";
       }

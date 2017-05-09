@@ -1,4 +1,4 @@
-//-------------------------------------------
+//------------------KIEM TRA DANG NHAP-------------------------
 $(document).ready(function(){
   $("#dangnhapBtn").click(function(){
     var userName = $("#tenDangNhap").val();
@@ -22,7 +22,7 @@ $(document).ready(function(){
 //---------------------------------------------
   });
 });
-/*----------------------------------------------------------------------------*/
+/*--------------------------KIEM TRA VALID FROM THEM SAN PHAM--------------------------------------------------*/
 $(document).ready(function(){
   $('#formthemSanPham').submit(function(e){
     var loaiSP = $('select[name=loaiSanPham]').val();
@@ -59,7 +59,7 @@ $(document).ready(function(){
     }
   });
 });
-//-----------------------------------------------------------------------------------------
+//------------------------------XU LY TIM KIEM-----------------------------------------------------------
 $(document).ready(function(){
   $('#timSanPhamCanSua').keyup(function(){
     var timkiemSP = $('#timSanPhamCanSua').val();
@@ -211,5 +211,120 @@ $(document).ready(function(){
     }
     var dataType = "text";
     $.post(url,data,success,dataType);
+  });
+});
+//-----------------------------------
+$(document).ready(function(){
+  $('#submitThemNguoiDung').click(function(){
+    var loaiTK =  $('select[name=loaiTaiKhoanND]').val();
+    var tenND = $('#tenND').val();
+    var diaChiND = $('#diaChiND').val();
+    var dienThoaiND = $('#soDienThoaiND').val();
+    var tenDangNhapND = $('#tenDangNhapND').val();
+    var matKhauND = $('#matKhauND').val();
+    var ghiChuND = $('#ghiChuND').val();
+    var url ="../xuly/xulythemnguoidung.php";
+    var data = {
+        loaiTaiKhoan : loaiTK,
+        tenNV : tenND,
+        diaChi : diaChiND,
+        soDTND : dienThoaiND,
+        tenDangNhap : tenDangNhapND,
+        matKhau : matKhauND,
+        ghiChu : ghiChuND
+    }
+    var success = function(result){
+      console.log(result);
+      if (result == 'Them nguoi dung thanh cong') {
+        $('#themnhanvientc').modal('show');
+        $('#resetThemNguoiDung').click();
+      }
+      else {
+        $('#themnhanvienktc').modal('show');
+      }
+    }
+    var dataType = "text";
+    $.post(url,data,success,dataType);
+  });
+});
+//----------------------------------------------
+$(document).ready(function(){
+  $('.btn-editUser').click(function(){
+    var idUser = $(this).val();
+    var url ="../xuly/laythongtinnguoidung.php";
+    var data = {
+      maTKEdit : idUser
+    };
+    var success = function(result){
+        for (i in result) {
+          $("select > option[value=" + result[0]['loaiTKU'] + "]").prop("selected",true);
+          $('#upDateMaNV').attr('value',result[0]['maTKU']);
+          $('#upDateTenND').attr('placeholder',result[0]['hoTenU']);
+          $('#upDateDiaChiND').attr('placeholder',result[0]['diaChiU']);
+          $('#upDateSoDienThoaiND').attr('placeholder',result[0]['soDienThoaiU']);
+          $('#upDateTenDangNhapND').attr('placeholder',result[0]['tenTKU']);
+          $('#upDateMatKhauND').attr('placeholder',result[0]['matKhauU']);
+          $('#upDateGhiChuND').attr('placeholder',result[0]['ghiChuU']);
+        }
+    }
+    var dataType = "json";
+    $.post(url,data,success,dataType);
+    $('#suaNguoiDung').collapse('show');
+  });
+});
+//----------------------------------------------
+$(document).ready(function(){
+  $('#submitSuaNguoiDung').click(function(){
+    var  upDateMaNV = $('#upDateMaNV').val();
+    var  upDateLoaiTK =  $('select[name=upDateLoaiTaiKhoanND]').val();
+    var  upDateTenND = $('#upDateTenND').val();
+    var  upDateDiaChiND = $('#upDateDiaChiND').val();
+    var  upDateDienThoaiND= $('#upDateSoDienThoaiND').val();
+    var  upDateTenDangNhapND= $('#upDateTenDangNhapND').val();
+    var  upDateMatKhauND= $('#upDateMatKhauND').val();
+    var  upDateGhiChuND= $('#upDateGhiChuND').val();
+    var  url = "../xuly/xulysuanguoidung.php";
+    var  data = {
+         editMaNV : upDateMaNV,
+         editLoaiTK : upDateLoaiTK,
+         editTenNV : upDateTenND,
+         editDiaChiNV : upDateDiaChiND,
+         editDienThoaiNV : upDateDienThoaiND,
+         editTenTK : upDateTenDangNhapND,
+         editMatKhau : upDateMatKhauND,
+         editGhiChuTK : upDateGhiChuND
+    }
+    var success = function(result){
+         if (result == 'Da cap nhat') {
+            $('#suaTaiKhoanThanhCong').modal('show');
+            $('#resetSuaNguoiDung').click();
+         }
+    }
+    var dataType = "text";
+    $.post(url,data,success,dataType);
+  });
+});
+//------------------------------------------------
+$(document).ready(function(){
+  $('.btn-deleteUser').click(function(){
+      var maTkDel = $(this).val();
+      var url = "../xuly/xoanguoidung.php";
+      var data = {
+        maTK : maTkDel
+      };
+      var success = function(result){
+        console.log(result);
+          if (result == 'Xoa thanh cong') {
+              $('#xoaTaiKhoanThanhCong').modal('show');
+              function myFunction() {
+                  setTimeout(function(){
+                    window.location.replace("http://localhost/TTCNv2/hienThi/quantri.php?page=suaxoanguoidung");
+                  }, 1000);
+              }
+              myFunction();
+          }
+      };
+      var dataType = "text";
+      $.post(url,data,success,dataType);
   });
 });

@@ -133,3 +133,24 @@
   overflow-x: hidden;
   text-align: left;
 }
+#formThemNguoiDung{
+  text-align: left;
+}
+/*----------------------------------------------*/
+.myscroll2{
+  width: 100%;
+  height: 35vh;;
+  overflow: scroll;
+  overflow-x: hidden;
+  text-align: left;
+}
+/*------------------------------------------------*/
+#btnSuaNguoiDungGroup{
+  text-align: left;
+}
+#formSuaNguoiDung{
+  text-align: left;
+}
+#formSuaNguoiDung2{
+  text-align: left;
+}

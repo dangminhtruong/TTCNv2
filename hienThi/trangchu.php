@@ -78,7 +78,7 @@
 
             <div class="col-md-3 col-sm-12">
                 <div class="col-md-12" id="spMoiContent">
-                  <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
+                  <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
                 </div>
                 <div class="col-md-12 text-center" id="price">
                   <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">Cà chua bi</span>
@@ -91,15 +91,16 @@
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                   </div>
                   <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                    <span onclick="datMuaFunction();" class="buttonDatMua button_orange">Đặt mua</span>
+                    <span   class="buttonDatMua button_orange">Đặt mua</span>
                   </div>
                   <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                     <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
                   </div>
             </div>
+            <!------------->
             <div class="col-md-3 col-sm-12">
                 <div class="col-md-12" id="spMoiContent">
-                  <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
+                  <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
                 </div>
                 <div class="col-md-12 text-center" id="price">
                   <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">Cà chua bi</span>
@@ -112,7 +113,7 @@
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                   </div>
                   <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                    <span onclick="datMuaFunction();" class="buttonDatMua button_orange">Đặt mua</span>
+                    <span   class="buttonDatMua button_orange">Đặt mua</span>
                   </div>
                   <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                     <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
@@ -122,7 +123,7 @@
 
             <div class="col-md-3 col-sm-12">
                 <div class="col-md-12" id="spMoiContent">
-                  <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
+                  <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
                 </div>
                 <div class="col-md-12 text-center" id="price">
                   <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">Cà chua bi</span>
@@ -135,7 +136,7 @@
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                   </div>
                   <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                    <span onclick="datMuaFunction();" class="buttonDatMua button_orange">Đặt mua</span>
+                    <span   class="buttonDatMua button_orange">Đặt mua</span>
                   </div>
                   <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                     <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
@@ -143,7 +144,7 @@
             </div>
             <div class="col-md-3 col-sm-12">
                 <div class="col-md-12" id="spMoiContent">
-                  <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
+                  <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
                 </div>
                 <div class="col-md-12 text-center" id="price">
                   <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">Cà chua bi</span>
@@ -156,7 +157,7 @@
                     <i class="fa fa-heart-o" aria-hidden="true"></i>
                   </div>
                   <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                    <span onclick="datMuaFunction();"class="buttonDatMua button_orange">Đặt mua</span>
+                    <span  class="buttonDatMua button_orange">Đặt mua</span>
                   </div>
                   <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                     <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
@@ -244,7 +245,7 @@
       <div class="container-fluid row">
           <div class="col-md-3 col-sm-12">
               <div class="col-md-12" id="spMoiContent">
-                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
+                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
               </div>
               <div class="col-md-12 text-center" id="price">
                 <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">Dương Xỉ</span>
@@ -257,7 +258,7 @@
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </div>
                 <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                  <span onclick="datMuaFunction();" class="buttonDatMua button_orange">Đặt mua</span>
+                  <span   class="buttonDatMua button_orange">Đặt mua</span>
                 </div>
                 <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                   <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
@@ -265,7 +266,7 @@
           </div>
           <div class="col-md-3 col-sm-12">
               <div class="col-md-12" id="spMoiContent">
-                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
+                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
               </div>
               <div class="col-md-12 text-center" id="price">
                 <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">Dương Xỉ</span>
@@ -278,7 +279,7 @@
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </div>
                 <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                  <span onclick="datMuaFunction();" class="buttonDatMua button_orange">Đặt mua</span>
+                  <span   class="buttonDatMua button_orange">Đặt mua</span>
                 </div>
                 <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                   <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
@@ -288,7 +289,7 @@
 
           <div class="col-md-3 col-sm-12">
               <div class="col-md-12" id="spMoiContent">
-                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
+                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
               </div>
               <div class="col-md-12 text-center" id="price">
                 <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">Dương Xỉ</span>
@@ -301,7 +302,7 @@
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </div>
                 <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                  <span onclick="datMuaFunction();" class="buttonDatMua button_orange">Đặt mua</span>
+                  <span   class="buttonDatMua button_orange">Đặt mua</span>
                 </div>
                 <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                   <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
@@ -309,7 +310,7 @@
           </div>
           <div class="col-md-3 col-sm-12">
               <div class="col-md-12" id="spMoiContent">
-                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
+                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
               </div>
               <div class="col-md-12 text-center" id="price">
                 <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">Dương Xỉ</span>
@@ -322,7 +323,7 @@
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </div>
                 <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                  <span onclick="datMuaFunction();" class="buttonDatMua button_orange">Đặt mua</span>
+                  <span   class="buttonDatMua button_orange">Đặt mua</span>
                 </div>
                 <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                   <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>

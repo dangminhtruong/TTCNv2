@@ -33,11 +33,20 @@
                 <label class="control-label" id="">Loại sản phẩm: </label>
                 <div class="">
                   <select class="form-control" name="loaiSanPham">
-                    <option value="cayanqua">Cây ăn quả</option>
-                    <option value="caycongtrinh">Cây công trình</option>
-                    <option value="hoacaycanh">Hoa cây cảnh</option>
-                    <option value="caylaygo">Cây lấy gỗ</option>
-                    <option value="khac">Khác...</option>
+                    <?php
+                      $sql = "SELECT maLoaiSP,tenLoaiSP FROM loaisanpham";
+                      $getLoaiSP = new database();
+                      $getLoaiSP->connectDb();
+                      $getLoaiSP->myQuery($sql);
+                      if ($getLoaiSP->numRows() > 0) {
+                        while ($kqlsp = $getLoaiSP->fetchData()) {
+
+                    ?>
+                    <option <?php echo "value= ".$kqlsp['maLoaiSP'] ?> > <?php echo $kqlsp['tenLoaiSP'] ?></option>
+                    <?php
+                        }
+                      }
+                     ?>
                   </select>
                 </div>
               </div>
@@ -116,7 +125,7 @@
         </thead>
         <tbody>
           <?php
-            $sql = "SELECT* FROM sanpham";
+            $sql = "SELECT maSP,tenSP, soLuongSP, giaSP, tenLoaiSP FROM sanpham INNER JOIN loaisanpham ON sanpham.maLoaiSP = loaisanpham.maLoaiSP GROUP BY tenSP";
             $sp = new database();
             $sp->connectDb();
             $sp->myQuery($sql);
@@ -125,16 +134,16 @@
           ?>
           <tr>
             <td>
-              <button type="button" class="btn btn-default btn-xs btn-edit1" <?php echo "value = ".$kq['maSanPham']; ?>>
+              <button type="button" class="btn btn-default btn-xs btn-edit1" <?php echo "value = ".$kq['maSP']; ?>>
                 Sửa
               </button>
-              <button type="button" class="btn btn-danger btn-xs btn-delete" <?php echo "value = ".$kq['maSanPham']; ?>>Xóa</button>
+              <button type="button" class="btn btn-danger btn-xs btn-delete" <?php echo "value = ".$kq['maSP']; ?>>Xóa</button>
             </td>
-            <td><?php echo $kq['maSanPham']; ?></td>
-            <td><?php echo $kq['tenSanPham']; ?></td>
-            <td><?php echo $kq['loaiSanPham']; ?></td>
-            <td><?php echo $kq['giaSanPham']; ?></td>
-            <td><?php echo $kq['soLuongSanPham']; ?></td>
+            <td><?php echo $kq['maSP']; ?></td>
+            <td><?php echo $kq['tenSP']; ?></td>
+            <td><?php echo $kq['tenLoaiSP']; ?></td>
+            <td><?php echo $kq['giaSP']; ?></td>
+            <td><?php echo $kq['soLuongSP']; ?></td>
           </tr>
           <?php
         }

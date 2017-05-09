@@ -31,7 +31,7 @@
     <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
       <div class="col-md-4 hvr-grow-shadow">
         <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i><br/>
-        <span>Thêm đơn hàng</span>
+        <span>Xem đơn hàng</span>
       </div>
     </a>
     <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
@@ -52,22 +52,16 @@
     <div class="panel  panel-default">
       <div class="panel-heading"><span><strong>Quản lý người dùng</strong><span></div>
     </div>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
+    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=themnguoidung">
       <div class="col-md-4 hvr-grow-shadow">
         <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i><br/>
         <span>Thêm người dùng</span>
       </div>
     </a>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
+    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=suaxoanguoidung">
       <div class="col-md-4 hvr-grow-shadow">
         <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i><br/>
-        <span>Sửa người dùng</span>
-      </div>
-    </a>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
-      <div class="col-md-4 hvr-grow-shadow">
-          <i class="fa fa-user-times fa-5x" aria-hidden="true"></i><br/>
-        <span>Xóa người dùng</span>
+        <span>Sửa xóa - người dùng</span>
       </div>
     </a>
   </div>

@@ -47,7 +47,7 @@
                <a href="#" class="hvr-grow-shadow qtriLeftBarLi">Điều khoản sử dụng</a>
              </div>
              <div class="panel-body">
-               <a href="#" class="hvr-grow-shadow qtriLeftBarLi">Thông tin khách</a>
+               <a href="#" class="hvr-grow-shadow qtriLeftBarLi">Đổi mật khẩu</a>
              </div>
              <div class="panel-footer">
                <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=dangxuat" class="hvr-grow-shadow qtriLeftBarLi">Đăng xuất</a>
@@ -71,6 +71,12 @@
                 break;
               case 'quanlyloaisanpham':
                   include_once('quanlyloaisanpham.php');
+                break;
+              case 'themnguoidung':
+                  include_once('themnguoidung.php');
+                break;
+              case 'suaxoanguoidung':
+                  include_once('suaxoanguoidung.php');
                 break;
               case 'dangxuat':
                   header('location:../xuLy/dangxuat.php');

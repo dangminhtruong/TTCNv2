@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Dung Hanh</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mystyle.css">
     <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/mystyle.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
@@ -50,11 +50,9 @@
             <!-------->
           </div>
         </nav>
-        <!-----------END NAVIGATION BAR--------------->
-        <!--
-          Content going to add here.
-        -->
-        <?php
+        <!-----------END NAVIGATION BAR---------------->
+
+           <?php
             if (isset($_GET['page'])) {
                 switch ($_GET['page']) {
                   //----------------------------
@@ -104,16 +102,15 @@
               include_once("hienThi/trangchu.php");
             }
        ?>
-         <!--------------------------------------------->
-      <div class="container-fluid" id="footer">
-         <div class="col-md-3 col-xs-6 col-sm-3" id="footerContent">
-           <p>Dũng Hạnh</p>
-           <hr class="hrStyle1">
-           <p>
-             " Chúng tôi cam kết mang lại những giống cây trông khỏe mạnh, đảm bảo chất lượng
-             cùng những sản phẩm hỗ trợ chăm bón cây trồng chất lượng, chính hãng..."
-           </p>
-         </div>
+          <div class="container-fluid" id="footer">
+           <div class="col-md-3 col-xs-6 col-sm-3" id="footerContent">
+             <p>Dũng Hạnh</p>
+             <hr class="hrStyle1">
+             <p>
+               " Chúng tôi cam kết mang lại những giống cây trông khỏe mạnh, đảm bảo chất lượng
+               cùng những sản phẩm hỗ trợ chăm bón cây trồng chất lượng, chính hãng..."
+             </p>
+           </div>
          <!------------------------------------------>
          <div class="col-md-3 col-xs-6 col-sm-3" id="footerContent">
              <p>Sản Phẩm</p>
@@ -158,5 +155,9 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/wow.min.js"></script>
   <script src="js/myJavaScript.js"></script>
+  <script type="text/javascript">
+  new WOW().init();
+  $('.dropdown-toggle').dropdown();
+  </script>
 </body>
 </html>

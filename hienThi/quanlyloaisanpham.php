@@ -55,7 +55,7 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Id</th>
+            <th>Mã loại</th>
             <th>Tên loại sản phẩm</th>
             <th>Ghi chú</th>
           </tr>
@@ -71,7 +71,7 @@
           <tr>
             <td><?php echo $kql['maLoaiSP']; ?></td>
             <td><?php echo $kql['tenLoaiSP']; ?></td>
-            <td><?php echo $kql['moTaLoaiSP']; ?></td>
+            <td><?php echo $kql['ghiChu']; ?></td>
           </tr>
           <?php }
           $lsp->freeQuery();

@@ -7,7 +7,7 @@
     //---------------------------------------------
     if ($_POST['loaiSanPham'] != '') {
       $tam = $_POST['loaiSanPham'];
-      $sql = " UPDATE sanpham SET loaiSanPham = '$tam' WHERE maSanPham = '$idSanPham' ";
+      $sql = " UPDATE sanpham SET maLoaiSP = '$tam' WHERE maSP = '$idSanPham' ";
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
@@ -17,7 +17,7 @@
     //-----------------------------------------------
     if ($_POST['tenSanPham'] != '') {
       $tam = $_POST['tenSanPham'];
-      $sql = " UPDATE sanpham SET tenSanPham = '$tam' WHERE maSanPham = '$idSanPham' ";
+      $sql = " UPDATE sanpham SET tenSP = '$tam' WHERE maSP = '$idSanPham' ";
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
@@ -27,7 +27,7 @@
     //----------------------------------------------
     if ($_POST['giaSanPham'] != '') {
       $tam = $_POST['giaSanPham'];
-      $sql = " UPDATE sanpham SET giaSanPham = '$tam' WHERE maSanPham = '$idSanPham' ";
+      $sql = " UPDATE sanpham SET giaSP = '$tam' WHERE maSP = '$idSanPham' ";
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
@@ -37,7 +37,7 @@
     //-----------------------------------------------
     if ($_POST['soLuongSanPham'] != '') {
       $tam = $_POST['soLuongSanPham'];
-      $sql = " UPDATE sanpham SET soLuongSanPham = '$tam' WHERE maSanPham = '$idSanPham' ";
+      $sql = " UPDATE sanpham SET soLuongSP = '$tam' WHERE maSP = '$idSanPham' ";
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
@@ -47,7 +47,7 @@
     //------------------------------------------------
     if ($_POST['moTaSanPham'] != '') {
       $tam = $_POST['moTaSanPham'];
-      $sql = " UPDATE sanpham SET moTaSanPham = '$tam' WHERE maSanPham = '$idSanPham' ";
+      $sql = " UPDATE sanpham SET moTaSP = '$tam' WHERE maSP = '$idSanPham' ";
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
@@ -66,7 +66,7 @@
         move_uploaded_file ($file_path,$new_path);
         $tenAnh = $file_name ;
 
-        $sql = "UPDATE sanpham SET anhsanPham = '$tenAnh' WHERE maSanPham = '$idSanPham' ";
+        $sql = "UPDATE sanpham SET anhSP = '$tenAnh' WHERE maSP = '$idSanPham' ";
         $themSP = new sanpham();
         $themSP->myQuery($sql);
         header('location:http://localhost/TTCNv2/hienThi/quantri.php?page=suaxoasanpham');

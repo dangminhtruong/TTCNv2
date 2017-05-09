@@ -28,11 +28,20 @@
           <label class="control-label" id="">Loại sản phẩm: </label>
           <div class="">
             <select class="form-control" name="loaiSanPham">
-              <option value="cayanqua">Cây ăn quả</option>
-              <option value="caycongtrinh">Cây công trình</option>
-              <option value="hoacaycanh">Hoa cây cảnh</option>
-              <option value="caylaygo">Cây lấy gỗ</option>
-              <option value="khac">Khác...</option>
+              <?php
+                $sql = "SELECT maLoaiSP,tenLoaiSP FROM loaisanpham";
+                $getLoaiSP = new database();
+                $getLoaiSP->connectDb();
+                $getLoaiSP->myQuery($sql);
+                if ($getLoaiSP->numRows() > 0) {
+                  while ($kqlsp = $getLoaiSP->fetchData()) {
+
+              ?>
+              <option <?php echo "value= ".$kqlsp['maLoaiSP'] ?> > <?php echo $kqlsp['tenLoaiSP'] ?></option>
+              <?php
+                  }
+                }
+               ?>
             </select>
           </div>
         </div>
