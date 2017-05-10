@@ -1,3 +1,7 @@
+<?php
+  session_start();
+  ob_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -43,7 +47,17 @@
                 </li>
                 <li><a href="index.php?page=tintuc">Tin tức</a></li>
                 <li><a href="index.php?page=lienhe">Liên hệ</a></li>
-                <li><a href="#" class="glyphicon glyphicon-shopping-cart shake" id="giohang"><sup id="sluong">0</sup></a>
+                <?php
+                  if (isset($_SESSION['soSanPhamMua'])) { ?>
+                    <li>
+                      <a href="index.php?page=thanhtoan" class="glyphicon glyphicon-shopping-cart shake" id="giohang" style="color:yellow"><sup id="sluong"><?php echo $_SESSION['soSanPhamMua']; ?></sup></a>
+                  <?php
+                    }
+                    else { ?>
+                      <li><a href="index.php?page=thanhtoan" class="glyphicon glyphicon-shopping-cart shake" id="giohang"><sup id="sluong">0</sup></a>
+                  <?php
+                    }
+                  ?>
                 </li>
               </ul>
             </div>
@@ -96,6 +110,9 @@
                     include_once("hienThi/vattunongnghiep.php");
                     break;
               //----------------------------
+              case 'thanhtoan':
+                  include_once("hienThi/thanhtoan.php");
+                  break;
               }
             }
             else {
@@ -155,9 +172,15 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/wow.min.js"></script>
   <script src="js/myJavaScript.js"></script>
-  <script type="text/javascript">
-  new WOW().init();
-  $('.dropdown-toggle').dropdown();
-  </script>
+  <?php
+    if (!isset($_SESSION['soSanPhamMua'])) {
+      include_once('__autoload.php');
+      $sql = "DELETE FROM giohang";
+      $res = new sanpham();
+      $res->myQuery($sql);
+      $res->freeQuery();
+      $res->disconnectDb();
+    }
+  ?>
 </body>
 </html>

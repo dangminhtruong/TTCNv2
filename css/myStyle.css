@@ -571,3 +571,23 @@ legend.contact {
 .hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
   right: 0;
 }
+/*-----------*/
+#thanhtoan{
+	padding-top: 18vh;
+	background-color: white;
+}
+.formInTT{
+	max-width: 10vh;
+}
+#thanhToanTop{
+	margin-bottom: 4vh;
+}
+.btn-muaThem{
+	margin-bottom: 1vh;
+}
+#formNTTKH{
+	margin-bottom: 5vh;
+}
+#tbChuaCoGioHang{
+	min-height: 50vh;
+}
