@@ -1,8 +1,28 @@
 
 <div class="container-fluid" id="thanhtoan">
+  <!-------------------->
+  <div class="container">
+    <div class="modal fade" id="datHangThanhCong" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Đặt hàng thành công</h4>
+          </div>
+          <div class="modal-body">
+            <p>Cám ơn bạn đã ủng hộ nhà vườn chúng tôi.
+              Sản phẩm sẽ được chuyển đến bạn trong vòng 3 ngày tới...</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" id="closeDatHangThanhCong">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-------------------->
   <?php
-    if (isset($_SESSION['soSanPhamMua'])) {
-
+    if (isset($_SESSION['muaHang'])) {
   ?>
   <div class="col-md-12" id="thanhToanTop">
     <table class="table table-hover">
@@ -18,83 +38,68 @@
     <tbody>
       <?php
         include_once("xuly/__autoload.php");
-        $sql1 = "SELECT sanpham.tenSP, sanpham.giaSP,sanpham.maSP, giohang.SoLuong, giohang.tongTien
-                FROM sanpham INNER JOIN giohang ON sanpham.maSP = giohang.maSanPham";
         $ttHoaDon = new sanpham();
-        $ttHoaDon->myQuery($sql1);
-        if ($ttHoaDon->numRows() > 0) {
-          while ($rows = $ttHoaDon->fetchData()) {
-
+        $tongHoaDon = 0;
+        foreach ($_SESSION['giohang'] as $key => $value) {
+          $sql1 = "SELECT sanpham.tenSP, sanpham.giaSP,sanpham.maSP FROM sanpham  WHERE maSP = '$key' ";
+          $ttHoaDon->myQuery($sql1);
+          $rows = $ttHoaDon->fetchData();
+          $tongTien = $rows['giaSP']*$value;
+          $tongHoaDon += $tongTien;
       ?>
       <tr>
-        <td><?php echo $rows['tenSP'] ?></td>
-        <td><input type="text" class="form-control formInTT" <?php echo "placeholder=".$rows['SoLuong'] ?>>
+        <td><?php echo $rows['tenSP']; ?></td>
+        <td><input type="text" class="form-control suaSoLuong" <?php echo "placeholder=".$value." id=sl".$rows['maSP']; ?>>
         </td>
-        <td><?php echo $rows['giaSP'] ?></td>
-        <td><?php echo $rows['tongTien'] ?></td>
+        <td><?php echo $rows['giaSP']; ?></td>
+        <td><?php echo $tongTien; ?></td>
         <td>
-          <button type="button" class="btn btn-xs btn-warning btn-CapNhatSl" <?php echo "value=".$rows['maSP'] ?>>Cập nhật</button>
-          <button type="button" class="btn btn-xs btn-danger btn-CapNhatSl" <?php echo "value=".$rows['maSP'] ?>>Xóa</button>
+          <button type="button" class="btn btn-xs btn-warning btn-CapNhatSl" <?php echo "value=".$rows['maSP']; ?>>Cập nhật</button>
+          <button type="button" class="btn btn-xs btn-danger btn-botSanPham" <?php echo "value=".$rows['maSP']; ?>>Xóa</button>
         </td>
       </tr>
-      <?php
-          }
-        }
-        $ttHoaDon->freeQuery();
-        $ttHoaDon->disconnectDb();
-      ?>
+      <?php } ?>
     </tbody>
   </table>
   </div>
 
   <div class="col-md-12 col-sm-12 col-xs-12 well" id="tongTien">
-      <div class="col-md-4 col-sm-6 col-xs-6 col-md-push-5">
+      <div class="col-md-4 col-md-push-4">
         <strong>
-          <?php
-            $tongHoaDon = new sanpham();
-            $sql2 = "SELECT Sum(giohang.tongTien) as 'tongHd' FROM giohang ";
-            $tongHoaDon->myQuery($sql2);
-            $rows2 = $tongHoaDon->fetchData();
-          ?>
-          Tổng tiền : <?php echo $rows2['tongHd'] ?><u> vnđ</u>
+          Tổng thanh toán : <b id="tongTienHoaDon"><?php echo $tongHoaDon; ?></b><u> vnđ</u>
         </strong>
       </div>
-      <div class="col-md-4 col-sm-6 col-xs-6 col-md-push-5">
+      <div class="col-md-4 col-md-push-4">
         <button type="button" class="btn btn-success btn-muaThem" data-toggle="collapse" data-target="#formNTTKH">
-          Hoàn tất thanh toán
+          Thanh toán
           <i class="fa fa-check-square-o" aria-hidden="true"></i>
         </button>
-        <button type="button" class="btn btn-info  btn-muaThem">
+        <a href="http://localhost/TTCNv2/index.php?page=trangchu" type="button" class="btn btn-info btn-muaThem">
           Mua thêm
           <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
-        </button>
+        </a>
       </div>
   </div>
-
+<!----------------------------------------------------->
   <div class="col-md-12 collapse" id="formNTTKH">
     <form>
-    <div class="form-group">
-      <label for="email">Họ tên:</label>
-      <input type="text" class="form-control" id="email">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Địa chỉ giao hàng:</label>
-      <input type="text" class="form-control" id="pwd">
-    </div>
-    <div class="form-group">
-      <label for="pwd">Số điện thoại:</label>
-      <input type="text" class="form-control" id="pwd">
-    </div>
-    <div class="form-group">
-      <label for="sel1">Phương thức thanh toán:</label>
-      <select class="form-control" id="sel1">
-        <option>Nhận hàng - giao tiền</option>
-        <option>Chuyển khoản ngân hàng</option>
-      </select>
-    </div>
-    <button type="submit" class="btn btn-success">Đặt hàng</button>
+      <div class="form-group">
+        <label for="email">Họ tên:</label>
+        <input type="text" class="form-control" id="hoTenKh">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Địa chỉ giao hàng:</label>
+        <input type="text" class="form-control" id="diaChiKh">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Số điện thoại:</label>
+        <input type="text" class="form-control" id="soDienThoaiKh">
+      </div>
+      <button type="button" class="btn btn-success" id="btnDatHang">Đặt hàng</button>
+      <button type="reset" class="btn btn-default">Reset</button>
     </form>
   </div>
+<!------------------------------------------------------------------------>
   <?php
     }
     else {

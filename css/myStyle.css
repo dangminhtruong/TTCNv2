@@ -575,8 +575,9 @@ legend.contact {
 #thanhtoan{
 	padding-top: 18vh;
 	background-color: white;
+	min-height: 70vh;
 }
-.formInTT{
+.suaSoLuong{
 	max-width: 10vh;
 }
 #thanhToanTop{
@@ -590,4 +591,12 @@ legend.contact {
 }
 #tbChuaCoGioHang{
 	min-height: 50vh;
+}
+.btn-CapNhatSl{
+	margin-top: 1vh;
+	max-width: 10vh;
+}
+.btn-botSanPham{
+	margin-top: 1vh;
+	min-width: 10vh;
 }

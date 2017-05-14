@@ -17,7 +17,8 @@
         $sql = "SELECT* FROM taikhoan WHERE tenTK = '$this->userName' AND matKhau = '$this->passWord'";
         $this->myQuery($sql);
         if ($kq =  $this->numRows() > 0) {
-          return "valid";
+          $maNVDN = $this->fetchData();
+          return $maNVDN['maTK'];
           $this->freeQuery();
         }
         else {

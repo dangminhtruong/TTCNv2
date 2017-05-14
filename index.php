@@ -48,9 +48,9 @@
                 <li><a href="index.php?page=tintuc">Tin tức</a></li>
                 <li><a href="index.php?page=lienhe">Liên hệ</a></li>
                 <?php
-                  if (isset($_SESSION['soSanPhamMua'])) { ?>
+                  if (isset($_SESSION['muaHang'])) { ?>
                     <li>
-                      <a href="index.php?page=thanhtoan" class="glyphicon glyphicon-shopping-cart shake" id="giohang" style="color:yellow"><sup id="sluong"><?php echo $_SESSION['soSanPhamMua']; ?></sup></a>
+                      <a href="index.php?page=thanhtoan" class="glyphicon glyphicon-shopping-cart shake" id="giohang" style="color:yellow"><sup id="sluong"><?php echo $_SESSION['muaHang']; ?></sup></a>
                   <?php
                     }
                     else { ?>
@@ -172,15 +172,5 @@
   <script src="js/bootstrap.js"></script>
   <script src="js/wow.min.js"></script>
   <script src="js/myJavaScript.js"></script>
-  <?php
-    if (!isset($_SESSION['soSanPhamMua'])) {
-      include_once('__autoload.php');
-      $sql = "DELETE FROM giohang";
-      $res = new sanpham();
-      $res->myQuery($sql);
-      $res->freeQuery();
-      $res->disconnectDb();
-    }
-  ?>
 </body>
 </html>

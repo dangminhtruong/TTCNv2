@@ -6,12 +6,14 @@
     $userName = $_POST['userName'];
     $passWord = $_POST['passWord'];
     $kiemTraDangNhap = new user();
-    if ($kiemTraDangNhap->checkLogin($userName,$passWord) == 'valid') {
+    $nhanVienDN = $kiemTraDangNhap->checkLogin($userName,$passWord);
+    if ($nhanVienDN != 'unvalid') {
       $_SESSION['userName'] = $_POST['userName'];
       $_SESSION['passWord'] = $_POST['passWord'];
+      $_SESSION['nhanVien'] = $nhanVienDN;
       echo "Dang nhap thanh cong";
     }
-    elseif ($kiemTraDangNhap->checkLogin($userName,$passWord) == 'unvalid') {
+    elseif ($nhanVienDN == 'unvalid') {
       echo "Dang nhap khong thanh cong";
     }
   }
