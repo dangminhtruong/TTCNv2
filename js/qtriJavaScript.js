@@ -328,3 +328,75 @@ $(document).ready(function(){
       $.post(url,data,success,dataType);
   });
 });
+//------------------------------------------------------------------
+$(document).ready(function(){
+  $('#timTheoTuanThang').change(function(){
+      var tam = $('#timTheoTuanThang').val();
+      if (tam != 'null') {
+        $('#timTuNgay').prop("disabled", true);
+        $('#timDenNgay').prop("disabled", true);
+      }
+      else {
+        $('#timTuNgay').prop("disabled", false);
+        $('#timDenNgay').prop("disabled", false);
+      }
+    });
+    //------------
+    $('#timTuNgay').keyup(function(){
+        var tam1 = $('#timTuNgay').val();
+        var tam2 = $('#timDenNgay').val();
+        if (tam1 != '') {
+          $('#timTheoTuanThang').prop("disabled", true);
+        }
+        else if(tam1 =='' && tam2 == ''){
+          $('#timTheoTuanThang').prop("disabled", false);
+        }
+      });
+      //-------
+      $('#timDenNgay').keyup(function(){
+          var tam1 = $('#timTuNgay').val();
+          var tam2 = $('#timDenNgay').val();
+          if (tam2 != '') {
+            $('#timTheoTuanThang').prop("disabled", true);
+          }
+          else if(tam1 =='' && tam2 == ''){
+            $('#timTheoTuanThang').prop("disabled", false);
+          }
+        });
+});
+//------------------------------------------------------
+$(document).ready(function(){
+    $('#timKiemDonHang').click(function(){
+      var timTinhTrang =   $('select[name=timTheoTinhTrang]').val();
+      var timTuanThang = $('select[name=timTheoTuanThang]').val();
+      var timTuNgay = $('#timTuNgay').val();
+      var timDenNgay = $('#timDenNgay').val();
+      //---------------------
+      //---------------------
+      var url = "../xuly/locdonhang.php";
+      var data = {
+        timTheoTinhTrang : timTinhTrang,
+        timTrongTuanThang : timTuanThang,
+        tuNgay  : timTuNgay,
+        denNgay : timDenNgay
+      }
+      $('#hienThiDonHang').load(url,data);
+    });
+});
+//----------------------------------------------------------
+$(document).ready(function(){
+  $('.btn-capNhatDH').click(function(){
+    var maDH = $(this).val();
+    console.log(maDH);
+    $('#capNhatDonHang').modal('show');
+   var url = "../xuly/capnhatdonhang.php";
+    var data = {
+      maDonHang : maDH
+    };
+    var success = function(result){
+      console.log(result);
+    }
+    var dataType = "json";
+    $.post(url,data,success,dataType);
+  });
+});

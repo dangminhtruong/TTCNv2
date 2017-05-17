@@ -48,7 +48,7 @@
                 <li><a href="index.php?page=tintuc">Tin tức</a></li>
                 <li><a href="index.php?page=lienhe">Liên hệ</a></li>
                 <?php
-                  if (isset($_SESSION['muaHang'])) { ?>
+                  if (isset($_SESSION['muaHang']) && $_SESSION['muaHang'] != 0) { ?>
                     <li>
                       <a href="index.php?page=thanhtoan" class="glyphicon glyphicon-shopping-cart shake" id="giohang" style="color:yellow"><sup id="sluong"><?php echo $_SESSION['muaHang']; ?></sup></a>
                   <?php

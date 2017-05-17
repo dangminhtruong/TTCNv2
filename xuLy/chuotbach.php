@@ -1,7 +1,19 @@
 <?php
   include_once('__autoload.php');
+  date_default_timezone_set('Asia/Ho_Chi_Minh');
+  $dauTuan = date("Y-m-d", strtotime("last Monday"));
+  $cuoiTuan = date("Y-m-d", strtotime("next Sunday"));
+  $dauThang = date("Y-m-d", strtotime("first day of this month"));
+  $cuoiThang = date("Y-m-d", strtotime("last day of this month"));
+  echo $dauTuan;
+  echo "<br>";
+  echo $cuoiTuan;
+  echo "<br>";
+  echo $dauThang;
+  echo "<br>";
+  echo $cuoiThang;
   $tam = new sanpham();
-  $vovan = 21;
+  $vovan = 11;
   $_SESSION["Sanpham"] = array();
   $_SESSION["Sanpham"][1] = (2);
   $_SESSION["Sanpham"][21] = (7);

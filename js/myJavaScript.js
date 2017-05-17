@@ -45,12 +45,72 @@ $(document).ready(function(){
   });
 });
 //------------------------------------
-/*$(document).ready(function(){
+$(document).ready(function(){
   $('.btn-CapNhatSl').click(function(){
     var maSpCapNhatSL = $(this).val();
-    var layid = "sl" + maSpCapNhatSL;
-    var soLuongUpdate = $('#'+layid).val();
-    val
+    var soLuongUpdate = $('#'+maSpCapNhatSL).val();
+    var donGiaSP = Number($('#gia'+maSpCapNhatSL).text());
+    var tongDg = Number($('#tongtien'+maSpCapNhatSL).text());
+    var tongHoaDon = Number($("#tongTienHoaDon").text());
+    if (soLuongUpdate != 0) {
+      var url ="xuly/capnhatgiohang.php";
+      var data = {
+          maSP : maSpCapNhatSL,
+          soLuong : soLuongUpdate,
+          donGia : donGiaSP,
+          tongDonGia : tongDg,
+          tongHD  : tongHoaDon
+      };
+      var success = function(result){
+        console.log(result);
+        for(i in result){
+           $('#'+maSpCapNhatSL).attr('placeholder',result['capNhatSoLuong']);
+           $('#tongtien'+maSpCapNhatSL).html(result['thanhTien']);
+           $("#tongTienHoaDon").html(result['capNhatHoaDon']);
+        }
+      }
+      var dataType = "json";
+      $.post(url, data, success, dataType);
+    }
   });
 });
-*/
+//---------------------------------------
+$(document).ready(function(){
+  $('.btn-botSanPham').click(function(){
+    var maSP = $(this).val();
+    var tongDg = Number($('#tongtien'+maSP).text());
+    var tongHoaDon = Number($("#tongTienHoaDon").text());
+    var url = "xuly/capnhatgiohang.php";
+    var data = {
+      maSanPhamXoaBo : maSP
+    };
+    var success = function(result){
+        if (result != 'khong tim thay') {
+          $("#tr"+ maSP).remove();
+          $("#tongTienHoaDon").html(tongHoaDon-tongDg);
+          $('#sluong').html(result);
+          var test  = $('#mark1 > tr').length;
+          if (test == 0) {
+            var url = "xuly/capnhatgiohang.php";
+            var data = {
+                guiThongBao : 'Khach hang da xoa het'
+            }
+            var success = function(result){
+                if (result = 'Xu ly thanh cong') {
+                  $('#giohang').css('color','#777');
+                  $('#thanhToanTop').remove();
+                  $('#tongTien').remove();
+                  $('#formNTTKH').remove();
+                  $('#thanhtoan').append('<div class="col-md-12">Thật tiếc, bạn vừa bỏ hết sản phẩm trong giỏ hàng. Nhấn vào <a href="http://localhost/TTCNv2/index.php?page=trangchu">ĐÂY</a> để lựa chọn những sản phầm khác...</div>');
+                }
+            }
+            var dataType = "text";
+            $.post(url, data, success, dataType);
+          }
+        }
+    }
+    var dataType = "text";
+    $.post(url,data,success,dataType)
+  });
+
+});

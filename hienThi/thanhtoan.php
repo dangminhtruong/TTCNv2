@@ -35,7 +35,7 @@
         <th>Lựa chọn</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="mark1">
       <?php
         include_once("xuly/__autoload.php");
         $ttHoaDon = new sanpham();
@@ -47,14 +47,14 @@
           $tongTien = $rows['giaSP']*$value;
           $tongHoaDon += $tongTien;
       ?>
-      <tr>
-        <td><?php echo $rows['tenSP']; ?></td>
-        <td><input type="text" class="form-control suaSoLuong" <?php echo "placeholder=".$value." id=sl".$rows['maSP']; ?>>
+      <tr <?php echo "id=tr".$rows['maSP'] ?>>
+        <td  <?php echo "id=tenS".$rows['maSP'] ?>><?php echo $rows['tenSP']; ?></td>
+        <td><input type="text" class="form-control suaSoLuong" <?php echo "placeholder=".$value." id=".$rows['maSP']; ?>>
         </td>
-        <td><?php echo $rows['giaSP']; ?></td>
-        <td><?php echo $tongTien; ?></td>
+        <td <?php echo "id=gia".$rows['maSP']?>><?php echo $rows['giaSP']; ?></td>
+        <td <?php echo "id=tongtien".$rows['maSP']?>><?php echo $tongTien; ?></td>
         <td>
-          <button type="button" class="btn btn-xs btn-warning btn-CapNhatSl" <?php echo "value=".$rows['maSP']; ?>>Cập nhật</button>
+          <button type="button" class="btn btn-xs btn-warning btn-CapNhatSl"  <?php echo "value=".$rows['maSP']; ?>>Cập nhật</button>
           <button type="button" class="btn btn-xs btn-danger btn-botSanPham" <?php echo "value=".$rows['maSP']; ?>>Xóa</button>
         </td>
       </tr>

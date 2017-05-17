@@ -12,8 +12,9 @@
     <link rel="stylesheet" href="../css/qtristyle.css">
     <link rel="stylesheet" href="../css/animate.css">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto+Condensed" rel="stylesheet">
     <link href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
   </head>
   <body>
@@ -22,7 +23,7 @@
     ?>
     <!----------------------------------------------------------------------------->
     <div class="container-fluid">
-      <div class="row">
+      <div class="row ">
         <!-----------NAVIGATION BAR------------------->
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">
@@ -77,6 +78,9 @@
                 break;
               case 'suaxoanguoidung':
                   include_once('suaxoanguoidung.php');
+                break;
+              case 'xemdonhang' :
+                  include_once('xemdonhang.php');
                 break;
               case 'dangxuat':
                   header('location:../xuLy/dangxuat.php');

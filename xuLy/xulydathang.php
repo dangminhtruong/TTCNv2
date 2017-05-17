@@ -17,7 +17,7 @@
     $themThongTinKh = new sanpham();
     $sql0 = "SELECT* FROM khachhang WHERE tenKH = '$tenKH' AND soDT = '$soDienThoaiKh' ";
     $themThongTinKh->myQuery($sql0);
-
+    //----Kiem tra ton tai thong tin khach hanh
     if ($themThongTinKh->numRows() > 0) {
       $rows= $themThongTinKh->fetchData();
       $maK = $rows['maKH'];
@@ -25,7 +25,7 @@
       VALUES('$maK','$ngayDatHang','$ngayGiaoHang','Đang chờ','$tongThanhToan')";
       $themDonHang = new sanpham();
       $themDonHang->myQuery($sql1);
-      //--------------DANG LAM DO------
+      //--------------------
       $sql5 = "SELECT Max(donhang.maDH) as donHangCuoi FROM donhang WHERE maKH ='$maK' ";
       $themDonHang->myQuery($sql5);
       $maDHC = $themDonHang->fetchData();
@@ -35,8 +35,16 @@
         $sql6 = "INSERT INTO chitietdonhang(maDH,maSP,soLuong) VALUES('$maDHT','$key','$value')";
         $themDonHang->myQuery($sql6);
       }
-      session_unset($_SESSION['giohang']);
-      session_unset($_SESSION['giohang']);
+      //--------------------
+      foreach ($_SESSION['giohang'] as $key => $value) {
+        $sql9 = "UPDATE sanpham SET sanpham.soLuongDaBan = sanpham.soLuongDaBan + '$value',
+        sanpham.soLuongSP = sanpham.soLuongSP - '$value' WHERE maSP = '$key' ";
+        $themDonHang->myQuery($sql9);
+      }
+      //-------------------
+
+     unset($_SESSION['muaHang']);
+     unset($_SESSION['giohang']);
       echo "Dat hang than cong";
     }
     else {
@@ -62,8 +70,15 @@
          $sql7 = "INSERT INTO chitietdonhang(maDH,maSP,soLuong) VALUES('$maDHMoiThem','$key','$value')";
          $themDH->myQuery($sql7);
        }
-       session_unset($_SESSION['giohang']);
-       session_unset($_SESSION['giohang']);
+       //-------------
+       foreach ($_SESSION['giohang'] as $key => $value) {
+         $sql10 = "UPDATE sanpham SET sanpham.soLuongDaBan = sanpham.soLuongDaBan + '$value',
+         sanpham.soLuongSP = sanpham.soLuongSP - '$value' WHERE maSP = '$key' ";
+         $themDH->myQuery($sql10);
+       }
+       //--------------
+      unset($_SESSION['muaHang']);
+      unset($_SESSION['giohang']);
        echo "Dat hang than cong";
     }
     //------------------------------------

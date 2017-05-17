@@ -28,22 +28,10 @@
     <div class="panel  panel-default">
       <div class="panel-heading"><span><strong>Quản lý đơn hàng</strong></span></div>
     </div>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
-      <div class="col-md-4 hvr-grow-shadow">
-        <i class="fa fa-plus-circle fa-5x" aria-hidden="true"></i><br/>
-        <span>Xem đơn hàng</span>
-      </div>
-    </a>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
-      <div class="col-md-4 hvr-grow-shadow">
+    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=xemdonhang">
+      <div class="col-md-4 col-md-push-4 hvr-grow-shadow">
         <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i><br/>
-        <span>Sửa đơn hàng</span>
-      </div>
-    </a>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
-      <div class="col-md-4 hvr-grow-shadow">
-        <i class="fa fa-trash-o fa-5x" aria-hidden="true"></i><br/>
-        <span>Xóa đơn hàng</span>
+        <span>Quản lý đơn hàng</span>
       </div>
     </a>
   </div>
@@ -53,13 +41,13 @@
       <div class="panel-heading"><span><strong>Quản lý người dùng</strong><span></div>
     </div>
     <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=themnguoidung">
-      <div class="col-md-4 hvr-grow-shadow">
+      <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
         <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i><br/>
         <span>Thêm người dùng</span>
       </div>
     </a>
     <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=suaxoanguoidung">
-      <div class="col-md-4 hvr-grow-shadow">
+      <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
         <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i><br/>
         <span>Sửa xóa - người dùng</span>
       </div>
@@ -71,19 +59,13 @@
       <div class="panel-heading"><span><strong>Thống kê - báo cáo</strong></span></div>
     </div>
     <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
-      <div class="col-md-4 hvr-grow-shadow">
+      <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
         <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i><br/>
         <span>Thống kê doanh thu</span>
       </div>
     </a>
     <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
-      <div class="col-md-4 hvr-grow-shadow">
-        <i class="fa fa-pie-chart fa-5x" aria-hidden="true"></i><br/>
-        <span>Thống kê sản phẩm</span>
-      </div>
-    </a>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
-      <div class="col-md-4 hvr-grow-shadow">
+      <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
           <i class="fa fa-bar-chart fa-5x" aria-hidden="true"></i></i><br/>
         <span>Thống kê tồn kho</span>
       </div>
