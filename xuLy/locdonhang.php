@@ -62,20 +62,20 @@
       <div class="col-md-3">
         <?php
             $hienDssp = new sanpham();
-            $sql2 = "SELECT chitietdonhang.soluong, sanpham.tensp, donhang.madh FROM chitietdonhang INNER JOIN sanpham
+            $sql2 = "SELECT chitietdonhang.soluong, sanpham.tensp,sanpham.masp, donhang.madh FROM chitietdonhang INNER JOIN sanpham
             INNER JOIN donhang ON (chitietdonhang.masp = sanpham.maSP AND chitietdonhang.madh = donhang.madh)
             WHERE donhang.madh = $maDH";
             $hienDssp->myQuery($sql2);
             while ($res2 = $hienDssp->fetchData($sql2)) {
          ?>
-          <?php echo $res2['tensp'] ?> <span class="badge"><?php echo $res2['soluong'] ?></span><br/>
+          <?php echo $res2['tensp'] ?> <span class="badge" <?php echo "id=maSP".$res2['masp'].$res2['madh'] ?> > <?php echo $res2['soluong'] ?></span><br/>
 
           <?php
             }
           ?>
       </div>
       <div class="col-md-2">
-          Tổng thanh toán:<br/> <?php echo $res["tongthanhtoan"] ?><u>đ</u><br/>
+          Tổng thanh toán:<br/> <span <?php echo "id=tongDH".$res["madh"] ?>><?php echo $res["tongthanhtoan"] ?></span><u>đ</u><br/>
           Ngày đặt hàng:<br/> <?php echo $res["ngaydathang"] ?>
       </div>
       <div class="col-md-3">

@@ -384,19 +384,141 @@ $(document).ready(function(){
     });
 });
 //----------------------------------------------------------
-$(document).ready(function(){
+$(document).ajaxComplete(function(){
   $('.btn-capNhatDH').click(function(){
     var maDH = $(this).val();
-    console.log(maDH);
     $('#capNhatDonHang').modal('show');
    var url = "../xuly/capnhatdonhang.php";
     var data = {
       maDonHang : maDH
     };
     var success = function(result){
-      console.log(result);
+        html = '';
+      for (i in result) {
+        html += '<div class="col-md-8 row"  style="padding-top:2vh; padding-bottom:2vh;">';
+          html += result[i]['tenS'];
+        html+= '</div>';
+        html += '<div class="col-md-4"  style="padding-top:2vh; padding-bottom:2vh;">';
+          html += '<input type="text" class="form-control" id= ';
+          html += ('in' + result[i]['maS']);
+          html +='  placeholder= ';
+          html += result[i]['soLuongS'];
+          html += '>';
+
+          html += '<button type="button" class="btn btn-danger btn-xs btn-block btn-cnsltqldh" style="margin-top:2vh;" value=';
+          html += result[i]['maS'];
+          html += " id=btn";
+          html += result[i]['maS'] + result[i]['maDH'];
+          html += '>Cập nhật</button>';
+        html +=  '</div>';
+      }
+      $('#markToAdd2').html(html);
+      $('.btn-cnsltqldh').click(function(){
+        var maSanP = $(this).val();
+        var soLuongUpDate = $('#in' + maSanP).val();
+        var tongHoaDonCu;
+        var donGiaSanPham;
+        var soLuongCu;
+        var tongHoaDonMoi;
+        for(j in result){
+          if (result[j]['maS'] == maSanP) {
+            tongHoaDonCu = Number(result[j]['tongTien']);
+            donGiaSanPham = Number(result[j]['donGiaSP']);
+            soLuongCu =  Number(result[j]['soLuongS']);
+            break;
+          }
+        }
+        tongHoaDonMoi = ((tongHoaDonCu - donGiaSanPham*soLuongCu) + (soLuongUpDate*donGiaSanPham));
+        tongSoLuong = Number(soLuongCu - soLuongUpDate);
+        console.log(tongSoLuong);
+        var url  = "../xuly/capnhatdonhang.php";
+        var data = {
+            maDonH : maDH,
+            maSanPham : maSanP,
+            soLuongM : soLuongUpDate,
+            tongSoLuongM : tongSoLuong,
+            capNhatTongHD : tongHoaDonMoi
+        }
+        var success = function(result){
+          $('#tongDH'+maDH).html(tongHoaDonMoi);
+          $('#maSP'+maSanP+maDH).html(soLuongUpDate);
+          $('#btn' + maSanP + maDH ).html('Thành công <i class="fa fa-check" aria-hidden="true"></i>');
+        };
+        var dataType = "text";
+        $.post(url,data,success,dataType);
+      });
     }
     var dataType = "json";
     $.post(url,data,success,dataType);
   });
 });
+//-------------------------------
+$(document).ready(function(){
+  $('.btn-capNhatDH').click(function(){
+    var maDH = $(this).val();
+    var url = "../xuly/capnhatdonhang.php";
+    var data = {
+      maDonHang : maDH
+    };
+    var success = function(result){
+        html = '';
+      for (i in result) {
+        html += '<div class="col-md-8 row"  style="padding-top:2vh; padding-bottom:2vh;">';
+          html += result[i]['tenS'];
+        html+= '</div>';
+        html += '<div class="col-md-4"  style="padding-top:2vh; padding-bottom:2vh;">';
+          html += '<input type="text" class="form-control" id= ';
+          html += ('in' + result[i]['maS']);
+          html +='  placeholder= ';
+          html += result[i]['soLuongS'];
+          html += '>';
+
+          html += '<button type="button" class="btn btn-danger btn-xs btn-block btn-cnsltqldh" style="margin-top:2vh;" value=';
+          html += result[i]['maS'];
+          html += " id=btn";
+          html += result[i]['maS'] + result[i]['maDH'];
+          html += '>Cập nhật</button>';
+        html +=  '</div>';
+      }
+      $('#markToAdd2').html(html);
+      $('.btn-cnsltqldh').click(function(){
+        var maSanP = $(this).val();
+        var soLuongUpDate = $('#in' + maSanP).val();
+        var tongHoaDonCu;
+        var donGiaSanPham;
+        var soLuongCu;
+        var tongHoaDonMoi;
+        for(j in result){
+          if (result[j]['maS'] == maSanP) {
+            tongHoaDonCu = Number(result[j]['tongTien']);
+            donGiaSanPham = Number(result[j]['donGiaSP']);
+            soLuongCu =  Number(result[j]['soLuongS']);
+            break;
+          }
+        }
+        tongHoaDonMoi = ((tongHoaDonCu - donGiaSanPham*soLuongCu) + (soLuongUpDate*donGiaSanPham));
+        tongSoLuong = Number(soLuongCu - soLuongUpDate);
+        console.log(tongSoLuong);
+        var url  = "../xuly/capnhatdonhang.php";
+        var data = {
+            maDonH : maDH,
+            maSanPham : maSanP,
+            soLuongM : soLuongUpDate,
+            tongSoLuongM : tongSoLuong,
+            capNhatTongHD : tongHoaDonMoi
+        }
+        var success = function(result){
+          $('#tongDH'+maDH).html(tongHoaDonMoi);
+          $('#maSP'+maSanP+maDH).html(soLuongUpDate);
+          $('#btn' + maSanP + maDH ).html('Thành công <i class="fa fa-check" aria-hidden="true"></i>');
+        };
+        var dataType = "text";
+        $.post(url,data,success,dataType);
+      });
+    }
+    var dataType = "json";
+    $.post(url,data,success,dataType);
+    $('#capNhatDonHang').modal('show');
+  });
+});
+//-------------------------------------------
