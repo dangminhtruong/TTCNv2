@@ -58,7 +58,7 @@
               $res = $hienDH->fetchData();
               $maDH = $res['madh'];
     ?>
-    <div class="container-fluid donHang">
+    <div class="container-fluid donHang" <?php echo "id=dhCt".$maDH; ?>>
       <div class="col-md-3">
         <?php
             $hienDssp = new sanpham();
@@ -83,7 +83,7 @@
           Địa chỉ: <?php echo $res["diachi"] ?>
       </div>
       <div class="col-md-2">
-          <?php echo $res["trangthai"] ?>
+          <p <?php echo "id=trangThai".$res['madh'] ?>><?php echo $res["trangthai"] ?></p>
       </div>
       <div class="col-md-2">
         <button type="button" class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>

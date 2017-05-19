@@ -24,14 +24,11 @@ $homNay =  date('Y/m/d');
                   <!----------------------------->
             </div>
             <div class="col-md-4"  style="padding-top:2vh;">
-              <select class="form-control" id="" name="">
-                <option  value="Đang chờ">Đang chờ</option>
-                <option value="Đã xác nhận">Đã xác nhận</option>
-                <option value="Đang chuyển hàng">Đang chuyển hàng</option>
-                <option value="Hoàn tất">Hoàn tất</option>
-              </select>
+              <div id="markToAdd4">
+
+              </div>
               <div class="col-md-12" id="markToAdd3" style="padding-top:2vh;">
-                <button type="button" class="btn btn-primary btn-xs btn-block btn-upDateTrangThai" >Cập nhật</button>
+
               </div>
             </div>
           </div>
@@ -124,7 +121,7 @@ $homNay =  date('Y/m/d');
                 $res = $hienDH->fetchData();
                 $maDH = $res['madh'];
       ?>
-      <div class="container-fluid donHang">
+      <div class="container-fluid donHang" <?php echo "id=dhCt".$maDH; ?>>
         <div class="col-md-3">
           <?php
               $hienDssp = new sanpham();
@@ -149,7 +146,7 @@ $homNay =  date('Y/m/d');
             Địa chỉ: <?php echo $res["diachi"] ?>
         </div>
         <div class="col-md-2">
-            <?php echo $res["trangthai"] ?>
+            <p <?php echo "id=trangThai".$res['madh'] ?>><?php echo $res["trangthai"] ?></p>
         </div>
         <div class="col-md-2">
           <button type="button" class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>

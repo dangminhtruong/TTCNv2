@@ -23,7 +23,7 @@
     ?>
     <!----------------------------------------------------------------------------->
     <div class="container-fluid">
-      <div class="row ">
+      <div class="row">
         <!-----------NAVIGATION BAR------------------->
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">

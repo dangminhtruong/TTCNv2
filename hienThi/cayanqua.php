@@ -67,6 +67,7 @@
                     <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
                   </div>
               </div>
+              <!--------------------------------------------------------------------------------->
               <div class="col-md-4 sanpham " data-wow-duration="1s" data-wow-delay="1s">
                 <div class="col-md-12" id="spMoiContent">
                   <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;">
@@ -109,6 +110,7 @@
                     <span style="font-family: 'Fjalla One', sans-serif;">150.000<u> đ</u></span>
                   </div>
               </div>
+              <!-------------------------------------------------------------------------------->
             </div>
           </div>
         </div>

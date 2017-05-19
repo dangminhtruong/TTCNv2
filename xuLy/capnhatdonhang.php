@@ -41,9 +41,42 @@
 
     $sql3 = "UPDATE donhang SET tongThanhToan = '$tongHD'  WHERE maDH = '$maDH'";
     $upDate->myQuery($sql3);
-
     $sql4 = "UPDATE sanpham SET sanpham.soLuongSP = (sanpham.soLuongSP + '$tongSoLuongMoi') WHERE maSP = '$maSP'";
     $upDate->myQuery($sql4);
+    $sql5 = "UPDATE sanpham SET sanpham.soLuongDaBan = (sanpham.soLuongDaBan - '$tongSoLuongMoi') WHERE maSP = '$maSP'";
+    $upDate->myQuery($sql5);
     echo "Cap nhat thanh cong";
+  }
+  elseif (isset($_POST['maDHU'],$_POST['trangThai'])) {
+    $maDHU  = $_POST['maDHU'];
+    $trangThai = $_POST['trangThai'];
+    $sql6 = "UPDATE donhang SET donhang.trangthai = '$trangThai' WHERE donhang.maDH = '$maDHU'";
+    $upDate2 = new sanpham();
+    $upDate2->myQuery($sql6);
+    echo $trangThai;
+  }
+  elseif (isset($_POST['maDhDel'])) {
+    $maDhDel = $_POST['maDhDel'];
+    $sql7 = "SELECT chitietdonhang.masp, chitietdonhang.soluong FROM chitietdonhang WHERE madh = '$maDhDel'";
+    $upDate3 = new sanpham();
+    $upDate3->myQuery($sql7);
+    if ($upDate3->numRows() > 0 ) {
+        while ($rows = $upDate3->fetchData()) {
+          $mas =  $rows['masp'];
+          $sl = $rows['soluong'];
+          echo $mas;
+          echo $sl;
+          $sql8 = "UPDATE sanpham SET sanpham.soLuongSp = (sanpham.soLuongSp + '$sl') WHERE maSP = '$mas'";
+          $upDate4 = new sanpham();
+          $upDate4->myQuery($sql8);
+          $mas = 0;
+          $sl = 0;
+        }
+    }
+    $sql9 = "DELETE FROM chitietdonhang WHERE maDH  = '$maDhDel'";
+    $upDate3->myQuery($sql9);
+    $sql10 = "DELETE FROM donhang WHERE maDH  = '$maDhDel'";
+    $upDate3->myQuery($sql10);
+    echo "something";
   }
 ?>

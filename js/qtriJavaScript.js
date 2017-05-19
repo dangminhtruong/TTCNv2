@@ -387,8 +387,7 @@ $(document).ready(function(){
 $(document).ajaxComplete(function(){
   $('.btn-capNhatDH').click(function(){
     var maDH = $(this).val();
-    $('#capNhatDonHang').modal('show');
-   var url = "../xuly/capnhatdonhang.php";
+    var url = "../xuly/capnhatdonhang.php";
     var data = {
       maDonHang : maDH
     };
@@ -412,7 +411,39 @@ $(document).ajaxComplete(function(){
           html += '>Cập nhật</button>';
         html +=  '</div>';
       }
+      html2 = '<button type="button" class="btn btn-primary btn-xs btn-block btn-upDateTrangThai" value=';
+      html2 += maDH;
+      html2 += ' id=udtt';
+      html2 += maDH;
+      html2 += '>Cập nhật</button>';
+      //-----------
+      html3 = '<select class="form-control" name=op' + maDH + '>';
+      html3 +='<option  value="Đang chờ">Đang chờ</option>';
+      html3 += '<option value="Đã xác nhận">Đã xác nhận</option>';
+      html3 += '<option value="Đang chuyển hàng">Đang chuyển hàng</option>';
+      html3 += '<option value="Hoàn tất">Hoàn tất</option>';
+      html3 += '</select>';
       $('#markToAdd2').html(html);
+      $('#markToAdd3').html(html2);
+      $('#markToAdd4').html(html3);
+      //---------------------------------------------
+      $('.btn-upDateTrangThai').click(function(){
+        var trThai = $('select[name=op'+maDH+']').val();
+        var maDHang = $(this).val();
+        var url = "../xuly/capnhatdonhang.php";
+        var data = {
+          trangThai : trThai,
+          maDHU : maDHang
+        }
+        var success = function(result){
+          console.log(result);
+          $('#trangThai' + maDHang).html(result);
+          $('#udtt'+ maDH).html('Thành công <i class="fa fa-check" aria-hidden="true"></i>');
+        }
+        var dataType = "text";
+        $.post(url,data,success,dataType);
+      });
+      //---------------------------------------------
       $('.btn-cnsltqldh').click(function(){
         var maSanP = $(this).val();
         var soLuongUpDate = $('#in' + maSanP).val();
@@ -450,6 +481,7 @@ $(document).ajaxComplete(function(){
     }
     var dataType = "json";
     $.post(url,data,success,dataType);
+    $('#capNhatDonHang').modal('show');
   });
 });
 //-------------------------------
@@ -480,7 +512,39 @@ $(document).ready(function(){
           html += '>Cập nhật</button>';
         html +=  '</div>';
       }
+      html2 = '<button type="button" class="btn btn-primary btn-xs btn-block btn-upDateTrangThai" value=';
+      html2 += maDH;
+      html2 += ' id=udtt';
+      html2 += maDH;
+      html2 += '>Cập nhật</button>';
+      //----
+      html3 = '<select class="form-control" name=op' + maDH + '>';
+      html3 +='<option  value="Đang chờ">Đang chờ</option>';
+      html3 += '<option value="Đã xác nhận">Đã xác nhận</option>';
+      html3 += '<option value="Đang chuyển hàng">Đang chuyển hàng</option>';
+      html3 += '<option value="Hoàn tất">Hoàn tất</option>';
+      html3 += '</select>';
       $('#markToAdd2').html(html);
+      $('#markToAdd3').html(html2);
+      $('#markToAdd4').html(html3);
+      //---------------------------------------------
+      $('.btn-upDateTrangThai').click(function(){
+        var trThai = $('select[name=op'+maDH+']').val();
+        var maDHang = $(this).val();
+        var url = "../xuly/capnhatdonhang.php";
+        var data = {
+          trangThai : trThai,
+          maDHU : maDHang
+        }
+        var success = function(result){
+          console.log(result);
+          $('#trangThai' + maDHang).html(result);
+          $('#udtt'+ maDH).html('Thành công <i class="fa fa-check" aria-hidden="true"></i>');
+        }
+        var dataType = "text";
+        $.post(url,data,success,dataType);
+      });
+      //---------------------------------------------
       $('.btn-cnsltqldh').click(function(){
         var maSanP = $(this).val();
         var soLuongUpDate = $('#in' + maSanP).val();
@@ -522,3 +586,33 @@ $(document).ready(function(){
   });
 });
 //-------------------------------------------
+$(document).ajaxComplete(function(){
+  $('.btn-huyDH').click(function(){
+    var maDHHuy = $(this).val();
+    var url = "../xuly/capnhatdonhang.php";
+    var data = {
+        maDhDel : maDHHuy
+    }
+    var success =  function(result){
+      console.log(result);
+    }
+    var dataType = "text";
+    $.post(url,data,success,dataType);
+  });
+});
+//-------------------------------------
+$(document).ready(function(){
+  $('.btn-huyDH').click(function(){
+    var maDHHuy = $(this).val();
+    var url = "../xuly/capnhatdonhang.php";
+    var data = {
+        maDhDel : maDHHuy
+    }
+    var success =  function(result){
+      console.log(result);
+      $('#dhCt'+maDHHuy).remove();
+    }
+    var dataType = "text";
+    $.post(url,data,success,dataType);
+  });
+});
