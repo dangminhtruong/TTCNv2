@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto+Condensed" rel="stylesheet">
     <link href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
   </head>
   <body>
     <?php
@@ -82,6 +83,12 @@
               case 'xemdonhang' :
                   include_once('xemdonhang.php');
                 break;
+              case 'xemdoanhthu':
+                  include_once('xemdoanhthu.php');
+                break;
+              case 'thongketonkho':
+                  include_once('thongketonkho.php');
+                break;
               case 'dangxuat':
                   header('location:../xuLy/dangxuat.php');
                 break;
@@ -101,6 +108,7 @@
 <script src="../js/bootstrap.js"></script>
 <script src="../js/wow.min.js"></script>
 <script src="../js/qtriJavascript.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
    <!--------------------------------------------->
    <?php
      }

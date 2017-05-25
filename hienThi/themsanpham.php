@@ -81,10 +81,27 @@
       <button type="submit" id="btnThemSanPham" class="btn btn-success" form="formthemSanPham" name="btnThemSanPham">
         Hoàn tất
       </button>
-      <button type="reset" id="btnThemSanPhamReset" class="btn btn-default" form="formthemSanPham">
+      <button type="reset" id="btnThemSanPhamReset" class="btn btn-danger" form="formthemSanPham">
         Reset
       </button>
+      <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#fileExcel">
+        Nhập bằng file Excel
+        <i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i>
+      </button>
     </div>
+    <!------------------>
+      <div class="col-md-8 col-md-push-2 row collapse" id="fileExcel">
+        <div class="col-md-12">
+          <form id="" action="../xuly/xulyuploadexcel.php"  method="post" enctype="multipart/form-data" class="form-horizontal">
+  							<div class="form-group">
+  								<label for="exampleInputFile">Nhập bằng file excel</label>
+  								<input type="file" name="excel" id="exampleInputFile">
+  								<br/>
+  								<button type="submit" class="btn btn-default" name="import">Submit</button>
+  								</div>
+  				</form>
+        </div>
+      </div>
     <!------------------>
   </div>
 <!-------------------------------------->

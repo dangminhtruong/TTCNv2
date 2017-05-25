@@ -4,11 +4,14 @@
   $cuoiTuan = date("Y-m-d", strtotime("next Sunday"));
   $dauThang = date("Y-m-d", strtotime("first day of this month"));
   $cuoiThang = date("Y-m-d", strtotime("last day of this month"));
+  $homNay =  date('Y/m/d');
   //---------------------------------------------------------------------
   ?>
     <?php
         include_once("../xuly/__autoload.php");
-        if ($_POST['timTrongTuanThang'] != 'null' && $_POST['timTheoTinhTrang'] !='null') {
+
+        //-----------------------
+        if ($_POST['timTrongTuanThang'] == 'timTrongTuan' && $_POST['timTheoTinhTrang'] !='null') {
           $trangThai = $_POST['timTheoTinhTrang'];
           $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
           donhang.madh, donhang.ngaydathang
@@ -16,14 +19,31 @@
           ON (khachhang.makh = donhang.makh)
           WHERE (donhang.ngaydathang BETWEEN '$dauTuan' AND '$cuoiTuan') AND donhang.trangthai ='$trangThai'";
         }
-        elseif ($_POST['timTrongTuanThang'] != 'null' && $_POST['timTheoTinhTrang'] == 'null') {
+        elseif ($_POST['timTrongTuanThang'] == 'timTrongThang' && $_POST['timTheoTinhTrang'] !='null') {
+          $trangThai = $_POST['timTheoTinhTrang'];
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang
+          FROM donhang INNER JOIN khachhang
+          ON (khachhang.makh = donhang.makh)
+          WHERE (donhang.ngaydathang BETWEEN '$dauThang' AND '$cuoiThang') AND donhang.trangthai ='$trangThai'";
+        }
+        elseif ($_POST['timTrongTuanThang'] == 'timTrongTuan' && $_POST['timTheoTinhTrang'] == 'null') {
           $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
           donhang.madh, donhang.ngaydathang
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE donhang.ngaydathang BETWEEN '$dauTuan' AND '$cuoiTuan'";
         }
-        elseif ($_POST['timTrongTuanThang'] == 'null' && $_POST['timTheoTinhTrang'] != 'null') {
+
+        elseif ($_POST['timTrongTuanThang'] == 'timTrongThang' && $_POST['timTheoTinhTrang'] == 'null') {
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang
+          FROM donhang INNER JOIN khachhang
+          ON (khachhang.makh = donhang.makh)
+          WHERE donhang.ngaydathang BETWEEN '$dauThang' AND '$cuoiThang'";
+        }
+        //-------------------------------------
+        elseif ($_POST['tuNgay'] == null && $_POST['denNgay'] == null && $_POST['timTrongTuanThang'] == 'null' && $_POST['timTheoTinhTrang'] != 'null') {
           $trangThai = $_POST['timTheoTinhTrang'];
           $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
           donhang.madh, donhang.ngaydathang
@@ -31,7 +51,8 @@
           ON (khachhang.makh = donhang.makh)
           WHERE donhang.trangthai= '$trangThai'";
         }
-        elseif ($_POST['tuNgay'] != null && $_POST['denNgay'] != null) {
+        //-------------------------------------
+        elseif ($_POST['tuNgay'] != null && $_POST['denNgay'] != null && $_POST['timTheoTinhTrang'] == "null") {
           $tuNgay = $_POST['tuNgay'];
           $denNgay = $_POST['denNgay'];
           $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
@@ -49,6 +70,13 @@
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE (donhang.ngaydathang BETWEEN '$tuNgay' AND '$denNgay') AND donhang.trangthai ='$trangThai'";
+        }
+        elseif ($_POST['tuNgay'] == null && $_POST['denNgay'] == null && $_POST['timTheoTinhTrang'] =='null' && $_POST['timTrongTuanThang'] == 'null') {
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang
+          FROM donhang INNER JOIN khachhang
+          ON (khachhang.makh = donhang.makh)
+          WHERE donhang.ngaydathang = '$homNay'";
         }
         //-------------------
         $hienDH = new sanpham();
@@ -86,8 +114,16 @@
           <p <?php echo "id=trangThai".$res['madh'] ?>><?php echo $res["trangthai"] ?></p>
       </div>
       <div class="col-md-2">
-        <button type="button" class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>
-        <button type="button" class="btn btn-sm btn-danger btn-huyDH" <?php echo "value=". $res['madh'] ?>>Hủy</button>
+        <?php
+            if ($res["trangthai"] == "Đang chuyển hàng" || $res["trangthai"] == "Hoàn tất" ) { ?>
+                <button type="button" disabled class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>
+                  <button type="button" disabled class="btn btn-sm btn-danger btn-huyDH" <?php echo "value=". $res['madh'] ?>>Hủy</button>
+      <?php
+            }
+          else{ ?>
+            <button type="button" class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>
+              <button type="button" class="btn btn-sm btn-danger btn-huyDH" <?php echo "value=". $res['madh'] ?>>Hủy</button>
+        <?php  } ?>
       </div>
   </div>
   <?php

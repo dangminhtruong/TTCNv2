@@ -356,7 +356,6 @@ body{
   padding-top: 2vh;
   min-height: 8vh;
   background-color: white;
-  margin-bottom: 4vh;
   font-family: font_Buttermilk;
   font-weight: bold;
 }
@@ -599,4 +598,10 @@ legend.contact {
 .btn-botSanPham{
 	margin-top: 1vh;
 	min-width: 10vh;
+}
+.sanpham{
+	margin-top: 4vh;
+}
+#cayAnQuaMenuMargin{
+	margin-top: 4vh;
 }

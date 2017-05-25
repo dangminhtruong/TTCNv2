@@ -58,13 +58,13 @@
     <div class="panel  panel-gray">
       <div class="panel-heading"><span><strong>Thống kê - báo cáo</strong></span></div>
     </div>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
+    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=xemdoanhthu">
       <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
         <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i><br/>
         <span>Thống kê doanh thu</span>
       </div>
     </a>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=">
+    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=thongketonkho">
       <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
           <i class="fa fa-bar-chart fa-5x" aria-hidden="true"></i></i><br/>
         <span>Thống kê tồn kho</span>

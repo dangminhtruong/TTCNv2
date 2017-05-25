@@ -144,7 +144,7 @@
         </div>
         <!------------------------>
         <!---------Ho tro truc tuyen---------->
-        <div class="col-md-4 col-xs-12 col-sm-4 wow bounceInDown" data-wow-duration="1s" data-wow-delay="0.5s"  id="giolamviec">
+        <div class="col-md-4 col-xs-12 col-sm-4 wow bounceInDown" data-wow-duration="2s" data-wow-delay="0.5s"  id="giolamviec">
           <div class="col-md-12 col-xs-12 col-sm-12 rounded1">
             <p>
               <i class="fa fa-phone" aria-hidden="true"></i>
@@ -207,7 +207,7 @@
               WHERE (sanpham.soLuongDaBan > 0) ORDER BY sanpham.soLuongDaBan DESC LIMIT 4";
               $showSPBC->myQuery($sql3);
               if ($showSPBC->numRows() > 0) {
-                while ($rowsT = $showSPBC->fetchData()) {
+              while ($rowsT = $showSPBC->fetchData()) {
           ?>
           <div class="col-md-3 col-sm-12">
               <div class="col-md-12" id="spMoiContent">

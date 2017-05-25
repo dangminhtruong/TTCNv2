@@ -1,36 +1,42 @@
 <?php
   include_once('__autoload.php');
   date_default_timezone_set('Asia/Ho_Chi_Minh');
-  $dauTuan = date("Y-m-d", strtotime("last Monday"));
-  $cuoiTuan = date("Y-m-d", strtotime("next Sunday"));
-  $dauThang = date("Y-m-d", strtotime("first day of this month"));
-  $cuoiThang = date("Y-m-d", strtotime("last day of this month"));
-  echo $dauTuan;
-  echo "<br>";
-  echo $cuoiTuan;
-  echo "<br>";
-  echo $dauThang;
-  echo "<br>";
-  echo $cuoiThang;
-  $tam = new sanpham();
-  $vovan = 11;
-  $_SESSION["Sanpham"] = array();
-  $_SESSION["Sanpham"][1] = (2);
-  $_SESSION["Sanpham"][21] = (7);
-  $_SESSION["Sanpham"][11] = (3);
-  if (array_key_exists($vovan,$_SESSION["Sanpham"]) == true) {
-    unset($_SESSION["Sanpham"][$vovan]);
+  $phantrang = new sanpham();
+  $maxResult = 5;
+  $listPage = '';
+  $getLink = $_SERVER['PHP_SELF'];
+  if (!isset($_GET['page'])) {
+    $page = 1;
   }
   else {
-    $_SESSION["Sanpham"][$vovan] = 1;
+    $page = $_GET['page'];
   }
-  foreach ($_SESSION['Sanpham'] as $key => $value) {
-    $sql = "SELECT sanpham.tenSP, sanpham.giaSP FROM sanpham WHERE maSP = '$key'";
-    $tam->myQuery($sql);
-    $rows = $tam->fetchData();
-    $tongTien = $rows['giaSP']*$value;
-    ?>
-    <a href="#" style="color:red"><?php  echo $rows['tenSP']."  Gia tien  ".$tongTien."<br/>"; ?></a>
+  $sql2 = "SELECT* FROM sanpham";
+  $phantrang->myQuery($sql2);
+  $tongKetQua = $phantrang->numRows();
+  $tongSoTrang = ceil($tongKetQua/$maxResult);
+  $indexRows = $page*$maxResult - $maxResult;
+  //------------------------------------------------------------
+  $sql1 = "SELECT* FROM sanpham LIMIT $maxResult OFFSET $indexRows";
+  $layRa = new sanpham();
+  $layRa->myQuery($sql1);
+  while ($rows = $layRa->fetchData()) {
+    echo $rows['tenSP'];
+    echo '<br/>';
+  }
+  ?>
     <?php
-    }
-    ?>
+      for ($i=1; $i <=$tongSoTrang ; $i++) {
+        if ($page == $i) {
+          $listPage.="<a href='#'><b>".$i."</b></a>";
+        }
+        else {
+          $listPage.="<a href=".$getLink.'?page='.$i.">".$i."</a>";
+        }
+      }
+      echo $listPage;
+      echo $_SERVER['PHP_SELF'];
+      ?>
+      <form method="GET">
+        <input type="submit" name="page" value="5">
+      </form>

@@ -108,7 +108,7 @@
 }
 #btnThemSanPhamGroup{
   text-align: left;
-  padding-bottom: 10vh;
+  padding-bottom: 4vh;
 }
 /*-------------SUA XOA SAN PHAM-----------------------*/
 #suaxoasanpham{
@@ -195,4 +195,7 @@
 }
 .setSize{
 	max-width: 50%;
+}
+#fileExcel{
+	text-align: left;
 }

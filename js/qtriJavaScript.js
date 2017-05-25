@@ -1,3 +1,12 @@
+$(document).ready(function(){
+    $( "#timTuNgay" ).datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
+    $( "#timDenNgay" ).datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
+});
+
 //------------------KIEM TRA DANG NHAP-------------------------
 $(document).ready(function(){
   $("#dangnhapBtn").click(function(){
@@ -342,7 +351,7 @@ $(document).ready(function(){
       }
     });
     //------------
-    $('#timTuNgay').keyup(function(){
+    $('#timTuNgay').change(function(){
         var tam1 = $('#timTuNgay').val();
         var tam2 = $('#timDenNgay').val();
         if (tam1 != '') {
@@ -353,7 +362,7 @@ $(document).ready(function(){
         }
       });
       //-------
-      $('#timDenNgay').keyup(function(){
+      $('#timDenNgay').change(function(){
           var tam1 = $('#timTuNgay').val();
           var tam2 = $('#timDenNgay').val();
           if (tam2 != '') {
@@ -594,7 +603,7 @@ $(document).ajaxComplete(function(){
         maDhDel : maDHHuy
     }
     var success =  function(result){
-      console.log(result);
+      $('#dhCt'+maDHHuy).remove();
     }
     var dataType = "text";
     $.post(url,data,success,dataType);
@@ -609,7 +618,6 @@ $(document).ready(function(){
         maDhDel : maDHHuy
     }
     var success =  function(result){
-      console.log(result);
       $('#dhCt'+maDHHuy).remove();
     }
     var dataType = "text";
