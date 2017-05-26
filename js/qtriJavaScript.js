@@ -1,4 +1,9 @@
 $(document).ready(function(){
+  CKEDITOR.replace( 'noiDungBaiViet');
+  CKEDITOR.config.height = '450px';
+});
+//------------------------------------
+$(document).ready(function(){
     $( "#timTuNgay" ).datepicker({
       dateFormat: 'yy-mm-dd'
     });
@@ -6,7 +11,6 @@ $(document).ready(function(){
       dateFormat: 'yy-mm-dd'
     });
 });
-
 //------------------KIEM TRA DANG NHAP-------------------------
 $(document).ready(function(){
   $("#dangnhapBtn").click(function(){
@@ -623,4 +627,24 @@ $(document).ready(function(){
     var dataType = "text";
     $.post(url,data,success,dataType);
   });
+});
+//---------------------------------------
+$(document).ready(function(){
+    $('#btn-ThemBv').click(function(){
+        var tDe = $('#tieuDeBaiViet').val();
+        var nDung = CKEDITOR.instances.noiDungBaiViet.getData();
+        var url = "../xuly/xulythembaiviet.php";
+        var data = {
+          tieuDe : tDe,
+          noiDung : nDung
+        }
+        var success = function(result){
+          console.log(result);
+            if (result == 'Them bai viet thanh cong') {
+                $('#themBaiVietThanhCong').modal('show');
+            }
+        }
+        var dataType = "text";
+        $.post(url,data,success,dataType);
+    });
 });

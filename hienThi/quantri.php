@@ -89,6 +89,9 @@
               case 'thongketonkho':
                   include_once('thongketonkho.php');
                 break;
+              case 'thembaiviet' :
+                  include_once('thembaiviet.php');
+                break;
               case 'dangxuat':
                   header('location:../xuLy/dangxuat.php');
                 break;
@@ -107,8 +110,9 @@
 <script src="../js/jquery-3.2.0.min.js"></script>
 <script src="../js/bootstrap.js"></script>
 <script src="../js/wow.min.js"></script>
-<script src="../js/qtriJavascript.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="../ckeditor/ckeditor.js"> </script>
+<script src="../js/qtriJavascript.js"></script>
    <!--------------------------------------------->
    <?php
      }
