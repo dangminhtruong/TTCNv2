@@ -112,6 +112,7 @@
 <script src="../js/wow.min.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../ckeditor/ckeditor.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="../js/qtriJavascript.js"></script>
    <!--------------------------------------------->
    <?php

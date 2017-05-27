@@ -648,3 +648,58 @@ $(document).ready(function(){
         $.post(url,data,success,dataType);
     });
 });
+//------------------------------------
+$(document).ready(function(){
+      var url =  "../xuly/chuotbach.php";
+      var data = {
+        tuan : "loc theo tuan"
+      }
+      var success = function(result){
+        console.log(result['caq']);
+        var tongDoanhThu = [];
+        for(i in result){
+          result[i][0];
+        }
+        new Chart(document.getElementById("line-chart"), {
+        type: 'line',
+        data: {
+          labels: ["Thứ hai","Thứ ba","Thứ 4","Thứ năm","Thứ 6","Thứ 7","Chủ nhật"],
+          datasets: [{
+              data: result['caq'],
+              label: "Cây ăn quả",
+              borderColor: "#3e95cd",
+              fill: false
+            }, {
+              data: result['cln'],
+              label: "Cây lấy gỗ",
+              borderColor: "#8e5ea2",
+              fill: false
+            }, {
+              data: result['ctt'],
+              label: "Cây công trình",
+              borderColor: "#3cba9f",
+              fill: false
+            }, {
+              data: result['hcc'],
+              label: "Hoa - Cây cảnh",
+              borderColor: "#e8c3b9",
+              fill: false
+            }, {
+              data: result['tongTuan'],
+              label: "Tổng doanh thu",
+              borderColor: "#c45850",
+              fill: false
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Thống kê doanh thu tuần (đơn vị vnđ )'
+          }
+        }
+      });
+      };
+      var dataType = "json";
+      $.post(url,data,success,dataType);
+});

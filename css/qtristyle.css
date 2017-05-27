@@ -199,3 +199,17 @@
 #fileExcel{
 	text-align: left;
 }
+#thongKeChiTiet{
+		margin-top: 4vh;
+}
+.tkChiTiet{
+	font-family: 'Lobster', cursive;
+	text-align: left;
+	min-height: 8vh;
+}
+#thongKeChiTiet{
+	margin-bottom: 4vh;
+}
+.mark{
+	color: red;
+}

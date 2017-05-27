@@ -7,6 +7,8 @@
     $tenKH = $_POST['tenKh'];
     $diaChiKh = $_POST['diaChiKh'];
     $soDienThoaiKh = $_POST['soDienThoaiKh'];
+    $email = $_POST['email'];
+    $cachThanhToan = $_POST['cachThanhToan'];
     $tongThanhToan = $_POST['tongThanhToan'];
     $ngayDatHang =  date('Y/m/d');
     $ngayG = mktime (0, 0, 0, date("m"), date("d")+3, date("Y"));
@@ -21,8 +23,8 @@
     if ($themThongTinKh->numRows() > 0) {
       $rows= $themThongTinKh->fetchData();
       $maK = $rows['maKH'];
-      $sql1 = "INSERT INTO donhang(maKH,ngayDatHang,ngayGiaoHang,trangThai,tongThanhToan)
-      VALUES('$maK','$ngayDatHang','$ngayGiaoHang','Đang chờ','$tongThanhToan')";
+      $sql1 = "INSERT INTO donhang(maKH,ngayDatHang,ngayGiaoHang,trangThai,tongThanhToan,cachThanhToan)
+      VALUES('$maK','$ngayDatHang','$ngayGiaoHang','Đang chờ','$tongThanhToan','$cachThanhToan')";
       $themDonHang = new sanpham();
       $themDonHang->myQuery($sql1);
       //--------------------
@@ -48,7 +50,7 @@
       echo "Dat hang than cong";
     }
     else {
-      $sql2 = "INSERT INTO khachhang(tenKH,soDT,diaChi) VALUES('$tenKH','$soDienThoaiKh','$diaChiKh')";
+      $sql2 = "INSERT INTO khachhang(tenKH,soDT,diaChi,email) VALUES('$tenKH','$soDienThoaiKh','$diaChiKh','$email')";
       $themThongTinKh->myQuery($sql2);
       //--------------
       $sql3 = "SELECT khachhang.maKH FROM khachhang WHERE tenKH='$tenKH' AND soDT ='$soDienThoaiKh'";
@@ -57,8 +59,8 @@
       $maKhMoiThem = $themDH->fetchData();
       $maKh = $maKhMoiThem['maKH'];
       //---------------
-      $sql4 = "INSERT INTO donhang(maKH,ngayDatHang,ngayGiaoHang,trangThai,tongThanhToan)
-       VALUES('$maKh','$ngayDatHang','$ngayGiaoHang','Đang chờ','$tongThanhToan')";
+      $sql4 = "INSERT INTO donhang(maKH,ngayDatHang,ngayGiaoHang,trangThai,tongThanhToan,cachThanhToan)
+       VALUES('$maKh','$ngayDatHang','$ngayGiaoHang','Đang chờ','$tongThanhToan','$cachThanhToan')";
        $themDH->myQuery($sql4);
        //------------
         $sql8 = "SELECT donhang.maDH FROM donhang WHERE maKH = '$maKh' ";
@@ -79,7 +81,7 @@
        //--------------
       unset($_SESSION['muaHang']);
       unset($_SESSION['giohang']);
-       echo "Dat hang than cong";
+      echo "Dat hang than cong";
     }
     //------------------------------------
     //-----------------------------------

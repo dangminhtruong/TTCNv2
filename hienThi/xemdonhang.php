@@ -138,6 +138,7 @@ $homNay =  date('Y/m/d');
             ?>
         </div>
         <div class="col-md-2">
+            Mã đơn hàng: <?php  echo "DH-".$res['madh'];?> <br/>
             Tổng thanh toán:<br/><span <?php echo "id=tongDH".$res["madh"] ?>><?php echo $res["tongthanhtoan"] ?></span><u>đ</u><br/>
             Ngày đặt hàng:<br/> <?php echo $res["ngaydathang"] ?>
         </div>

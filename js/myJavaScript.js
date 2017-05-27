@@ -24,15 +24,20 @@ $(document).ready(function(){
     var hoTenKh = $('#hoTenKh').val();
     var diaChiGiaoHang = $('#diaChiKh').val();
     var dienThoaiKh = $('#soDienThoaiKh').val();
+    var emailKh = $('#emailKh').val();
+    var hinhThucThanhToan = $('select[name=hinhThucTT]').val();
     var tongHD = Number($("#tongTienHoaDon").text());
     var url = "xuly/xulydathang.php";
     var data = {
         tenKh : hoTenKh,
         diaChiKh : diaChiGiaoHang,
         soDienThoaiKh : dienThoaiKh,
+        email : emailKh,
+        cachThanhToan : hinhThucThanhToan,
         tongThanhToan : tongHD
     };
     var success = function(result){
+      console.log(result);
       if (result == 'Dat hang than cong') {
       }
         $('#datHangThanhCong').modal('show');
