@@ -650,12 +650,11 @@ $(document).ready(function(){
 });
 //------------------------------------
 $(document).ready(function(){
-      var url =  "../xuly/chuotbach.php";
+      var url =  "../xuly/xulydothi.php";
       var data = {
         tuan : "loc theo tuan"
       }
       var success = function(result){
-        console.log(result['caq']);
         var tongDoanhThu = [];
         for(i in result){
           result[i][0];
@@ -695,7 +694,7 @@ $(document).ready(function(){
         options: {
           title: {
             display: true,
-            text: 'Thống kê doanh thu tuần (đơn vị vnđ )'
+            text: 'Thống kê doanh thu tuần (đơn vị vnđ)'
           }
         }
       });
