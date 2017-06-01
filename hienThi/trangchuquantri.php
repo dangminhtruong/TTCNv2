@@ -59,15 +59,21 @@
       <div class="panel-heading"><span><strong>Thống kê - báo cáo</strong></span></div>
     </div>
     <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=xemdoanhthu">
-      <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
+      <div class="col-md-4 hvr-grow-shadow">
         <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i><br/>
         <span>Thống kê doanh thu</span>
       </div>
     </a>
     <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=thongketonkho">
-      <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
+      <div class="col-md-4 hvr-grow-shadow">
           <i class="fa fa-bar-chart fa-5x" aria-hidden="true"></i><br/>
         <span>Thống kê tồn kho</span>
+      </div>
+    </a>
+    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=thongkebanchay">
+      <div class="col-md-4 hvr-grow-shadow">
+          <i class="fa fa-area-chart fa-5x" aria-hidden="true"></i><br/>
+        <span>Sản phẩm bán chạy</span>
       </div>
     </a>
   </div>
@@ -82,7 +88,7 @@
         <span>Thêm bài viết</span>
       </div>
     </a>
-    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=thongketonkho">
+    <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=suabaiviet">
       <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
           <i class="fa fa-pencil-square fa-5x" aria-hidden="true"></i><br/>
         <span>Sửa bài viết</span>
@@ -94,7 +100,7 @@
   <div class="panel  panel-default">
     <div class="panel-heading"><span><strong>Quản lý khách hàng</strong><span></div>
   </div>
-  <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=themnguoidung">
+  <a href="http://localhost/TTCNv2/hienThi/quantri.php?page=dskhachhang">
     <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
       <i class="fa fa-list-ul fa-5x" aria-hidden="true"></i><br/>
       <span>Danh sách khách hàng</span>

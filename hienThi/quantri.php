@@ -92,6 +92,15 @@
               case 'thembaiviet' :
                   include_once('thembaiviet.php');
                 break;
+              case 'dskhachhang':
+                  include_once('dskhachhang.php');
+                  break;
+              case 'suabaiviet':
+                  include_once('suabaiviet.php');
+                break;
+              case 'thongkebanchay' :
+                  include_once('thongkebanchay.php');
+              break;
               case 'dangxuat':
                   header('location:../xuLy/dangxuat.php');
                 break;

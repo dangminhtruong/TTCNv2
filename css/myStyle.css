@@ -119,6 +119,8 @@ body{
   padding-bottom: 2vh;
 	background-color: white;
   padding-top: 4vh;
+	max-height: 32vh;
+	min-height: 32vh;
 }
 #price{
   padding-bottom: 2vh;
@@ -359,7 +361,7 @@ body{
   font-family: font_Buttermilk;
   font-weight: bold;
 }
-/*---------------------------------------------------------------*/
+/*---------------------TIN TUC------------------------------------------*/
 #tintucHeader{
   margin-top: 6vh;
 }
@@ -371,7 +373,11 @@ body{
 .text-center.img_cnt {
     margin: 15px 0;
 }
-
+.right_new{
+	height: 70vh;
+	overflow: scroll;
+  overflow-x: hidden;
+}
 .tieude>a {
     text-decoration: none;
     color: #000;

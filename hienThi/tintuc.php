@@ -1,29 +1,26 @@
-
+<?php
+  include_once('xuly/__autoload.php');
+ ?>
 <!-- begin content -->
 <section>
   <div class="container" id="tintucHeader">
     <div class="row text-left ">
     <div class="tieude_2">
-      <h2>Trang chủ/Tin Tức</h2>
+      <h2>Dũng Hạnh/Tin Tức</h2>
       </div>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 content_new left_new">
-        <h3 class="title_new text-center">Kĩ thuật trông cây chùm ngây</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <div class="text-center img_cnt"><img id="" src="images/sp1.jpg" alt="" width="75%"></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quae illo recusandae consectetur reprehenderit ipsa saepe, expedita debitis? Adipisci quisquam, nostrum iste officiis corrupti et numquam animi. Consequuntur excepturi, alias.</p>
+        <?php
+          $sql = "SELECT tieuDe, noiDung FROM baiviet WHERE id = 3";
+          $baiViet = new sanpham();
+          $baiViet->myQuery($sql);
+          $tieuDe = $baiViet->fetchData();
+         ?>
+        <h3 class="title_new text-center"><?php echo $tieuDe['tieuDe']; ?></h3>
+        <?php echo $tieuDe['noiDung']; ?>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 right_new">
         <div class="row text-center ">

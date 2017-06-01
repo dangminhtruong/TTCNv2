@@ -89,9 +89,9 @@
                 if ($showSPM->numRows() > 0) {
                   while ($rows = $showSPM->fetchData()) {
             ?>
-            <div class="col-md-3 col-sm-12">
+            <div class="col-md-3 col-sm-12 khoiSanPham">
                 <div class="col-md-12" id="spMoiContent">
-                  <img src=<?php echo "images/".$rows['anhSP'] ?> class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
+                  <img src=<?php echo "images/".$rows['anhSP'] ?> class="img-responsive" alt="Cinque Terre">
                 </div>
                 <div class="col-md-12 text-center" id="price">
                   <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">
@@ -211,7 +211,7 @@
           ?>
           <div class="col-md-3 col-sm-12">
               <div class="col-md-12" id="spMoiContent">
-                <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
+                <img src=<?php echo "images/".$rowsT['anhSP'];?> class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
               </div>
               <div class="col-md-12 text-center" id="price">
                 <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">

@@ -133,8 +133,7 @@
                 while ($cayAQ = $cayAnQua->fetchData()) {
                 ?>
               <!-------------------------------------------------------------->
-              <div class=" wow bounceInRight flash" data-wow-duration = "3s">
-                <div class="col-md-4 sanpham">
+                <div class="col-md-4 sanpham wow fadeInUp">
                     <div class="col-md-12" id="spMoiContent">
                       <img src=<?php echo "images/".$cayAQ['anhSP'] ?> class="img-responsive" alt="Cinque Terre">
                     </div>
@@ -159,7 +158,6 @@
                       </span>
                     </div>
                 </div>
-              </div>
               <?php
                     }
                ?>

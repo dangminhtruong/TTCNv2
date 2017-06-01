@@ -655,10 +655,6 @@ $(document).ready(function(){
         tuan : "loc theo tuan"
       }
       var success = function(result){
-        var tongDoanhThu = [];
-        for(i in result){
-          result[i][0];
-        }
         new Chart(document.getElementById("line-chart"), {
         type: 'line',
         data: {
