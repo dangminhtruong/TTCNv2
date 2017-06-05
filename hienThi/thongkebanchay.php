@@ -15,7 +15,7 @@ $homNay =  date('Y/m/d');
             <div class="col-md-12 well">
               <strong>Hôm nay</strong>
             </div>
-            <div class="col-md-12 tkspBanChay">
+            <div class="col-md-12 tkspBanChay" id="tkspBanChay">
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -47,7 +47,7 @@ $homNay =  date('Y/m/d');
           <div class="col-md-12 well">
             <strong>Tuần này</strong>
           </div>
-          <div class="col-md-12 tkspBanChay">
+          <div class="col-md-12 tkspBanChay" id="tkspBanChay">
             <table class="table table-hover">
               <thead>
                 <tr>
@@ -78,7 +78,7 @@ $homNay =  date('Y/m/d');
           <div class="col-md-12 well">
             <strong>Tháng này</strong>
           </div>
-          <div class="col-md-12 tkspBanChay">
+          <div class="col-md-12 tkspBanChay" id="tkspBanChay">
             <table class="table table-hover">
               <thead>
                 <tr>

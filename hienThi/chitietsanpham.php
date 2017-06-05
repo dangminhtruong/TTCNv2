@@ -1,20 +1,6 @@
 <?php
     include_once('xuly/__autoload.php');
-    $phantrang = new sanpham();
-    $maxResult = 12;
-    $listPage = '';
-    $getLink = $_SERVER['PHP_SELF'];
-    if (!isset($_GET['id'])) {
-      $pageId = 1;
-    }
-    else {
-      $pageId = $_GET['id'];
-    }
-    $sql2 = "SELECT* FROM sanpham WHERE maLoaiSP = 3";
-    $phantrang->myQuery($sql2);
-    $tongKetQua = $phantrang->numRows();
-    $tongSoTrang = ceil($tongKetQua/$maxResult);
-    $indexRows = $pageId*$maxResult - $maxResult;
+    $idsp = $_GET['idsp'];
     //------------------------------------------------------------
 ?>
         <!---------------------CONTAINER-------------------------------->
@@ -116,32 +102,75 @@
             <!------------------PHAI --------------------------------------------->
             <div class="col-md-9 row" id="cayAnQuaRight1">
             <!--------------------------------------------------------------->
-              <div class="col-md-12">
-                <div class="col-md-12" id="thanhSapXep">
-                  <p data-toggle="dropdown" href="#">Sắp xếp theo <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i><span class="caret"></span></p>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    <li><a href="#">Gía tăng dần</a></li>
-                    <li><a href="#">Giá giảm dần</a></li>
-                  </ul>
-                </div>
-              </div>
               <!-------------------------------------------------------------->
                 <?php
-                $sql1 = "SELECT* FROM sanpham WHERE maLoaiSP = 3 LIMIT $maxResult OFFSET $indexRows";
+                $sql1 = "SELECT* FROM sanpham WHERE masp = '$idsp'";
                 $cayAnQua = new sanpham();
                 $cayAnQua->myQuery($sql1);
                 while ($cayAQ = $cayAnQua->fetchData()) {
                 ?>
               <!-------------------------------------------------------------->
-                <div class="col-md-4 sanpham wow bounceInUp" data-wow-duration="2s">
-                    <div class="col-md-12" id="spMoiContent">
-                      <a <?php echo "href=index.php?page=chitietsanpham&idsp=".$cayAQ['maSP'];?> target="_blank">
+                <div class="col-md-12 space">
+                  <div class="col-md-4 sanpham wow bounceInUp" data-wow-duration="2s">
+                      <div class="col-md-12" id="spMoiContent">
                         <img src=<?php echo "images/".$cayAQ['anhSP'] ?> class="img-responsive" alt="Cinque Terre">
-                     </a>
+                      </div>
+                      <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
+                        <button class="buttonDatMua button_orange" <?php echo "value=".$cayAQ['maSP'] ?>>Đặt mua</button>
+                      </div>
+                  </div>
+                  <div class="col-md-8 sanpham thongTinSanPham">
+                      <div class="col-md-4 motThongTinSp hvr-bounce-to-right">
+                          Tên sản phẩm :
+                      </div>
+                      <div class="col-md-8 motThongTinSp">
+                          <?php echo $cayAQ['tenSP'] ?>
+                      </div>
+                      <div class="col-md-4 motThongTinSp hvr-bounce-to-right">
+                          Giá sản phẩm :
+                      </div>
+                      <div class="col-md-8 motThongTinSp">
+                          <?php echo $cayAQ['giaSP'] ?><u>đ</u>
+                      </div>
+                      <div class="col-md-4 motThongTinSp hvr-bounce-to-right">
+                          Loại sản phẩm :
+                      </div>
+                      <div class="col-md-8 motThongTinSp">
+                          Cây ăn quả
+                      </div>
+                      <div class="col-md-4 motThongTinSp hvr-bounce-to-right">
+                          Tình trạng :
+                      </div>
+                      <div class="col-md-8 motThongTinSp">
+                          <?php
+                            if ($cayAQ['soLuongSP'] > 0) {
+                                echo "Còn hàng";
+                            }
+                            else {
+                              echo "Hết hàng";
+                            }
+                          ?>
+                      </div>
+                      <div class="col-md-4 motThongTinSp hvr-bounce-to-right">
+                          Mô tả :
+                      </div>
+                      <div class="col-md-8 motThongTinSp">
+                          <?php echo $cayAQ['moTaSP'];?>
+                      </div>
+                  </div>
+                </div>
+              <?php
+                    }
+               ?>
+            <!------------------------------------------------------------------------------>
+            <div class="col-md-12 sanPhamLienQuan">
+                  <div class="col-md-4">
+                    <div class="col-md-12" id="spMoiContent">
+                      <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre">
                     </div>
                     <div class="col-md-12 text-center" id="price">
                       <span style="font-family: 'Lobster', cursive; color:#33cc00;">
-                        <?php echo $cayAQ['tenSP'] ?>
+                        Chanh Leo
                       </span>
                     </div>
                     <div class="col-md-12" style="text-align:center;background-color:white;">
@@ -152,29 +181,66 @@
                       <i class="fa fa-heart-o" aria-hidden="true"></i>
                     </div>
                     <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                      <button class="buttonDatMua button_orange" <?php echo "value=".$cayAQ['maSP'] ?>>Đặt mua</button>
+                      <button class="buttonDatMua button_orange">Đặt mua</button>
                     </div>
                     <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                       <span style="font-family: 'Fjalla One', sans-serif;">
-                        <?php echo $cayAQ['giaSP'] ?><u>đ</u>
+                        40000<u>đ</u>
                       </span>
                     </div>
-                </div>
-              <?php
-                    }
-               ?>
-            <!------------------------------------------------------------------------------>
-            <div class="col-md-12">
-              <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <?php
-                  for ($i=1; $i <= $tongSoTrang; $i++) {
-                    echo '<li><a href="'.$_SERVER['PHP_SELF'].'?page=cayanqua&id='.$i.'">'.$i.'</a></li>';
-                  }
-                 ?>
-                 <li><a href="#">&raquo;</a></li>
-              </ul>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="col-md-12" id="spMoiContent">
+                      <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre">
+                    </div>
+                    <div class="col-md-12 text-center" id="price">
+                      <span style="font-family: 'Lobster', cursive; color:#33cc00;">
+                        Chanh Leo
+                      </span>
+                    </div>
+                    <div class="col-md-12" style="text-align:center;background-color:white;">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
+                      <button class="buttonDatMua button_orange">Đặt mua</button>
+                    </div>
+                    <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
+                      <span style="font-family: 'Fjalla One', sans-serif;">
+                        40000<u>đ</u>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="col-md-12" id="spMoiContent">
+                      <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre">
+                    </div>
+                    <div class="col-md-12 text-center" id="price">
+                      <span style="font-family: 'Lobster', cursive; color:#33cc00;">
+                        Chanh Leo
+                      </span>
+                    </div>
+                    <div class="col-md-12" style="text-align:center;background-color:white;">
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart" aria-hidden="true"></i>
+                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                    </div>
+                    <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
+                      <button class="buttonDatMua button_orange">Đặt mua</button>
+                    </div>
+                    <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
+                      <span style="font-family: 'Fjalla One', sans-serif;">
+                        40000<u>đ</u>
+                      </span>
+                    </div>
+                  </div>
             </div>
+            <!------------------------------->
           </div>
           <!------------------------------------------------------------------------------>
         </div>

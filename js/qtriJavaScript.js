@@ -4,6 +4,11 @@ $(document).ready(function(){
 });
 //------------------------------------
 $(document).ready(function(){
+  CKEDITOR.replace( 'upDateNoiDungBv');
+  CKEDITOR.config.height = '450px';
+});
+//------------------------------------
+$(document).ready(function(){
     $( "#timTuNgay" ).datepicker({
       dateFormat: 'yy-mm-dd'
     });
@@ -28,7 +33,7 @@ $(document).ready(function(){
         $("#saiThongTinDN").modal('show');
       }
       else {
-        window.location.replace("http://localhost/TTCNv2/hienThi/quantri.php");
+        window.location.replace("/TTCNv2/hienThi/quantri.php");
       }
     };
       $.post(url, data, success, dataType);
@@ -129,7 +134,7 @@ $(document).ready(function(){
                   $('#xoaSPThanhCong').modal('show');
                   function myFunction() {
                       setTimeout(function(){
-                        window.location.replace("http://localhost/TTCNv2/hienThi/quantri.php?page=suaxoasanpham");
+                        window.location.replace("/TTCNv2/hienThi/quantri.php?page=suaxoasanpham");
                       }, 1000);
                   }
                   myFunction();
@@ -189,7 +194,7 @@ $('.btn-delete').click(function(){
       $('#xoaSPThanhCong').modal('show');
       function myFunction() {
           setTimeout(function(){
-            window.location.replace("http://localhost/TTCNv2/hienThi/quantri.php?page=suaxoasanpham");
+            window.location.replace("/TTCNv2/hienThi/quantri.php?page=suaxoasanpham");
           }, 1000);
       }
       myFunction();
@@ -213,7 +218,7 @@ $(document).ready(function(){
         $('#themLoaiSPTC').modal('show');
         function myResetFunction() {
             setTimeout(function(){
-              window.location.replace("http://localhost/TTCNv2/hienThi/quantri.php?page=quanlyloaisanpham");
+              window.location.replace("/TTCNv2/hienThi/quantri.php?page=quanlyloaisanpham");
             }, 1000);
         }
         myResetFunction();
@@ -331,7 +336,7 @@ $(document).ready(function(){
               $('#xoaTaiKhoanThanhCong').modal('show');
               function myFunction() {
                   setTimeout(function(){
-                    window.location.replace("http://localhost/TTCNv2/hienThi/quantri.php?page=suaxoanguoidung");
+                    window.location.replace("/TTCNv2/hienThi/quantri.php?page=suaxoanguoidung");
                   }, 1000);
               }
               myFunction();
@@ -639,7 +644,6 @@ $(document).ready(function(){
           noiDung : nDung
         }
         var success = function(result){
-          console.log(result);
             if (result == 'Them bai viet thanh cong') {
                 $('#themBaiVietThanhCong').modal('show');
             }
@@ -697,4 +701,169 @@ $(document).ready(function(){
       };
       var dataType = "json";
       $.post(url,data,success,dataType);
+});
+//-----------------------------------------------------------
+$(document).ready(function(){
+  $('#themKhq').click(function(){
+    var tenkhq = $('#tenKhq').val();
+    var diaChiKhq = $('#diaChiKhq').val();
+    var soDtKhq = $('#soDtKhq').val();
+    var emailKhq = $('#emailKhq').val();
+    var inn = '';
+    var url = "../xuly/themkhachhangquen.php";
+    var data = {
+        ten : tenkhq,
+        diaChi : diaChiKhq,
+        soDT : soDtKhq,
+        email : emailKhq
+    }
+    var success = function(result){
+        $('#btn-reset-khq').click();
+        $('#themKhqThanhCong').modal('show');
+        //-------------------
+        inn += '<div class="col-md-12 khachQuen"><div class="col-md-2">';
+        inn +=  tenkhq;
+        inn += '</div><div class="col-md-4">';
+        inn +=  diaChiKhq;
+        inn += '</div><div class="col-md-2">';
+        inn += soDtKhq;
+        inn += '</div><div class="col-md-3">';
+        inn += emailKhq;
+        inn += '</div><div class="col-md-1"><button type="button" class="btn btn-xs btn-danger suaKQ" value=';
+        inn += result;
+        inn += '>Sửa</button></div></div>';
+        //-------------------
+        $('#dsKhachQuen').append(inn);
+    }
+    var dataType = "text";
+    $.post(url,data,success,dataType);
+  });
+});
+//------------------------------------------------------
+$(document).ready(function(){
+  $('#btn-themKhachQuen').click(function(){
+    $('#suaKhachQuen').collapse('hide');
+    $('#themKhachQuen').collapse('show');
+  });
+});
+//------------------------------------------------------
+$(document).ready(function(){
+  $('.suaKQ').click(function(){
+    $('#themKhachQuen').collapse('hide');
+    $('#suaKhachQuen').collapse('show');
+    var idKhachQuen = $(this).val();
+    var url = "../xuly/laythongtinkhq.php";
+    var data = {
+      idkq : idKhachQuen
+    }
+    var success = function(result){
+      $('#suaTenKhq').attr('placeholder',result['tenKhq']);
+      $('#suaDiaChiKhq').attr('placeholder',result['diaChiKh']);
+      $('#suaSoDtKhq').attr('placeholder',result['soDtKh']);
+      $('#suaEmailKhq').attr('placeholder',result['emailkh']);
+      $('#btn-suaKhq').attr('value',idKhachQuen);
+    }
+    var dataType = 'json';
+    $.post(url,data,success,dataType);
+  });
+});
+//----------------------
+$(document).ajaxComplete(function(){
+  $('.suaKQ').click(function(){
+    $('#themKhachQuen').collapse('hide');
+    $('#suaKhachQuen').collapse('show');
+    var idKhachQuen = $(this).val();
+    var url = "../xuly/laythongtinkhq.php";
+    var data = {
+      idkq : idKhachQuen
+    }
+    var success = function(result){
+      $('#suaTenKhq').attr('placeholder',result['tenKhq']);
+      $('#suaDiaChiKhq').attr('placeholder',result['diaChiKh']);
+      $('#suaSoDtKhq').attr('placeholder',result['soDtKh']);
+      $('#suaEmailKhq').attr('placeholder',result['emailkh']);
+      $('#btn-suaKhq').attr('value',idKhachQuen);
+    }
+    var dataType = 'json';
+    $.post(url,data,success,dataType);
+  });
+});
+//---------------------------------------
+$(document).ready(function(){
+  $('#btn-suaKhq').click(function(){
+    var suaTenKhq = $('#suaTenKhq').val();
+    var suaDiaChiKhq = $('#suaDiaChiKhq').val();
+    var suaSoDtKhq = $('#suaSoDtKhq').val();
+    var suaEmailKhq = $('#suaEmailKhq').val();
+    var idKhachQuen = $(this).val();
+    var url = "../xuly/suakhachquen.php";
+    var data = {
+          idUpDate : idKhachQuen,
+          tenUpDate : suaTenKhq,
+          diaChiUpDate : suaDiaChiKhq,
+          soDtUpDate : suaSoDtKhq,
+          emailUpDate :  suaEmailKhq
+    }
+    var success = function(result){
+        if (result == 'Chinh sua thanh cong') {
+            $('#suaKhqThanhCong').modal('show');
+        }
+        function myFunction() {
+            setTimeout(function(){
+              window.location.replace("/TTCNv2/hienThi/quantri.php?page=dskhachhang");
+            }, 1000);
+        }
+        myFunction();
+    }
+    var dataType = "text";
+    $.post(url,data,success,dataType);
+  });
+});
+//-----------------------------------
+$(document).ready(function(){
+  $('.btn-suaBaiViet').click(function(){
+    $('#suaBaiBaiViet').collapse('show');
+    var id = $(this).val();
+    var td =   $('#tieuDe'+ id).text();
+    var url = "../xuly/xulysuabaiviet.php";
+    var data = {
+      idBv : id
+    }
+    var success = function(result){
+      $('#upDateTieuDeBv').text(td);
+      CKEDITOR.instances['upDateNoiDungBv'].setData(result);
+      $('#btn-suaBv').attr('value',id);
+    };
+    var dataType = "text";
+    $.post(url,data,success,dataType);
+  });
+});
+//----------------------------------
+$(document).ready(function(){
+  $('#btn-suaBv').click(function(){
+    var id = $('#btn-suaBv').val();
+    var tieuDeMoi = $('#upDateTieuDeBv').val();
+    var noiDungMoi = CKEDITOR.instances.upDateNoiDungBv.getData();
+    console.log(id);
+    console.log(tieuDeMoi);
+    var url = "../xuly/xulysuabaiviet.php";
+    var data = {
+        idUpDate : id,
+        upDateTieuDe : tieuDeMoi,
+        upDateNoiDung : noiDungMoi
+    }
+    var success = function(result){
+      if (result == 'Sua bai viet thanh cong') {
+          $('#suaBaiVietThanhCong').modal('show');
+      }
+      function myFunction() {
+          setTimeout(function(){
+            window.location.replace("/TTCNv2/hienThi/quantri.php?page=suabaiviet");
+          }, 1000);
+      }
+      myFunction();
+    }
+    var dataType = "text";
+    $.post(url,data,success,dataType);
+  });
 });

@@ -193,6 +193,13 @@
 	 border-bottom: 1px solid black;
 	 border-top: 1px solid black;
 }
+.sanPhamTonKho{
+	font-family: 'Lobster', cursive;
+	text-align: center;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	border-bottom: 1px solid black;
+}
 .setSize{
 	max-width: 50%;
 }
@@ -214,10 +221,17 @@
 	color: red;
 }
 /*------------------------------------*/
-.tkspBanChay{
-	height: 40vh;
+#tkspBanChay{
+	height: 50vh;
 	overflow-y: scroll;
 	text-align: left;
+}
+#dsKhachQuen{
+	height: 50vh;
+	overflow-y: scroll;
+	text-align: left;
+	border-bottom: 1px dashed black;
+	margin-bottom: 4vh;
 }
 .tkspBanChay::-webkit-scrollbar-track
 {
@@ -242,4 +256,29 @@
 	rgba(255, 255, 255, .2) 75%,
 	transparent 75%,
 	transparent)
+}
+/*---------------------------------------------*/
+#suaKhachQuen{
+	margin-top: 4vh;
+	margin-bottom: 4vh;
+}
+.khachQuen{
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+	border-top: 1px dashed black;
+	text-align: center;
+}
+#themKhachQuen{
+	margin-top: 4vh;
+	margin-bottom: 4vh;
+}
+/*----------------------------------------------*/
+#danhSachBaiViet div:hover{
+			background-color: yellow;
+}
+#dsBaiViet{
+	height: 50vh;
+	overflow: scroll;
+	overflow-x: hidden;
+	margin-bottom: 4vh;
 }

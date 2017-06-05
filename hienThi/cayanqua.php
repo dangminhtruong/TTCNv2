@@ -91,7 +91,7 @@
               <!---->
               <div class="col-md-12 cayAnQuaMenu hvr-grow-shadow">
                 <div class="col-md-4 row">
-                  <img src=<?php echo 'images/'.$rowsT['anhSP'] ?> class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;"/>
+                    <img src=<?php echo 'images/'.$rowsT['anhSP'] ?> class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;"/>
                 </div>
                 <div class="col-md-8">
                   <?php echo $rowsT['tenSP'] ?><br/>
@@ -133,9 +133,11 @@
                 while ($cayAQ = $cayAnQua->fetchData()) {
                 ?>
               <!-------------------------------------------------------------->
-                <div class="col-md-4 sanpham wow fadeInUp">
+                <div class="col-md-4 sanpham wow bounceInUp" data-wow-duration="2s">
                     <div class="col-md-12" id="spMoiContent">
-                      <img src=<?php echo "images/".$cayAQ['anhSP'] ?> class="img-responsive" alt="Cinque Terre">
+                      <a <?php echo "href=index.php?page=chitietsanpham&idsp=".$cayAQ['maSP'];?> target="_blank">
+                        <img src=<?php echo "images/".$cayAQ['anhSP'] ?> class="img-responsive" alt="Cinque Terre">
+                      </a>
                     </div>
                     <div class="col-md-12 text-center" id="price">
                       <span style="font-family: 'Lobster', cursive; color:#33cc00;">

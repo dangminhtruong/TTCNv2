@@ -42,7 +42,7 @@ $(document).ready(function(){
       }
         $('#datHangThanhCong').modal('show');
         $('#closeDatHangThanhCong').click(function(){
-            window.location.replace("http://localhost/TTCNv2/index.php?page=trangchu");
+            window.location.replace("/TTCNv2/index.php?page=trangchu");
         });
     };
     var dataType = "text";
@@ -106,7 +106,7 @@ $(document).ready(function(){
                   $('#thanhToanTop').remove();
                   $('#tongTien').remove();
                   $('#formNTTKH').remove();
-                  $('#thanhtoan').append('<div class="col-md-12">Thật tiếc, bạn vừa bỏ hết sản phẩm trong giỏ hàng. Nhấn vào <a href="http://localhost/TTCNv2/index.php?page=trangchu">ĐÂY</a> để lựa chọn những sản phầm khác...</div>');
+                  $('#thanhtoan').append('<div class="col-md-12">Thật tiếc, bạn vừa bỏ hết sản phẩm trong giỏ hàng. Nhấn vào <a href="/TTCNv2/index.php?page=trangchu">ĐÂY</a> để lựa chọn những sản phầm khác...</div>');
                 }
             }
             var dataType = "text";

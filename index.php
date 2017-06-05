@@ -113,6 +113,10 @@
               case 'thanhtoan':
                   include_once("hienThi/thanhtoan.php");
                   break;
+            //------------------------------
+              case 'chitietsanpham' :
+                  include_once("hienThi/chitietsanpham.php");
+                  break;
               }
             }
             else {

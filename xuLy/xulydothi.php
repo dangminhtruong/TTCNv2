@@ -6,11 +6,23 @@ $cuoiTuan = date("Y-m-d", strtotime("sunday this week"));
 $dauThang = date("Y-m-d", strtotime("first day of this month"));
 $cuoiThang = date("Y-m-d", strtotime("last day of this month"));
 $homNay =  date('Y/m/d');
-$thuBa = date("Y-m-d", strtotime("tuesday this week"));
-$thuTu = date("Y-m-d", strtotime("wednesday this week"));
-$thuNam = date("Y-m-d", strtotime("thursday this week"));
-$thuSau = date("Y-m-d", strtotime("friday this week"));
-$thuBay = date("Y-m-d", strtotime("saturday this week"));
+//---------------
+$tue=date_create($dauTuan);
+date_add($tue,date_interval_create_from_date_string("1 days"));
+$thuBa =  date_format($tue,"Y-m-d");
+$wed=date_create($dauTuan);
+date_add($wed,date_interval_create_from_date_string("2 days"));
+$thuTu = date_format($wed,"Y-m-d");
+$thu=date_create($dauTuan);
+date_add($thu,date_interval_create_from_date_string("3 days"));
+$thuNam = date_format($thu,"Y-m-d");
+$fri=date_create($dauTuan);
+date_add($fri,date_interval_create_from_date_string("4 days"));
+$thuSau = date_format($fri,"Y-m-d");
+$sat=date_create($dauTuan);
+date_add($sat,date_interval_create_from_date_string("5 days"));
+$thuBay = date_format($sat,"Y-m-d");
+//---------------
 $tk = new thongkedoanhthu();
 $aq = array();
 $ln = array();
