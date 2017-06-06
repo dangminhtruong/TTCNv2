@@ -6,7 +6,4 @@
     $xoaSP->xoaSanPham($maSPX);
     echo "Da xoa san pham";
   }
-
-
-
 ?>

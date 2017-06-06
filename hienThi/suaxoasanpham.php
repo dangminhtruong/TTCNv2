@@ -134,10 +134,10 @@
           ?>
           <tr>
             <td>
-              <button type="button" class="btn btn-default btn-xs btn-edit1" <?php echo "value = ".$kq['maSP']; ?>>
+              <button type="button" class="btn btn-default btn-xs btn-edit1" <?php echo "value =".$kq['maSP']; ?>>
                 Sửa
               </button>
-              <button type="button" class="btn btn-danger btn-xs btn-delete" <?php echo "value = ".$kq['maSP']; ?>>Xóa</button>
+              <button type="button" class="btn btn-danger btn-xs btn-delete" <?php echo "value =".$kq['maSP']; ?>>Xóa</button>
             </td>
             <td><?php echo $kq['maSP']; ?></td>
             <td><?php echo $kq['tenSP']; ?></td>

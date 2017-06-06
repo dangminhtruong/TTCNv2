@@ -37,16 +37,31 @@ $(document).ready(function(){
         tongThanhToan : tongHD
     };
     var success = function(result){
-      console.log(result);
-      if (result == 'Dat hang than cong') {
-      }
+        console.log(result);
+        $('#maDonHang').html(result[0]['maDH']);
+        $('#tenKhHd').html(hoTenKh);
+        $('#diaChiKhHd').html(diaChiGiaoHang);
+        $('#soDtKhHd').html(dienThoaiKh);
+        $('#emailKhHd').html(emailKh);
+        $('#cachThanhToanHd').html(hinhThucThanhToan);
+        add = '';
+        for (i in result) {
+            add += '<div class="col-md-8"><i>';
+            add += result[i]['tenSP'];
+            add += '</i></div><div class="col-md-4">';
+            add += result[i]['soLuongSp'];
+            add += '</div>';
+        }
+        $('#themTTSoLuongSp').html(add);
+        //--------------------------------------------
         $('#datHangThanhCong').modal('show');
         $('#closeDatHangThanhCong').click(function(){
             window.location.replace("/TTCNv2/index.php?page=trangchu");
         });
     };
-    var dataType = "text";
+    var dataType = "json";
     $.post(url, data, success, dataType);
+    //-----
   });
 });
 //------------------------------------

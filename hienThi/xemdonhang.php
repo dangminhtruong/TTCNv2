@@ -106,12 +106,12 @@ $homNay =  date('Y/m/d');
       </div>
     </div>
     <!---------------->
-    <div class="col-md-12" id="hienThiDonHang">
+    <div class="col-md-12 tkspBanChay" id="hienThiDonHang">
       <?php
           include_once("../xuly/__autoload.php");
           $hienDH = new sanpham();
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan, donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE donhang.ngaydathang = '$homNay'";
@@ -140,14 +140,24 @@ $homNay =  date('Y/m/d');
         <div class="col-md-2">
             Mã đơn hàng: <?php  echo "DH-".$res['madh'];?> <br/>
             Tổng thanh toán:<br/><span <?php echo "id=tongDH".$res["madh"] ?>><?php echo $res["tongthanhtoan"] ?></span><u>đ</u><br/>
-            Ngày đặt hàng:<br/> <?php echo $res["ngaydathang"] ?>
+            Ngày đặt hàng:<br/> <?php echo $res["ngaydathang"] ?><br/>
+            <?php echo $res["cachThanhToan"] ;?>
         </div>
         <div class="col-md-3">
-            Tên : <?php echo $res["tenkh"] ?><br/>
-            Địa chỉ: <?php echo $res["diachi"] ?>
+            Tên : <?php echo $res["tenkh"]; ?><br/>
+            Địa chỉ: <?php echo $res["diachi"];?><br/>
+            Email : <?php echo $res["email"]; ?>
         </div>
         <div class="col-md-2">
-            <p <?php echo "id=trangThai".$res['madh'] ?>><?php echo $res["trangthai"] ?></p>
+            <p <?php echo "id=trangThai".$res['madh'] ?>><?php
+              if ($res["trangthai"] == "Đang chuyển hàng" || $res["trangthai"] == "Hoàn tất" || $res["trangthai"] == "Đã xác nhận") {
+                echo $res["trangthai"]."<br/>";
+                echo "Mã NV: ".$res['manv'];
+              }
+              else {
+                echo $res["trangthai"];
+              }
+            ?></p>
         </div>
         <div class="col-md-2">
           <?php

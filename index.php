@@ -42,7 +42,6 @@
                       <li><a href="index.php?page=caylamnghiep">Cây lâm nghiệp</a></li>
                       <li><a href="index.php?page=caycongtrinh">Cây công trình</a></li>
                       <li><a href="index.php?page=hoacaycanh">Hoa - Cây cảnh</a></li>
-                      <li><a href="index.php?page=vattunongnghiep">Vật tư nông nghiệp</a></li>
                     </ul>
                 </li>
                 <li><a href="index.php?page=tintuc">Tin tức</a></li>

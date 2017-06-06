@@ -11,7 +11,8 @@
       $_SESSION['userName'] = $_POST['userName'];
       $_SESSION['passWord'] = $_POST['passWord'];
       $_SESSION['nhanVien'] = $nhanVienDN;
-      echo "Dang nhap thanh cong";
+      echo $_SESSION['nhanVien'];
+    //  echo "Dang nhap thanh cong";
     }
     elseif ($nhanVienDN == 'unvalid') {
       echo "Dang nhap khong thanh cong";

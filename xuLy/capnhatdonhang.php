@@ -1,5 +1,6 @@
 <?php
   include_once('__autoload.php');
+  session_start();
   if (isset($_POST['maDonHang'])) {
     $maDH = $_POST['maDonHang'];
     $sql = "SELECT sanpham.tenSP,sanpham.giaSP, sanpham.masp, chitietdonhang.soLuong, donhang.trangthai,
@@ -50,7 +51,8 @@
   elseif (isset($_POST['maDHU'],$_POST['trangThai'])) {
     $maDHU  = $_POST['maDHU'];
     $trangThai = $_POST['trangThai'];
-    $sql6 = "UPDATE donhang SET donhang.trangthai = '$trangThai' WHERE donhang.maDH = '$maDHU'";
+    $nhanVienXuLy = $_SESSION['nhanVien'];
+    $sql6 = "UPDATE donhang SET donhang.trangthai = '$trangThai', donhang.maNV = '$nhanVienXuLy' WHERE donhang.maDH = '$maDHU'";
     $upDate2 = new sanpham();
     $upDate2->myQuery($sql6);
     echo $trangThai;

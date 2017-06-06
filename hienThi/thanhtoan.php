@@ -1,17 +1,46 @@
 
 <div class="container-fluid" id="thanhtoan">
   <!-------------------->
-  <div class="container">
     <div class="modal fade" id="datHangThanhCong" role="dialog">
-      <div class="modal-dialog modal-sm">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Đặt hàng thành công</h4>
+          <div class="modal-header well">
+            <h4 class="modal-title"><strong>Đặt hàng thành công - DH</strong><strong id="maDonHang"></strong></h4>
           </div>
-          <div class="modal-body">
-            <p>Cám ơn bạn đã ủng hộ nhà vườn chúng tôi.
-              Sản phẩm sẽ được chuyển đến bạn trong vòng 3 ngày tới...</p>
+          <div class="modal-body" id="thongTinDonHang">
+              <div class="col-md-6">
+                  <div class="col-md-12">
+                      Họ tên : <i id="tenKhHd"></i>
+                  </div>
+                  <div class="col-md-12">
+                      Địa chỉ : <i id="diaChiKhHd"></i>
+                  </div>
+                  <div class="col-md-12">
+                      Số điện thoại : <i id="soDtKhHd"></i>
+                  </div>
+                  <div class="col-md-12">
+                      Email : <i id="emailKhHd"></i>
+                  </div>
+                  <div class="col-md-12">
+                      <i id="cachThanhToanHd"></i>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="col-md-12">
+                    <div class="col-md-8">
+                        Tên sản phẩm
+                    </div>
+                    <div class="col-md-4">
+                        Số Lượng
+                    </div>
+                    <div class="col-md-12" id="themTTSoLuongSp">
+
+                    </div>
+                  </div>
+              </div>
+              <div class="col-md-12" id="loiCamOn">
+                  <strong>Cảm ơn bạn đã ủng hộ nhà vườn chúng tôi. Sản phẩm sẽ được chuyển đến bạn trong vòng 3 ngày tới...</strong>
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" id="closeDatHangThanhCong">Close</button>
@@ -19,7 +48,6 @@
         </div>
       </div>
     </div>
-  </div>
   <!-------------------->
   <?php
     if (isset($_SESSION['muaHang'])) {

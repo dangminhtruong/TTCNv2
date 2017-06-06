@@ -17,9 +17,13 @@
         $sql = "SELECT* FROM taikhoan WHERE tenTK = '$this->userName' AND matKhau = '$this->passWord'";
         $this->myQuery($sql);
         if ($kq =  $this->numRows() > 0) {
-          $maNVDN = $this->fetchData();
-          return $maNVDN['maTK'];
-          $this->freeQuery();
+          $maTK = $this->fetchData();
+          $maTKNV =  $maTK['maTK'];
+          $sql2 = "SELECT maNV FROM nhanvien WHERE maTK = '$maTKNV'";
+          $this->myQuery($sql2);
+          $maNhanVien = $this->fetchData();
+          $maNVDN = $maNhanVien['maNV'];
+          return $maNVDN;
         }
         else {
           return "unvalid";

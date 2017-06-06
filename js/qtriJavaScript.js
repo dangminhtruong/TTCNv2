@@ -29,6 +29,7 @@ $(document).ready(function(){
     };
     var dataType = "text";
     var success = function(result){
+      console.log(result);
       if (result == 'Dang nhap khong thanh cong') {
         $("#saiThongTinDN").modal('show');
       }
@@ -316,6 +317,7 @@ $(document).ready(function(){
          if (result == 'Da cap nhat') {
             $('#suaTaiKhoanThanhCong').modal('show');
             $('#resetSuaNguoiDung').click();
+            $('#suaNguoiDung').collapse('hide');
          }
     }
     var dataType = "text";
@@ -325,6 +327,7 @@ $(document).ready(function(){
 //------------------------------------------------
 $(document).ready(function(){
   $('.btn-deleteUser').click(function(){
+    if (confirm("Bạn chắc chắn muốn xóa tài khoản này ? ") == true) {
       var maTkDel = $(this).val();
       var url = "../xuly/xoanguoidung.php";
       var data = {
@@ -344,6 +347,7 @@ $(document).ready(function(){
       };
       var dataType = "text";
       $.post(url,data,success,dataType);
+    }
   });
 });
 //------------------------------------------------------------------
@@ -606,32 +610,36 @@ $(document).ready(function(){
 //-------------------------------------------
 $(document).ajaxComplete(function(){
   $('.btn-huyDH').click(function(){
-    var maDHHuy = $(this).val();
-    var url = "../xuly/capnhatdonhang.php";
-    var data = {
-        maDhDel : maDHHuy
+    if (confirm("Bạn chắc chắn muốn hủy bỏ đơn hàng ?") == true) {
+      var maDHHuy = $(this).val();
+      var url = "../xuly/capnhatdonhang.php";
+      var data = {
+          maDhDel : maDHHuy
+      }
+      var success =  function(result){
+        $('#dhCt'+maDHHuy).remove();
+      }
+      var dataType = "text";
+      $.post(url,data,success,dataType);
     }
-    var success =  function(result){
-      $('#dhCt'+maDHHuy).remove();
-    }
-    var dataType = "text";
-    $.post(url,data,success,dataType);
   });
 });
 //-------------------------------------
 $(document).ready(function(){
   $('.btn-huyDH').click(function(){
-    var maDHHuy = $(this).val();
-    var url = "../xuly/capnhatdonhang.php";
-    var data = {
-        maDhDel : maDHHuy
-    }
-    var success =  function(result){
-      $('#dhCt'+maDHHuy).remove();
-    }
-    var dataType = "text";
-    $.post(url,data,success,dataType);
-  });
+      if (confirm("Bạn chắc chắn muốn hủy bỏ đơn hàng ?") == true) {
+          var maDHHuy = $(this).val();
+          var url = "../xuly/capnhatdonhang.php";
+          var data = {
+              maDhDel : maDHHuy
+          }
+          var success =  function(result){
+            $('#dhCt'+maDHHuy).remove();
+          }
+          var dataType = "text";
+          $.post(url,data,success,dataType);
+      }
+    });
 });
 //---------------------------------------
 $(document).ready(function(){

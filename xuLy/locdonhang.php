@@ -13,31 +13,31 @@
         //-----------------------
         if ($_POST['timTrongTuanThang'] == 'timTrongTuan' && $_POST['timTheoTinhTrang'] !='null') {
           $trangThai = $_POST['timTheoTinhTrang'];
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan,donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE (donhang.ngaydathang BETWEEN '$dauTuan' AND '$cuoiTuan') AND donhang.trangthai ='$trangThai'";
         }
         elseif ($_POST['timTrongTuanThang'] == 'timTrongThang' && $_POST['timTheoTinhTrang'] !='null') {
           $trangThai = $_POST['timTheoTinhTrang'];
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan,donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE (donhang.ngaydathang BETWEEN '$dauThang' AND '$cuoiThang') AND donhang.trangthai ='$trangThai'";
         }
         elseif ($_POST['timTrongTuanThang'] == 'timTrongTuan' && $_POST['timTheoTinhTrang'] == 'null') {
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan,donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE donhang.ngaydathang BETWEEN '$dauTuan' AND '$cuoiTuan'";
         }
 
         elseif ($_POST['timTrongTuanThang'] == 'timTrongThang' && $_POST['timTheoTinhTrang'] == 'null') {
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan,donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE donhang.ngaydathang BETWEEN '$dauThang' AND '$cuoiThang'";
@@ -45,8 +45,8 @@
         //-------------------------------------
         elseif ($_POST['tuNgay'] == null && $_POST['denNgay'] == null && $_POST['timTrongTuanThang'] == 'null' && $_POST['timTheoTinhTrang'] != 'null') {
           $trangThai = $_POST['timTheoTinhTrang'];
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan,donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE donhang.trangthai= '$trangThai'";
@@ -55,8 +55,8 @@
         elseif ($_POST['tuNgay'] != null && $_POST['denNgay'] != null && $_POST['timTheoTinhTrang'] == "null") {
           $tuNgay = $_POST['tuNgay'];
           $denNgay = $_POST['denNgay'];
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan,donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE donhang.ngaydathang BETWEEN '$tuNgay' AND '$denNgay'";
@@ -65,15 +65,15 @@
           $tuNgay = $_POST['tuNgay'];
           $denNgay = $_POST['denNgay'];
           $trangThai = $_POST['timTheoTinhTrang'];
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan,donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE (donhang.ngaydathang BETWEEN '$tuNgay' AND '$denNgay') AND donhang.trangthai ='$trangThai'";
         }
         elseif ($_POST['tuNgay'] == null && $_POST['denNgay'] == null && $_POST['timTheoTinhTrang'] =='null' && $_POST['timTrongTuanThang'] == 'null') {
-          $sql = "SELECT khachhang.tenkh, khachhang.diachi, donhang.trangthai, donhang.tongthanhtoan,
-          donhang.madh, donhang.ngaydathang
+          $sql = "SELECT khachhang.tenkh, khachhang.diachi,khachhang.email, donhang.trangthai, donhang.tongthanhtoan,
+          donhang.madh, donhang.ngaydathang, donhang.cachThanhToan,donhang.manv
           FROM donhang INNER JOIN khachhang
           ON (khachhang.makh = donhang.makh)
           WHERE donhang.ngaydathang = '$homNay'";
@@ -105,14 +105,24 @@
       <div class="col-md-2">
           Mã đơn hàng: <?php  echo "DH-".$res['madh'];?> <br/>
           Tổng thanh toán:<br/> <span <?php echo "id=tongDH".$res["madh"] ?>><?php echo $res["tongthanhtoan"] ?></span><u>đ</u><br/>
-          Ngày đặt hàng:<br/> <?php echo $res["ngaydathang"] ?>
+          Ngày đặt hàng:<br/> <?php echo $res["ngaydathang"] ?><br/>
+          <?php echo $res["cachThanhToan"] ;?>
       </div>
       <div class="col-md-3">
           Tên :<?php echo $res["tenkh"] ?><br/>
-          Địa chỉ: <?php echo $res["diachi"] ?>
+          Địa chỉ: <?php echo $res["diachi"] ?><br/>
+          Email : <?php echo $res["email"]; ?>
       </div>
       <div class="col-md-2">
-          <p <?php echo "id=trangThai".$res['madh'] ?>><?php echo $res["trangthai"] ?></p>
+        <p <?php echo "id=trangThai".$res['madh'] ?>><?php
+          if ($res["trangthai"] == "Đang chuyển hàng" || $res["trangthai"] == "Hoàn tất" || $res["trangthai"] == "Đã xác nhận") {
+            echo $res["trangthai"]."<br/>";
+            echo "Mã NV: ".$res['manv'];
+          }
+          else {
+            echo $res["trangthai"];
+          }
+        ?></p>
       </div>
       <div class="col-md-2">
         <?php

@@ -19,7 +19,7 @@
     $themThongTinKh = new sanpham();
     $sql0 = "SELECT* FROM khachhang WHERE tenKH = '$tenKH' AND soDT = '$soDienThoaiKh' ";
     $themThongTinKh->myQuery($sql0);
-    //----Kiem tra ton tai thong tin khach hanh
+    //----Kiem tra ton tai thong tin khach hang
     if ($themThongTinKh->numRows() > 0) {
       $rows= $themThongTinKh->fetchData();
       $maK = $rows['maKH'];
@@ -44,10 +44,20 @@
         $themDonHang->myQuery($sql9);
       }
       //-------------------
-
+        $sql12 = "SELECT  sanpham.tensp,chitietdonhang.soLuong FROM chitietdonhang INNER JOIN sanpham
+        ON (chitietdonhang.masp = sanpham.masp) WHERE chitietdonhang.madh = '$maDHT'";
+        $themDonHang->myQuery($sql12);
+        while ($thongTinSp = $themDonHang->fetchData()) {
+          $result[] = array(
+            'maDH' => $maDHT,
+            'tenSP' => $thongTinSp['tensp'],
+            'soLuongSp' => $thongTinSp['soLuong']
+          );
+        }
+      //-------------------
+     echo json_encode($result);
      unset($_SESSION['muaHang']);
      unset($_SESSION['giohang']);
-      echo "Dat hang than cong";
     }
     else {
       $sql2 = "INSERT INTO khachhang(tenKH,soDT,diaChi,email) VALUES('$tenKH','$soDienThoaiKh','$diaChiKh','$email')";
@@ -78,10 +88,21 @@
          sanpham.soLuongSP = sanpham.soLuongSP - '$value' WHERE maSP = '$key' ";
          $themDH->myQuery($sql10);
        }
-       //--------------
+       //-------------------
+         $sql13 = "SELECT  sanpham.tensp,chitietdonhang.soLuong FROM chitietdonhang INNER JOIN sanpham
+         ON (chitietdonhang.masp = sanpham.masp) WHERE chitietdonhang.madh = '$maDHMoiThem'";
+         $themDH->myQuery($sql13);
+         while ($thongTinSp = $themDH->fetchData()) {
+           $result[] = array(
+             'maDH' => $maDHMoiThem,
+             'tenSP' => $thongTinSp['tensp'],
+             'soLuongSp' => $thongTinSp['soLuong']
+           );
+         }
+       //-------------------
+      echo json_encode($result);
       unset($_SESSION['muaHang']);
       unset($_SESSION['giohang']);
-      echo "Dat hang than cong";
     }
     //-----------------------------------
   }

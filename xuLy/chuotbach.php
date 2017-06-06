@@ -1,6 +1,6 @@
 <?php
 include_once('__autoload.php');
-date_default_timezone_set('Asia/Ho_Chi_Minh');
+/* date_default_timezone_set('Asia/Ho_Chi_Minh');
 $dauTuan = date("Y-m-d", strtotime("monday this week"));
 $cuoiTuan = date("Y-m-d", strtotime("sunday this week"));
 $dauThang = date("Y-m-d", strtotime("first day of this month"));
@@ -29,5 +29,17 @@ echo "<br/>";
 $sat=date_create($dauTuan);
 date_add($sat,date_interval_create_from_date_string("5 days"));
 $thuBay = date_format($sat,"d-m-Y");
-echo $thuBay;
+echo $thuBay; */
+$themDonHang = new sanpham();
+$sql12 = "SELECT  sanpham.tensp,chitietdonhang.soLuong FROM chitietdonhang INNER JOIN sanpham
+ON (chitietdonhang.masp = sanpham.masp) WHERE chitietdonhang.madh = '11'";
+$themDonHang->myQuery($sql12);
+while ($thongTinSp = $themDonHang->fetchData()) {
+  $result[] = array(
+    'tenSP' => $thongTinSp['tensp'],
+    'soLuong' => $thongTinSp['soLuong']
+  );
+}
+//-------------------
+echo json_encode($result);
 ?>
