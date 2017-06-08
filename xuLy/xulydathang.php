@@ -44,14 +44,16 @@
         $themDonHang->myQuery($sql9);
       }
       //-------------------
-        $sql12 = "SELECT  sanpham.tensp,chitietdonhang.soLuong FROM chitietdonhang INNER JOIN sanpham
+        $sql12 = "SELECT  sanpham.tensp, sanpham.giasp, chitietdonhang.soLuong FROM chitietdonhang INNER JOIN sanpham
         ON (chitietdonhang.masp = sanpham.masp) WHERE chitietdonhang.madh = '$maDHT'";
         $themDonHang->myQuery($sql12);
         while ($thongTinSp = $themDonHang->fetchData()) {
+          $dongia = $thongTinSp['giasp']*$thongTinSp['soLuong'];
           $result[] = array(
             'maDH' => $maDHT,
             'tenSP' => $thongTinSp['tensp'],
-            'soLuongSp' => $thongTinSp['soLuong']
+            'soLuongSp' => $thongTinSp['soLuong'],
+            'donGia' => $dongia
           );
         }
       //-------------------
@@ -89,14 +91,16 @@
          $themDH->myQuery($sql10);
        }
        //-------------------
-         $sql13 = "SELECT  sanpham.tensp,chitietdonhang.soLuong FROM chitietdonhang INNER JOIN sanpham
+         $sql13 = "SELECT  sanpham.tensp,sanpham.giasp,chitietdonhang.soLuong FROM chitietdonhang INNER JOIN sanpham
          ON (chitietdonhang.masp = sanpham.masp) WHERE chitietdonhang.madh = '$maDHMoiThem'";
          $themDH->myQuery($sql13);
          while ($thongTinSp = $themDH->fetchData()) {
+           $dongia = $thongTinSp['giasp']*$thongTinSp['soLuong'];
            $result[] = array(
              'maDH' => $maDHMoiThem,
              'tenSP' => $thongTinSp['tensp'],
-             'soLuongSp' => $thongTinSp['soLuong']
+             'soLuongSp' => $thongTinSp['soLuong'],
+             'donGia' => $dongia
            );
          }
        //-------------------

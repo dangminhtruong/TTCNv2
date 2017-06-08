@@ -16,7 +16,18 @@
         </div>
       </div>
     </div>
-    <!------------------------------------------------------->
+    <!----------------------------------------------------->
+    <div class="modal fade bs-example-modal-sm" id="xoaSPKhongThanhCong" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <strong>Bạn hiện chưa thể xóa sản phẩm này !</strong> <br/><br/>
+            Thông tin sản phẩm bạn muốn xóa hiện đang tồn tại trong một số đơn hàng đã, và chưa xử lý.
+            Việc xóa sản phẩm sẽ gây ảnh hưởng đến giải quyết đơn hàng của khách hàng. Ngoài ra còn kéo theo một số sai sót
+            trong việc thống kê doanh thu của nhà vườn. Chúng tôi khuyến nghị bạn giữ lại thông tin sản phẩm...<br/><br/>
+        </div>
+      </div>
+    </div>
+    <!----------------------------------------------------->
     <div class="modal fade" id="SuaSanPhamModal" role="dialog">
       <div class="modal-dialog">
 
@@ -132,7 +143,7 @@
             while ($kq  = $sp->fetchData()) {
 
           ?>
-          <tr>
+          <tr <?php echo "id=sanPh".$kq['maSP'];?>>
             <td>
               <button type="button" class="btn btn-default btn-xs btn-edit1" <?php echo "value =".$kq['maSP']; ?>>
                 Sửa

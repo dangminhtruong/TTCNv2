@@ -44,12 +44,15 @@ $(document).ready(function(){
         $('#soDtKhHd').html(dienThoaiKh);
         $('#emailKhHd').html(emailKh);
         $('#cachThanhToanHd').html(hinhThucThanhToan);
+        $('#tongThanhToanHD').html(tongHD);
         add = '';
         for (i in result) {
-            add += '<div class="col-md-8"><i>';
+            add += '<div class="col-md-6"><i>';
             add += result[i]['tenSP'];
-            add += '</i></div><div class="col-md-4">';
+            add += '</i></div><div class="col-md-3">';
             add += result[i]['soLuongSp'];
+            add += '</div><div class="col-md-3">';
+            add +=  result[i]['donGia'];
             add += '</div>';
         }
         $('#themTTSoLuongSp').html(add);

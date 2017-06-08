@@ -17,6 +17,16 @@
       </div>
     </div>
     <!------------------------------------------------------>
+    <div class="modal fade bs-example-modal-sm" id="xoaTaiKhoanKhongThanhCong" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <strong> Xóa tài khoản không thành công ! </strong><br/>
+            Tài khoản này đã từng tham gia xử lý - chịu trách nhiệm với một số đơn hàng của nhà vườn.
+            Chúng tôi khuyến nghị bạn giữ lại tài khoản người dùng này để đối chiếu, trách thất thoát... <br/>
+        </div>
+      </div>
+    </div>
+    <!------------------------------------------------------>
     <div class="col-md-12" id="themSanPhamMoi">
      <div class="well well-sm"><span id="themCayTb">Sửa xóa người dùng</span></div>
     </div>
@@ -40,7 +50,7 @@
             $showUser->myQuery($sql);
             while ($rows = $showUser->fetchData()) {
           ?>
-          <tr>
+          <tr <?php echo "id=nguoiDung".$rows['maTK'];?>>
             <td>
               <button type="button" class="btn btn-default btn-xs btn-editUser" <?php echo "value=".$rows['maTK'] ?> >
                 Sửa

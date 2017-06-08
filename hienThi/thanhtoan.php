@@ -22,19 +22,33 @@
                       Email : <i id="emailKhHd"></i>
                   </div>
                   <div class="col-md-12">
-                      <i id="cachThanhToanHd"></i>
+                      Hình thức thanh toán: <i id="cachThanhToanHd"></i>
                   </div>
               </div>
               <div class="col-md-6">
                   <div class="col-md-12">
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         Tên sản phẩm
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         Số Lượng
                     </div>
+                    <div class="col-md-3">
+                        Đơn giá
+                    </div>
                     <div class="col-md-12" id="themTTSoLuongSp">
+                      
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-4">
 
+                        </div>
+                        <div class="col-md-5">
+                          Tổng thanh toán :
+                        </div>
+                        <div class="col-md-3">
+                          <i id="tongThanhToanHD"></i><u>đ</u>
+                        </div>
                     </div>
                   </div>
               </div>

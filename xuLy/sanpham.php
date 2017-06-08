@@ -63,9 +63,10 @@
        }
      }
     //-------------------------------------------
-    public function xoaSanPham($spXoa){
-      $sql = "DELETE FROM sanpham WHERE maSP = '$spXoa'";
+    public function xoaSanPham($idSPX){
+      $sql = "DELETE FROM sanpham WHERE maSP = '$idSPX'";
       $this->myQuery($sql);
+      $this->freeQuery();
     }
     //--------------------------------------------
     public function layThongTinTheoId($maSPS){

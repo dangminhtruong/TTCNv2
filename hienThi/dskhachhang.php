@@ -20,7 +20,7 @@
     </div>
     <!-------------------->
     <div class="col-md-12 well">
-        <strong>Thống kê tồn kho</strong>
+        <strong>Danh sách khách hàng</strong>
     </div>
     <div class="col-md-12">
           <div class="col-md-12">

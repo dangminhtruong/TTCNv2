@@ -38,7 +38,7 @@
         <div class="row _1tin">
           <div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              <img src="images/sp1.jpg" alt="" class="img-responsive">
+              <img src="images/hinhnentin.jpg" alt="" class="img-responsive">
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
               <div class="tieude">

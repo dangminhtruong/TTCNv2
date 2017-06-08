@@ -104,7 +104,8 @@
             <!--------------------------------------------------------------->
               <!-------------------------------------------------------------->
                 <?php
-                $sql1 = "SELECT* FROM sanpham WHERE masp = '$idsp'";
+                $sql1 = "SELECT sanpham.maSP,sanpham.tenSP,sanpham.soLuongSP, sanpham.giaSP,sanpham.moTaSP,sanpham.anhSP, loaisanpham.tenLoaiSP, loaisanpham.maLoaiSP
+                FROM sanpham INNER JOIN loaisanpham ON (sanpham.maLoaiSP = loaisanpham.maLoaiSP) WHERE masp = '$idsp'";
                 $cayAnQua = new sanpham();
                 $cayAnQua->myQuery($sql1);
                 while ($cayAQ = $cayAnQua->fetchData()) {
@@ -136,7 +137,7 @@
                           Loại sản phẩm :
                       </div>
                       <div class="col-md-8 motThongTinSp">
-                          Cây ăn quả
+                          <?php echo $cayAQ['tenLoaiSP'] ?>
                       </div>
                       <div class="col-md-4 motThongTinSp hvr-bounce-to-right">
                           Tình trạng :
@@ -160,17 +161,25 @@
                   </div>
                 </div>
               <?php
+                      $loaiSpLienQuan = $cayAQ['maLoaiSP'];
                     }
                ?>
             <!------------------------------------------------------------------------------>
             <div class="col-md-12 sanPhamLienQuan">
+                  <?php
+                    $sql2 = "SELECT* FROM sanpham WHERE maLoaiSP = '$loaiSpLienQuan' ORDER BY RAND() LIMIT 3";
+                    $cayAnQua->myQuery($sql2);
+                    while ($spLienQuan = $cayAnQua->fetchData()) {
+                  ?>
                   <div class="col-md-4">
                     <div class="col-md-12" id="spMoiContent">
-                      <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre">
+                      <a <?php echo "href=index.php?page=chitietsanpham&idsp=".$spLienQuan['maSP'];?> target="_blank">
+                        <img src=<?php echo "images/".$spLienQuan['anhSP'] ?> class="img-responsive" alt="Cinque Terre">
+                      </a>
                     </div>
                     <div class="col-md-12 text-center" id="price">
                       <span style="font-family: 'Lobster', cursive; color:#33cc00;">
-                        Chanh Leo
+                        <?php echo $spLienQuan['tenSP'] ?>
                       </span>
                     </div>
                     <div class="col-md-12" style="text-align:center;background-color:white;">
@@ -181,64 +190,17 @@
                       <i class="fa fa-heart-o" aria-hidden="true"></i>
                     </div>
                     <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                      <button class="buttonDatMua button_orange">Đặt mua</button>
+                      <button class="buttonDatMua button_orange" <?php echo "value=".$spLienQuan['maSP'] ?>>Đặt mua</button>
                     </div>
                     <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
                       <span style="font-family: 'Fjalla One', sans-serif;">
-                        40000<u>đ</u>
+                        <?php echo $spLienQuan['giaSP'] ?><u>đ</u>
                       </span>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <div class="col-md-12" id="spMoiContent">
-                      <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre">
-                    </div>
-                    <div class="col-md-12 text-center" id="price">
-                      <span style="font-family: 'Lobster', cursive; color:#33cc00;">
-                        Chanh Leo
-                      </span>
-                    </div>
-                    <div class="col-md-12" style="text-align:center;background-color:white;">
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                      <i class="fa fa-heart-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                      <button class="buttonDatMua button_orange">Đặt mua</button>
-                    </div>
-                    <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
-                      <span style="font-family: 'Fjalla One', sans-serif;">
-                        40000<u>đ</u>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="col-md-12" id="spMoiContent">
-                      <img src="images/sp4.jpg" class="img-responsive" alt="Cinque Terre">
-                    </div>
-                    <div class="col-md-12 text-center" id="price">
-                      <span style="font-family: 'Lobster', cursive; color:#33cc00;">
-                        Chanh Leo
-                      </span>
-                    </div>
-                    <div class="col-md-12" style="text-align:center;background-color:white;">
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                      <i class="fa fa-heart" aria-hidden="true"></i>
-                      <i class="fa fa-heart-o" aria-hidden="true"></i>
-                    </div>
-                    <div class="col-md-12" style="text-align:center; padding-top:2vh; padding-bottom:2vh;background-color:white;">
-                      <button class="buttonDatMua button_orange">Đặt mua</button>
-                    </div>
-                    <div class="col-md-12" style="text-align:center; padding-top: 2vh; padding-bottom:2vh; background-color:white;">
-                      <span style="font-family: 'Fjalla One', sans-serif;">
-                        40000<u>đ</u>
-                      </span>
-                    </div>
-                  </div>
+                  <?php
+                      }
+                  ?>
             </div>
             <!------------------------------->
           </div>

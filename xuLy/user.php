@@ -84,9 +84,10 @@
       }
     //---------------------------------------------------------------------
     public function xoaNguoiDung($maTK){
-      $sql1 = " DELETE FROM nhanvien WHERE maTK = '$maTK' ";
+      $sql1 = "DELETE FROM nhanvien WHERE maTK = '$maTK'";
       $this->myQuery($sql1);
-      $sql2 = " DELETE FROM taikhoan WHERE maTK = '$maTK' ";
+      $this->freeQuery();
+      $sql2 = "DELETE FROM taikhoan WHERE maTK = '$maTK'";
       $this->myQuery($sql2);
     }
   }

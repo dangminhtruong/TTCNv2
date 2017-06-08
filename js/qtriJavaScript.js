@@ -132,13 +132,8 @@ $(document).ready(function(){
               var success = function(result){
                 console.log(result);
                 if (result == "Da xoa san pham") {
-                  $('#xoaSPThanhCong').modal('show');
-                  function myFunction() {
-                      setTimeout(function(){
-                        window.location.replace("/TTCNv2/hienThi/quantri.php?page=suaxoasanpham");
-                      }, 1000);
-                  }
-                  myFunction();
+                    $('#sanPh'+idSPX2).remove();
+                    $('#xoaSPThanhCong').modal('show');
                 }
               }
               var dataType = "text";
@@ -184,21 +179,18 @@ $(document).ready(function(){
 //-----------------------------------------
 $('.btn-delete').click(function(){
   idSPX = ($(this).val());
-  console.log(idSPX);
   var url = "../xuLy/xoasanpham.php";
   var data = {
     maSPX : idSPX
   };
   var success = function(result){
     console.log(result);
-    if (result == "Da xoa san pham") {
+    if (result == "Chua the xoa san pham") {
+        $('#xoaSPKhongThanhCong').modal('show');
+    }
+    else {
+      $('#sanPh'+idSPX).remove();
       $('#xoaSPThanhCong').modal('show');
-      function myFunction() {
-          setTimeout(function(){
-            window.location.replace("/TTCNv2/hienThi/quantri.php?page=suaxoasanpham");
-          }, 1000);
-      }
-      myFunction();
     }
   }
   var dataType = "text";
@@ -327,27 +319,24 @@ $(document).ready(function(){
 //------------------------------------------------
 $(document).ready(function(){
   $('.btn-deleteUser').click(function(){
-    if (confirm("Bạn chắc chắn muốn xóa tài khoản này ? ") == true) {
       var maTkDel = $(this).val();
+      console.log(maTkDel);
       var url = "../xuly/xoanguoidung.php";
       var data = {
         maTK : maTkDel
       };
       var success = function(result){
         console.log(result);
-          if (result == 'Xoa thanh cong') {
-              $('#xoaTaiKhoanThanhCong').modal('show');
-              function myFunction() {
-                  setTimeout(function(){
-                    window.location.replace("/TTCNv2/hienThi/quantri.php?page=suaxoanguoidung");
-                  }, 1000);
-              }
-              myFunction();
+          if (result == 'You cannot delete this user') {
+              $('#xoaTaiKhoanKhongThanhCong').modal('show');
+          }
+          else {
+            $('#nguoiDung'+maTkDel).remove();
+            $('#xoaTaiKhoanThanhCong').modal('show');
           }
       };
       var dataType = "text";
       $.post(url,data,success,dataType);
-    }
   });
 });
 //------------------------------------------------------------------
@@ -610,7 +599,6 @@ $(document).ready(function(){
 //-------------------------------------------
 $(document).ajaxComplete(function(){
   $('.btn-huyDH').click(function(){
-    if (confirm("Bạn chắc chắn muốn hủy bỏ đơn hàng ?") == true) {
       var maDHHuy = $(this).val();
       var url = "../xuly/capnhatdonhang.php";
       var data = {
@@ -621,13 +609,11 @@ $(document).ajaxComplete(function(){
       }
       var dataType = "text";
       $.post(url,data,success,dataType);
-    }
   });
 });
 //-------------------------------------
 $(document).ready(function(){
   $('.btn-huyDH').click(function(){
-      if (confirm("Bạn chắc chắn muốn hủy bỏ đơn hàng ?") == true) {
           var maDHHuy = $(this).val();
           var url = "../xuly/capnhatdonhang.php";
           var data = {
@@ -638,7 +624,6 @@ $(document).ready(function(){
           }
           var dataType = "text";
           $.post(url,data,success,dataType);
-      }
     });
 });
 //---------------------------------------

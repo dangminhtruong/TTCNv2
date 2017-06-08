@@ -3,8 +3,15 @@
   if (isset($_POST['maTK'])) {
     $maTK = $_POST['maTK'];
     $xoaUser = new user();
-    $xoaUser->xoaNguoiDung($maTK);
-    $xoaUser->disconnectDb();
-    echo "Xoa thanh cong";
+    try {
+    $success = $xoaUser->xoaNguoiDung($maTK);
+
+    if(!$success) {
+        $error = "You cannot delete this user";
+            throw new Exception($error);
+        }
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
   }
 ?>
