@@ -14,7 +14,13 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 content_new left_new">
         <?php
-          $sql = "SELECT tieuDe, noiDung FROM baiviet ORDER BY id DESC LIMIT 1";
+          if (isset($_GET['idbv'])) {
+            $idbv = $_GET['idbv'];
+            $sql = "SELECT* FROM baiviet WHERE id = '$idbv'";
+          }
+          else {
+            $sql = "SELECT* FROM baiviet ORDER BY id DESC LIMIT 1";
+          }
           $baiViet = new sanpham();
           $baiViet->myQuery($sql);
           $tieuDe = $baiViet->fetchData();
@@ -38,11 +44,13 @@
         <div class="row _1tin">
           <div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              <img src="images/hinhnentin.jpg" alt="" class="img-responsive">
+              <img src="images/sp3.jpg" alt="" class="img-responsive">
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
               <div class="tieude">
-                <a href="#"><p><?php echo $dsBaiViet['tieuDe']; ?><p></a>
+                <a href=<?php echo "/TTCNv2/index.php?page=tintuc&idbv=".$dsBaiViet['id'];?>>
+                  <p><?php echo $dsBaiViet['tieuDe']; ?><p>
+                </a>
               </div>
             </div>
           </div>

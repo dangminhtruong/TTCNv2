@@ -37,7 +37,7 @@
                         Đơn giá
                     </div>
                     <div class="col-md-12" id="themTTSoLuongSp">
-                      
+
                     </div>
                     <div class="col-md-12">
                         <div class="col-md-4">
@@ -126,15 +126,15 @@
   <div class="col-md-12 collapse" id="formNTTKH">
     <form>
       <div class="form-group">
-        <label for="email">Họ tên:</label>
+        <label for="email">Họ tên (<b style="color:red;">*</b>)</label>
         <input type="text" class="form-control" id="hoTenKh">
       </div>
       <div class="form-group">
-        <label for="pwd">Địa chỉ giao hàng:</label>
+        <label for="pwd">Địa chỉ giao hàng (<b style="color:red;">*</b>)</label>
         <input type="text" class="form-control" id="diaChiKh">
       </div>
       <div class="form-group">
-        <label for="pwd">Số điện thoại:</label>
+        <label for="pwd">Số điện thoại (<b style="color:red;">*</b>)</label>
         <input type="text" class="form-control" id="soDienThoaiKh">
       </div>
       <div class="form-group">

@@ -89,19 +89,21 @@
                 while ($rowsT = $showSPNB->fetchData()) {
                 ?>
               <!---->
-              <div class="col-md-12 cayAnQuaMenu hvr-grow-shadow">
-                <div class="col-md-4 row">
-                    <img src=<?php echo 'images/'.$rowsT['anhSP'] ?> class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;"/>
+              <a <?php echo "href=index.php?page=chitietsanpham&idsp=".$rowsT['maSP'];?> target="_blank">
+                <div class="col-md-12 cayAnQuaMenu hvr-grow-shadow">
+                  <div class="col-md-4 row">
+                      <img src=<?php echo 'images/'.$rowsT['anhSP'] ?> class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;"/>
+                  </div>
+                  <div class="col-md-8">
+                    <?php echo $rowsT['tenSP'] ?><br/>
+                    <i class="fa fa-heart vote" aria-hidden="true" style="font-size:10px;"></i>
+                    <i class="fa fa-heart vote " aria-hidden="true"  style="font-size:10px;"></i>
+                    <i class="fa fa-heart vote" aria-hidden="true"  style="font-size:10px;"></i>
+                    <i class="fa fa-heart vote" aria-hidden="true"  style="font-size:10px;"></i>
+                    <i class="fa fa-heart-o vote" aria-hidden="true"  style="font-size:10px;"></i>
+                  </div>
                 </div>
-                <div class="col-md-8">
-                  <?php echo $rowsT['tenSP'] ?><br/>
-                  <i class="fa fa-heart vote" aria-hidden="true" style="font-size:10px;"></i>
-                  <i class="fa fa-heart vote " aria-hidden="true"  style="font-size:10px;"></i>
-                  <i class="fa fa-heart vote" aria-hidden="true"  style="font-size:10px;"></i>
-                  <i class="fa fa-heart vote" aria-hidden="true"  style="font-size:10px;"></i>
-                  <i class="fa fa-heart-o vote" aria-hidden="true"  style="font-size:10px;"></i>
-                </div>
-              </div>
+            </a>
               <?php
                   }
                 }
@@ -118,11 +120,31 @@
             <!--------------------------------------------------------------->
               <div class="col-md-12">
                 <div class="col-md-12" id="thanhSapXep">
-                  <p data-toggle="dropdown" href="#">Sắp xếp theo <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i><span class="caret"></span></p>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                    <li><a href="#">Gía tăng dần</a></li>
-                    <li><a href="#">Giá giảm dần</a></li>
-                  </ul>
+                  <div class="col-md-4 col-xs-6">
+                    <p data-toggle="dropdown" href="#">Sắp xếp theo <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i><span class="caret"></span></p>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                      <li><a href="#">Gía tăng dần</a></li>
+                      <li><a href="#">Giá giảm dần</a></li>
+                    </ul>
+                  </div>
+                  <!--------TIM KIEM------->
+                  <div class="col-md-8 col-md-push-3">
+                    <form class="form-horizontal">
+                      <div class="form-group row">
+                         <div class="col-md-5 col-xs-6">
+                           <input type="text" class="form-control dropdown" data-toggle="dropdown" id="timSanPhamCanSua" placeholder="Nhập tên sản phẩm...">
+                           <ul class="col-xs-11 col-md-11 dropdown-menu dropdown-menu dropdown-menu-center" role="menu">
+                             <li id="markToAdd" class="dropdown-header">Kết quả tìm kiếm</li>
+                             <li class="divider"></li>
+                           </ul>
+                         </div>
+                         <button type="button" class="btn btn-default hidden-xs col-md-2">
+                            <i class="fa fa-search" aria-hidden="true"></i> Search
+                         </button>
+                       </div>
+                   </form>
+                  </div>
+                  <!-------------->
                 </div>
               </div>
               <!-------------------------------------------------------------->
@@ -167,9 +189,8 @@
             <div class="col-md-12">
               <ul class="pagination">
                 <?php
-                $next = $pageId + 1;
                 if ($pageId > 1) {
-                  echo '<li><a href="'.$_SERVER['PHP_SELF'].'?page=cayanqua&id='.$next.'">'.'&laquo;'.'</a></li>';
+                  echo '<li><a href="'.$_SERVER['PHP_SELF'].'?page=cayanqua&id='.($pageId-1).'">'.'&laquo;'.'</a></li>';
                 }
                   for ($i=1; $i <= $tongSoTrang; $i++) {
                     if ($pageId == $i) {
@@ -179,9 +200,8 @@
                         echo '<li><a href="'.$_SERVER['PHP_SELF'].'?page=cayanqua&id='.$i.'">'.$i.'</a></li>';
                     }
                   }
-                  $prev = $pageId - 1;
-                  if ($pageId <= $tongSoTrang && $pageId > 1) {
-                    echo '<li><a href="'.$_SERVER['PHP_SELF'].'?page=cayanqua&id='.$prev.'">'.'&raquo;'.'</a></li>';
+                  if ($pageId < $tongSoTrang) {
+                    echo '<li><a href="'.$_SERVER['PHP_SELF'].'?page=cayanqua&id='.($i-1).'">'.'&raquo;'.'</a></li>';
                   }
                  ?>
               </ul>

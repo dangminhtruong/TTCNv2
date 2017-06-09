@@ -130,10 +130,12 @@ $(document).ready(function(){
                 maSPX : idSPX2
               };
               var success = function(result){
-                console.log(result);
-                if (result == "Da xoa san pham") {
-                    $('#sanPh'+idSPX2).remove();
-                    $('#xoaSPThanhCong').modal('show');
+                if (result == "Chua the xoa san pham") {
+                    $('#xoaSPKhongThanhCong').modal('show');
+                }
+                else {
+                  $('#sanPh'+idSPX2).remove();
+                  $('#xoaSPThanhCong').modal('show');
                 }
               }
               var dataType = "text";
@@ -161,7 +163,6 @@ $(document).ready(function(){
     };
     var dataType = "json";
     var success = function(result){
-      console.log(result);
         for (i in result) {
           $("select > option[value=" + result[0]['loaiS'] + "]").prop("selected",true);
           $('#idSanPham').attr('value',result[0]['maS']);
@@ -184,7 +185,6 @@ $('.btn-delete').click(function(){
     maSPX : idSPX
   };
   var success = function(result){
-    console.log(result);
     if (result == "Chua the xoa san pham") {
         $('#xoaSPKhongThanhCong').modal('show');
     }

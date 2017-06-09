@@ -138,3 +138,61 @@ $(document).ready(function(){
 
 });
 //------------------------------
+$(document).ready(function(){
+  $('#timSanPhamCanSua').keyup(function(){
+    var timkiemSP = $('#timSanPhamCanSua').val();
+    if (timkiemSP != '') {
+      var url = "xuLy/timkiemsanpham.php";
+      var data = {
+          tenSPCS : timkiemSP
+      };
+      var dataType = "json";
+      var success = function(result){
+          var inn = '';
+          //-----------------
+            $.each(result,function(index, item){
+              inn += '<li>';
+              inn +=  '<button type="button" class="btn btn-default btn-xs btn-muaSanPham" value= ';
+              inn += item['maS'];
+              inn += '>Mua</button> ';
+
+              inn += '<a href="index.php?page=chitietsanpham&idsp='+item['maS'];
+              inn += '" target="_blank">';
+              inn +=  '<button type="button" class="btn btn-danger btn-xs btn-xemThem" value= ';
+              inn += item['maS'];
+              inn +=  '>Xem thêm</button></a>';
+
+              inn +=  '<span> ';
+              inn +=  item['tenS'];
+              inn +=  '</span>';
+              inn +=  '</li>';
+              console.log(item['maS']);
+              $("#markToAdd").html(inn);
+            });
+            //----------------------------------
+            $('.btn-muaSanPham').click(function(){
+              var idsp = $(this).val();
+              var soLuongTrenGioHang = Number($('#sluong').text());
+              var url = "xuLy/xulythemvaogiohang.php";
+              var data = {
+                maSP : idsp,
+                sanPhamDaChon : soLuongTrenGioHang
+              };
+              var success = function(result){
+                $('#sluong').html(result);
+                $("#giohang").css("color", "yellow");
+              }
+              var dataType = "text";
+              $.post(url, data, success, dataType);
+            });
+            //----------------------------------
+      };
+      $.post(url, data, success, dataType);
+    }
+    else {
+      var inn = '<li id="markToAdd" class="dropdown-header">Kết quả tìm kiếm</li>';
+      $("#markToAdd").html(inn);
+    }
+  //-------------------------------------------
+  });
+});

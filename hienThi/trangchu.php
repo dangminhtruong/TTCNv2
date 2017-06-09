@@ -91,7 +91,9 @@
             ?>
             <div class="col-md-3 col-sm-12 khoiSanPham">
                 <div class="col-md-12" id="spMoiContent">
-                  <img src=<?php echo "images/".$rows['anhSP'] ?> class="img-responsive" alt="Cinque Terre">
+                  <a <?php echo "href=index.php?page=chitietsanpham&idsp=".$rows['maSP'];?> target="_blank">
+                    <img src=<?php echo "images/".$rows['anhSP'] ?> class="img-responsive" alt="Cinque Terre">
+                  </a>
                 </div>
                 <div class="col-md-12 text-center" id="price">
                   <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">
@@ -211,7 +213,9 @@
           ?>
           <div class="col-md-3 col-sm-12">
               <div class="col-md-12" id="spMoiContent">
-                <img src=<?php echo "images/".$rowsT['anhSP'];?> class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
+                <a <?php echo "href=index.php?page=chitietsanpham&idsp=".$rowsT['maSP'];?> target="_blank">
+                  <img src=<?php echo "images/".$rowsT['anhSP'];?> class="img-responsive" alt="Cinque Terre" style=" max-height: inherit;">
+                </a>
               </div>
               <div class="col-md-12 text-center" id="price">
                 <span style="font-family: 'Lobster', cursive; color:#33cc00;background-color:white;">
@@ -262,50 +266,28 @@
 <!-----------------------------------END BAI VIET------------------------------>
 <!---------------------------BAI VIET----------------------------------------------------->
       <div class="container-fluid row" id="baiViet">
-        <div class="col-md-3 container1 wow bounceInLeft">
-          <img src="images/sp3.jpg" alt="anhbv" class="imagebv" style="width:100%">
-          <div class="middle">
-            <div class="text">Xem Thêm</div>
-          </div>
-          <div class="tieudebv">
-            <p>
-              Cách phân biệt phân bón thật giả...
-            <p>
-          </div>
-        </div>
-        <div class="col-md-3 container1  wow bounceInLeft">
-          <img src="images/sp3.jpg" alt="anhbv" class="imagebv" style="width:100%">
-          <div class="middle">
-            <div class="text">Xem Thêm</div>
-          </div>
-          <div class="tieudebv">
-            <p>
-              Cách phân biệt phân bón thật giả...
-            <p>
-          </div>
-        </div>
-        <div class="col-md-3 container1  wow bounceInLeft">
-          <img src="images/sp3.jpg" alt="anhbv" class="imagebv" style="width:100%">
-          <div class="middle">
-            <div class="text">Xem Thêm</div>
-          </div>
-          <div class="tieudebv">
-            <p>
-              Cách phân biệt phân bón thật giả...
-            <p>
-          </div>
-        </div>
-        <div class="col-md-3 container1  wow bounceInLeft">
-          <img src="images/sp3.jpg" alt="anhbv" class="imagebv" style="width:100%">
-          <div class="middle">
-            <div class="text">Xem Thêm</div>
-          </div>
-          <div class="tieudebv">
-            <p>
-              Cách phân biệt phân bón thật giả...
-            <p>
-          </div>
-        </div>
+        <?php
+          $sql4 = "SELECT* FROM baiviet LIMIT 4";
+          $baiViet = new sanpham();
+          $baiViet->myQuery($sql4);
+          while ($bv = $baiViet->fetchData() ) {
+       ?>
+       <div class="col-md-3 container1 wow bounceInLeft">
+         <img src="images/sp3.jpg" alt="anhbv" class="imagebv" style="width:100%">
+         <a href=<?php echo "/TTCNv2/index.php?page=tintuc&idbv=".$bv['id'];?>>
+           <div class="middle">
+             <div class="text">Xem Thêm</div>
+           </div>
+         </a>
+         <div class="tieudebv">
+           <p>
+             <?php echo $bv['tieuDe'];?>
+           <p>
+         </div>
+       </div>
+       <?php
+          }
+        ?>
       </div>
 <!---------------------------END BAI VIET------------------------------------------------->
 <!---------------------------------------------------------------------------------------->
