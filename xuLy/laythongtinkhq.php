@@ -3,6 +3,6 @@
   if (isset($_POST['idkq'])) {
       $id = $_POST['idkq'];
       $layTT = new khachhangquen();
-      $layTT->layThongTinKhachQuen($id);
+      $layTT->layThongTinKhach($id);
   }
 ?>

@@ -123,8 +123,8 @@
                   <div class="col-md-4 col-xs-6">
                     <p data-toggle="dropdown" href="#">Sắp xếp theo <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i><span class="caret"></span></p>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                      <li><a href="#">Gía tăng dần</a></li>
-                      <li><a href="#">Giá giảm dần</a></li>
+                      <li id="sapXepTang"><a href="#">Gía tăng dần</a></li>
+                      <li id="sapXepGiam"><a href="#">Giá giảm dần</a></li>
                     </ul>
                   </div>
                   <!--------TIM KIEM------->
@@ -148,6 +148,10 @@
                 </div>
               </div>
               <!-------------------------------------------------------------->
+              <button type="button" hidden id="maxResult" <?php echo "value=".$maxResult; ?>></button>
+              <button type="button" hidden id="indexRows" <?php echo "value=".$indexRows; ?>></button>
+              <button type="button" hidden id="loaiSanPham" <?php echo "value=3"; ?>></button>
+              <div id="loadSapXep">
                 <?php
                 $sql1 = "SELECT* FROM sanpham WHERE maLoaiSP = 3 LIMIT $maxResult OFFSET $indexRows";
                 $cayAnQua = new sanpham();
@@ -185,6 +189,7 @@
               <?php
                     }
                ?>
+             </div>
             <!------------------------------------------------------------------------------>
             <div class="col-md-12">
               <ul class="pagination">

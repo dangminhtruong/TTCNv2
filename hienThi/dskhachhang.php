@@ -46,7 +46,7 @@
               <div class="col-md-12 tkspBanChay" id="dsKhachQuen">
                 <!------------------------->
                   <?php
-                    $sql = "SELECT * FROM khachhangquen";
+                    $sql = "SELECT * FROM khachhang";
                     $danhSach = new sanpham();
                     $danhSach->myQuery($sql);
                     while ($rows = $danhSach->fetchData()) {
@@ -54,19 +54,19 @@
                 <!------------------------->
                 <div class="col-md-12 khachQuen">
                   <div class="col-md-2">
-                      <?php echo $rows['tenKh'] ;?>
+                      <?php echo $rows['tenKH'] ;?>
                   </div>
                   <div class="col-md-4">
                       <?php echo $rows['diaChi']; ?>
                   </div>
                   <div class="col-md-2">
-                      <?php echo $rows['soDt'];?>
+                      <?php echo $rows['soDT'];?>
                   </div>
                   <div class="col-md-3">
                       <?php echo $rows['email'];?>
                   </div>
                   <div class="col-md-1">
-                      <button type="button" class="btn btn-xs btn-danger suaKQ" <?php echo "value=".$rows['id']; ?>>
+                      <button type="button" class="btn btn-xs btn-danger suaKQ" <?php echo "value=".$rows['maKH']; ?>>
                         Sửa</button>
                   </div>
                 </div>
@@ -74,12 +74,16 @@
                   }
                 ?>
               </div>
+              <!------>
+              <div class="col-md-12 text-left" id="luaChonLocKH">
+                  <button type="button" class="btn btn-default" id="xemDsKhachQuen">
+                    Danh sách khách hàng quen
+                  </button>
+                  <button type="button" class="btn btn-default" id="btn-themKhachQuen">
+                    Thêm khách hàng quen <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                  </button>
+              </div>
               <!----->
-          </div>
-          <div class="col-md-12 text-left">
-              <button type="button" class="btn btn-default" id="btn-themKhachQuen">
-                Thêm <i class="fa fa-address-card-o" aria-hidden="true"></i>
-              </button>
           </div>
           <!----------------------------------------------------------->
           <div class="col-md-12 collapse" id="themKhachQuen">

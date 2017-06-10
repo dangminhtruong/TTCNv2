@@ -21,7 +21,7 @@
                 Số đã bán
             </div>
         </div>
-        <div class="col-md-12 tkspBanChay" id="hienThiDonHang">
+        <div class="col-md-12 tkspBanChay" id="hienThiTonKho">
           <?php
             $sql = "SELECT tensp,ngayNhap,soluongdaban, soLuongSp FROM sanpham
             ORDER BY ngayNhap";
@@ -37,10 +37,8 @@
                 <div class="col-md-3">
                   <?php
                   $ngayNhap = $sp['ngayNhap'];
-                  $date1=date_create($homNay);
-                  $date2=date_create($ngayNhap);
-                  $diff=date_diff($date2,$date1);
-                  echo "Cách đây ".$diff->format("%a ngày");
+                  $date=date_create($ngayNhap);
+                  echo date_format($date,"d-m-Y");
                   ?>
                 </div>
                 <div class="col-md-3">
@@ -54,6 +52,11 @@
               }
             }
           ?>
+        </div>
+        <div class="col-md-12" id="locTonKho">
+              <button type="button" class="btn btn-info" id="xemTonKhoTongQuat">Tổng quan</button>
+              <button type="button" class="btn btn-default" id="xemSpSapHet">Sản phẩm gần hết</button>
+              <button type="button" class="btn btn-default" id="xemSpDaHet">Sản phẩm đã hết</button>
         </div>
     </div>
 </div>

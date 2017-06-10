@@ -13,23 +13,31 @@
         }
 
         public function themKhachHangQuen($ten,$diaChi,$soDT,$email){
-              $sql = "INSERT INTO khachhangquen(tenKh,diaChi,soDt,email) VALUES('$ten','$diaChi','$soDT','$email')";
+              $sql = "INSERT INTO khachhang(tenKH,diaChi,soDT,email,loaiKH) VALUES('$ten','$diaChi','$soDT','$email',1)";
               $this->myQuery($sql);
-              $sql2 = "SELECT id FROM khachhangquen WHERE tenKh = '$ten' AND soDt = '$soDT'";
+              $sql2 = "SELECT maKH FROM khachhang WHERE tenKH = '$ten' AND soDT = '$soDT'";
               $this->myQuery($sql2);
               $result = $this->fetchData();
-              echo $result['id'];
+              echo $result['maKH'];
         }
 
-        public function layThongTinKhachQuen($id){
-              $sql = "SELECT * FROM khachhangquen WHERE id = '$id'";
+       public function layThongTinKhachQuen(){
+              $sql = "SELECT* FROM khachhang WHERE loaiKH = 1";
+              $this->myQuery($sql);
+              if ($this->numRows() > 0) {
+                return $this->fetchData();
+              }
+       }
+
+        public function layThongTinKhach($id){
+              $sql = "SELECT * FROM khachhang WHERE maKH = '$id'";
               $this->myQuery($sql);
               if ($this->numRows() > 0) {
                 $rows  = $this->fetchData();
                 $result = array(
-                  'tenKhq' => $rows['tenKh'],
+                  'tenKhq' => $rows['tenKH'],
                   'diaChiKh' => $rows['diaChi'],
-                  'soDtKh'  => $rows['soDt'],
+                  'soDtKh'  => $rows['soDT'],
                   'emailkh' => $rows['email']
                 );
               }

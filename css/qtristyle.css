@@ -185,6 +185,16 @@
   overflow: scroll;
   overflow-x: hidden;
 }
+#hienThiTonKho{
+	margin-top: 4vh;
+  height: 65vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+#locTonKho{
+	text-align: left;
+	margin-top: 2vh;
+}
 .donHang{
 	 font-family: 'Lobster', cursive;
 	 text-align: left;
@@ -230,7 +240,7 @@
 	height: 50vh;
 	overflow-y: scroll;
 	text-align: left;
-	border-bottom: 1px dashed black;
+	border-bottom: 1px solid black;
 	margin-bottom: 4vh;
 }
 .tkspBanChay::-webkit-scrollbar-track

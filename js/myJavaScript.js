@@ -196,3 +196,35 @@ $(document).ready(function(){
   //-------------------------------------------
   });
 });
+//--------------------------------------------------------------------
+$(document).ready(function(){
+  $('#sapXepTang').click(function(){
+    var sapXepTheo = "tangDan";
+    var maxResult = $('#maxResult').val();
+    var indexRows = $('#indexRows').val();
+    var loaiSanPham = $('#loaiSanPham').val();
+    var url = "xuly/sapxepsanpham.php";
+    data = {
+      maxRes : maxResult,
+      indexRow : indexRows,
+      sapXepTang : sapXepTheo,
+      loaiSP : loaiSanPham
+    }
+   $('#loadSapXep').load(url,data);
+  });
+  //-------------------------
+  $('#sapXepGiam').click(function(){
+    var sapXepTheo = "giamDan";
+    var maxResult = $('#maxResult').val();
+    var indexRows = $('#indexRows').val();
+    var loaiSanPham = $('#loaiSanPham').val();
+    var url = "xuly/sapxepsanpham.php";
+    data = {
+      sapXepGiam : sapXepTheo,
+      loaiSP : loaiSanPham,
+      maxRes : maxResult,
+      indexRow : indexRows
+    }
+   $('#loadSapXep').load(url,data);
+  });
+});

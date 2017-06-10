@@ -245,7 +245,6 @@ $(document).ready(function(){
         ghiChu : ghiChuND
     }
     var success = function(result){
-      console.log(result);
       if (result == 'Them nguoi dung thanh cong') {
         $('#themnhanvientc').modal('show');
         $('#resetThemNguoiDung').click();
@@ -320,13 +319,11 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('.btn-deleteUser').click(function(){
       var maTkDel = $(this).val();
-      console.log(maTkDel);
       var url = "../xuly/xoanguoidung.php";
       var data = {
         maTK : maTkDel
       };
       var success = function(result){
-        console.log(result);
           if (result == 'You cannot delete this user') {
               $('#xoaTaiKhoanKhongThanhCong').modal('show');
           }
@@ -447,7 +444,6 @@ $(document).ajaxComplete(function(){
           maDHU : maDHang
         }
         var success = function(result){
-          console.log(result);
           $('#trangThai' + maDHang).html(result);
           $('#udtt'+ maDH).html('Thành công <i class="fa fa-check" aria-hidden="true"></i>');
         }
@@ -472,7 +468,6 @@ $(document).ajaxComplete(function(){
         }
         tongHoaDonMoi = ((tongHoaDonCu - donGiaSanPham*soLuongCu) + (soLuongUpDate*donGiaSanPham));
         tongSoLuong = Number(soLuongCu - soLuongUpDate);
-        console.log(tongSoLuong);
         var url  = "../xuly/capnhatdonhang.php";
         var data = {
             maDonH : maDH,
@@ -548,7 +543,6 @@ $(document).ready(function(){
           maDHU : maDHang
         }
         var success = function(result){
-          console.log(result);
           $('#trangThai' + maDHang).html(result);
           $('#udtt'+ maDH).html('Thành công <i class="fa fa-check" aria-hidden="true"></i>');
         }
@@ -573,7 +567,6 @@ $(document).ready(function(){
         }
         tongHoaDonMoi = ((tongHoaDonCu - donGiaSanPham*soLuongCu) + (soLuongUpDate*donGiaSanPham));
         tongSoLuong = Number(soLuongCu - soLuongUpDate);
-        console.log(tongSoLuong);
         var url  = "../xuly/capnhatdonhang.php";
         var data = {
             maDonH : maDH,
@@ -781,7 +774,7 @@ $(document).ajaxComplete(function(){
     $.post(url,data,success,dataType);
   });
 });
-//---------------------------------------
+//----------------SUA THONG TIN KHACH QUEN-----------------------
 $(document).ready(function(){
   $('#btn-suaKhq').click(function(){
     var suaTenKhq = $('#suaTenKhq').val();
@@ -798,6 +791,7 @@ $(document).ready(function(){
           emailUpDate :  suaEmailKhq
     }
     var success = function(result){
+        console.log(result);
         if (result == 'Chinh sua thanh cong') {
             $('#suaKhqThanhCong').modal('show');
         }
@@ -859,4 +853,47 @@ $(document).ready(function(){
     var dataType = "text";
     $.post(url,data,success,dataType);
   });
+});
+//-------------------------------------
+$(document).ready(function(){
+  $('#xemDsKhachQuen').click(function(){
+      var url = "../xuly/dskhachquen.php";
+      $('#dsKhachQuen').load(url);
+  });
+});
+//---------------------------------------
+$(document).ready(function(){
+  $('#xemSpSapHet').click(function(){
+      var url = "../xuly/dssaphet.php";
+      var callback = function(){
+        $('#xemTonKhoTongQuat').attr('class','btn btn-default');
+        $('#xemSpDaHet').attr('class','btn btn-default');
+        $('#xemSpSapHet').attr('class','btn btn-info');
+      }
+      $('#hienThiTonKho').load(url,callback);
+  });
+});
+//---------------------------------------
+$(document).ready(function(){
+    $('#xemSpDaHet').click(function(){
+      var url = "../xuly/dsdahet.php";
+      var callback = function(){
+        $('#xemTonKhoTongQuat').attr('class','btn btn-default');
+        $('#xemSpSapHet').attr('class','btn btn-default');
+        $('#xemSpDaHet').attr('class','btn btn-info');
+      }
+      $('#hienThiTonKho').load(url,callback);
+    });
+});
+///-------------------------------------
+$(document).ready(function(){
+    $('#xemTonKhoTongQuat').click(function(){
+      var url = "../xuly/dstktongquan.php";
+      var callback = function(){
+        $('#xemSpSapHet').attr('class','btn btn-default');
+        $('#xemSpDaHet').attr('class','btn btn-default');
+        $('#xemTonKhoTongQuat').attr('class','btn btn-info');
+      }
+      $('#hienThiTonKho').load(url,callback);
+    });
 });
