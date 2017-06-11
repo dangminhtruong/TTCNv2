@@ -36,7 +36,7 @@
                 <li><a href="index.php?page=trangchu">Trang chủ</a></li>
                 <li><a href="index.php?page=gioithieu">Giới thiệu</a></li>
                 <li>
-                    <a data-toggle="dropdown" href="index.php?page=sanpham">Sản phẩm<span class="caret"></span></a>
+                    <a data-toggle="dropdown" href="index.php?page=cayanqua">Sản phẩm<span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
                       <li><a href="index.php?page=cayanqua">Cây ăn quả</a></li>
                       <li><a href="index.php?page=caylamnghiep">Cây lâm nghiệp</a></li>

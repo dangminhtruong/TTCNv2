@@ -25,7 +25,7 @@
     <div class="col-md-8 col-md-push-2">
       <form id="formthemSanPham" action="../xuLy/xulythemsanpham.php"  method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="form-group">
-          <label class="control-label" id="">Loại sản phẩm: </label>
+          <label class="control-label" id="">Loại sản phẩm: <b style="color:red;">*</b></label>
           <div class="">
             <select class="form-control" name="loaiSanPham">
               <?php
@@ -46,33 +46,33 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" id="" >Tên sản phẩm:</label>
+          <label class="control-label" id="" >Tên sản phẩm: <b style="color:red;">*</b></label>
           <div class="">
-            <input type="text" class="form-control" name="tenSanPham" id="tenSanPham"  data-toggle="tooltip1" data-placement="top" title="Không để trống!" placeholder="Nhập tên sản phẩm">
+            <input type="text" class="form-control" name="tenSanPham" id="tenSanPham" placeholder="Nhập tên sản phẩm" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" id="">Giá sản phẩm:</label>
+          <label class="control-label" id="">Giá sản phẩm: <b style="color:red;">*</b></label>
           <div class="">
-            <input type="text" class="form-control" name="giaSanPham" id="giaSanPham" data-toggle="tooltip2" data-placement="bottom" title="Không để trống!" placeholder="Nhập giá sản phẩm">
+            <input type="text" class="form-control" name="giaSanPham" id="giaSanPham" placeholder="Nhập giá sản phẩm" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" id="">Số lượng:</label>
+          <label class="control-label" id="">Số lượng: <b style="color:red;">*</b></label>
           <div class="">
-            <input type="text" class="form-control" id="soLuongSanPham" name="soLuongSanPham" data-toggle="tooltip3" data-placement="bottom" title="Không để trống!" placeholder="Nhập số lượng sản phẩm">
+            <input type="text" class="form-control" id="soLuongSanPham" name="soLuongSanPham" placeholder="Nhập số lượng sản phẩm" required>
           </div>
         </div>
         <div class="form-group">
           <label class="control-label">Mô tả: </label>
           <div class="">
-               <textarea class="form-control" rows="6" id="moTaSanPham" name="moTaSanPham" data-toggle="tooltip4" data-placement="bottom" title="Không để trống!" placeholder="Thêm mô tả sản phầm"></textarea>
+               <textarea class="form-control" rows="6" id="moTaSanPham" name="moTaSanPham" placeholder="Thêm mô tả sản phầm"></textarea>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" >Thêm ảnh:</label>
+          <label class="control-label" >Thêm ảnh: <b style="color:red;">*</b></label>
           <div class="">
-            <input type="file" id="imageUpload" data-toggle="tooltip5" data-placement="left" title="Không để trống!" name="imageUpload">
+            <input type="file" id="imageUpload" name="imageUpload" required>
           </div>
         </div>
       </form>

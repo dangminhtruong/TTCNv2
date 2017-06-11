@@ -126,23 +126,23 @@
   <div class="col-md-12 collapse" id="formNTTKH">
     <form>
       <div class="form-group">
-        <label for="email">Họ tên (<b style="color:red;">*</b>)</label>
-        <input type="text" class="form-control" id="hoTenKh">
+        <label for="email">Họ tên: <b style="color:red;">*</b></label>
+        <input type="text" class="form-control" id="hoTenKh" data-toggle="tenKhachs" title="Không để trống">
       </div>
       <div class="form-group">
-        <label for="pwd">Địa chỉ giao hàng (<b style="color:red;">*</b>)</label>
-        <input type="text" class="form-control" id="diaChiKh">
+        <label for="pwd">Địa chỉ giao hàng: <b style="color:red;">*</b></label>
+        <input type="text" class="form-control" id="diaChiKh" data-toggle="diaChiKhachs" title="Không để trống">
       </div>
       <div class="form-group">
-        <label for="pwd">Số điện thoại (<b style="color:red;">*</b>)</label>
-        <input type="text" class="form-control" id="soDienThoaiKh">
+        <label for="pwd">Số điện thoại: <b style="color:red;">*</b></label>
+        <input type="text" class="form-control" id="soDienThoaiKh" data-toggle="soDienThoaiKhachs" title="Không để trống">
       </div>
       <div class="form-group">
         <label for="email">Địa chỉ Email:</label>
         <input type="email" class="form-control" id="emailKh">
       </div>
       <div class="form-group">
-        <label for="sel1">Hình thức thanh toán:</label>
+        <label for="sel1">Hình thức thanh toán: <b style="color:red;">*</b></label>
         <select class="form-control" name="hinhThucTT">
           <option value="Thanh toán khi nhận hàng">Thanh toán khi nhận hàng</option>
           <option value="Chuyển khoản ngân hàng">Thanh toán qua ngân hàng</option>

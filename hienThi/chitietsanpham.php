@@ -75,19 +75,21 @@
                 while ($rowsT = $showSPNB->fetchData()) {
                 ?>
               <!---->
-              <div class="col-md-12 cayAnQuaMenu hvr-grow-shadow">
-                <div class="col-md-4 row">
-                  <img src=<?php echo 'images/'.$rowsT['anhSP'] ?> class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;"/>
-                </div>
-                <div class="col-md-8">
-                  <?php echo $rowsT['tenSP'] ?><br/>
-                  <i class="fa fa-heart vote" aria-hidden="true" style="font-size:10px;"></i>
-                  <i class="fa fa-heart vote " aria-hidden="true"  style="font-size:10px;"></i>
-                  <i class="fa fa-heart vote" aria-hidden="true"  style="font-size:10px;"></i>
-                  <i class="fa fa-heart vote" aria-hidden="true"  style="font-size:10px;"></i>
-                  <i class="fa fa-heart-o vote" aria-hidden="true"  style="font-size:10px;"></i>
-                </div>
+              <a <?php echo "href=index.php?page=chitietsanpham&idsp=".$rowsT['maSP'];?> target="_blank">
+                <div class="col-md-12 cayAnQuaMenu hvr-grow-shadow">
+                  <div class="col-md-4 row">
+                    <img src=<?php echo 'images/'.$rowsT['anhSP'] ?> class="img-responsive" alt="Cinque Terre" style="	max-height: inherit;"/>
+                  </div>
+                  <div class="col-md-8">
+                    <?php echo $rowsT['tenSP'] ?><br/>
+                    <i class="fa fa-heart vote" aria-hidden="true" style="font-size:10px;"></i>
+                    <i class="fa fa-heart vote " aria-hidden="true"  style="font-size:10px;"></i>
+                    <i class="fa fa-heart vote" aria-hidden="true"  style="font-size:10px;"></i>
+                    <i class="fa fa-heart vote" aria-hidden="true"  style="font-size:10px;"></i>
+                    <i class="fa fa-heart-o vote" aria-hidden="true"  style="font-size:10px;"></i>
+                  </div>
               </div>
+            </a>
               <?php
                   }
                 }

@@ -25,7 +25,7 @@
     <div class="col-md-8 col-md-push-2">
       <form id="formThemNguoiDung" action=""  method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="form-group">
-          <label class="control-label" id="">Loại tài khoản: </label>
+          <label class="control-label" id="">Loại tài khoản: <b style="color:red;">*</b></label>
           <div class="">
             <select class="form-control" name="loaiTaiKhoanND">
               <option value="0">Chủ cửa hàng</option>
@@ -34,31 +34,31 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" id="" >Họ tên:</label>
+          <label class="control-label" id="" >Họ tên: <b style="color:red;">*</b></label>
           <div class="">
             <input type="text" class="form-control" name="" id="tenND" placeholder="Nhập tên người dùng">
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" id="">Địa chỉ:</label>
+          <label class="control-label" id="">Địa chỉ: <b style="color:red;">*</b></label>
           <div class="">
             <input type="text" class="form-control" name="" id="diaChiND" placeholder="Nhập địa chỉ">
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" id="">Số điên thoại:</label>
+          <label class="control-label" id="">Số điên thoại: <b style="color:red;">*</b></label>
           <div class="">
             <input type="text" class="form-control" name="" id="soDienThoaiND" placeholder="Nhập số điện thoại">
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label" id="">Tên đăng nhập:</label>
+          <label class="control-label" id="">Tên đăng nhập: <b style="color:red;">*</b></label>
           <div class="">
             <input type="text" class="form-control" id="tenDangNhapND" name="" placeholder="Nhập tên đăng nhập">
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label">Mật khẩu: </label>
+          <label class="control-label">Mật khẩu: <b style="color:red;">*</b></label>
           <div class="">
                <input type="text" class="form-control" id="matKhauND" name="" placeholder="Nhập mật khẩu">
           </div>

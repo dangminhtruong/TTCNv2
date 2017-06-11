@@ -262,6 +262,8 @@ body{
   padding-top: 2vh;
   font-weight: bold;
   font-family: font_Buttermilk;
+	overflow-y: hidden;
+	max-height: 10vh;
 }
 /*-----------------GioiThieu.php CSS------------------------------*/
 #gt_navbar{

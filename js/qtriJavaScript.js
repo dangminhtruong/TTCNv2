@@ -42,7 +42,7 @@ $(document).ready(function(){
   });
 });
 /*--------------------------KIEM TRA VALID FROM THEM SAN PHAM--------------------------------------------------*/
-$(document).ready(function(){
+/* $(document).ready(function(){
   $('#formthemSanPham').submit(function(e){
     var loaiSP = $('select[name=loaiSanPham]').val();
     var tenSP = $('#tenSanPham').val();
@@ -78,6 +78,7 @@ $(document).ready(function(){
     }
   });
 });
+*/
 //------------------------------XU LY TIM KIEM-----------------------------------------------------------
 $(document).ready(function(){
   $('#timSanPhamCanSua').keyup(function(){
@@ -201,27 +202,34 @@ $(document).ready(function(){
   $('#submitThemLoaiSP').click(function(){
     var tenLoaiSP = $('#tenLoaiSP').val();
     var moTaLoaiSP =  $('#moTaLoaiSP').val();
-    var url = "../xuLy/xulythemloaiSP.php";
-    var data = {
-      tenloaiSPM : tenLoaiSP,
-      moTaLoaiSPM : moTaLoaiSP
-    };
-    var success = function(result){
-      if (result == 'Them moi loai san pham thanh cong') {
-        $('#themLoaiSPTC').modal('show');
-        function myResetFunction() {
-            setTimeout(function(){
-              window.location.replace("/TTCNv2/hienThi/quantri.php?page=quanlyloaisanpham");
-            }, 1000);
-        }
-        myResetFunction();
+    //------------------
+      if (tenLoaiSP == '') {
+        $("#tenLoaiSP").tooltip('show');
       }
+    //------------------
       else {
-        $('#themLoaiSPKTC').modal('show');
+        var url = "../xuLy/xulythemloaiSP.php";
+        var data = {
+          tenloaiSPM : tenLoaiSP,
+          moTaLoaiSPM : moTaLoaiSP
+        };
+        var success = function(result){
+          if (result == 'Them moi loai san pham thanh cong') {
+            $('#themLoaiSPTC').modal('show');
+            function myResetFunction() {
+                setTimeout(function(){
+                  window.location.replace("/TTCNv2/hienThi/quantri.php?page=quanlyloaisanpham");
+                }, 1000);
+            }
+            myResetFunction();
+          }
+          else {
+            $('#themLoaiSPKTC').modal('show');
+          }
+        }
+        var dataType = "text";
+        $.post(url,data,success,dataType);
       }
-    }
-    var dataType = "text";
-    $.post(url,data,success,dataType);
   });
 });
 //-----------------------------------
@@ -728,6 +736,9 @@ $(document).ready(function(){
 //------------------------------------------------------
 $(document).ready(function(){
   $('#btn-themKhachQuen').click(function(){
+    $('#btn-themKhachQuen').attr('class','btn btn-info');
+    $('#xemTatCaKhachHang').attr('class','btn btn-default');
+    $('#xemDsKhachQuen').attr('class', 'btn btn-default');
     $('#suaKhachQuen').collapse('hide');
     $('#themKhachQuen').collapse('show');
   });
@@ -858,8 +869,25 @@ $(document).ready(function(){
 $(document).ready(function(){
   $('#xemDsKhachQuen').click(function(){
       var url = "../xuly/dskhachquen.php";
-      $('#dsKhachQuen').load(url);
+      var callback = function(){
+        $('#xemTatCaKhachHang').attr('class','btn btn-default');
+        $('#xemDsKhachQuen').attr('class', 'btn btn-info');
+        $('#btn-themKhachQuen').attr('class','btn btn-default');
+      }
+      $('#dsKhachQuen').load(url,callback);
   });
+});
+//---------------------------------------
+$(document).ready(function(){
+      $('#xemTatCaKhachHang').click(function(){
+        var url = "../xuly/dstatcakhachhang.php";
+        var callback = function(){
+          $('#xemTatCaKhachHang').attr('class','btn btn-info');
+          $('#xemDsKhachQuen').attr('class', 'btn btn-default');
+          $('#btn-themKhachQuen').attr('class','btn btn-default');
+        };
+        $('#dsKhachQuen').load(url,callback);
+      });
 });
 //---------------------------------------
 $(document).ready(function(){

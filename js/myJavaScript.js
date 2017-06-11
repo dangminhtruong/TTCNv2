@@ -27,43 +27,56 @@ $(document).ready(function(){
     var emailKh = $('#emailKh').val();
     var hinhThucThanhToan = $('select[name=hinhThucTT]').val();
     var tongHD = Number($("#tongTienHoaDon").text());
-    var url = "xuly/xulydathang.php";
-    var data = {
-        tenKh : hoTenKh,
-        diaChiKh : diaChiGiaoHang,
-        soDienThoaiKh : dienThoaiKh,
-        email : emailKh,
-        cachThanhToan : hinhThucThanhToan,
-        tongThanhToan : tongHD
-    };
-    var success = function(result){
-        console.log(result);
-        $('#maDonHang').html(result[0]['maDH']);
-        $('#tenKhHd').html(hoTenKh);
-        $('#diaChiKhHd').html(diaChiGiaoHang);
-        $('#soDtKhHd').html(dienThoaiKh);
-        $('#emailKhHd').html(emailKh);
-        $('#cachThanhToanHd').html(hinhThucThanhToan);
-        $('#tongThanhToanHD').html(tongHD);
-        add = '';
-        for (i in result) {
-            add += '<div class="col-md-6"><i>';
-            add += result[i]['tenSP'];
-            add += '</i></div><div class="col-md-3">';
-            add += result[i]['soLuongSp'];
-            add += '</div><div class="col-md-3">';
-            add +=  result[i]['donGia'];
-            add += '</div>';
-        }
-        $('#themTTSoLuongSp').html(add);
-        //--------------------------------------------
-        $('#datHangThanhCong').modal('show');
-        $('#closeDatHangThanhCong').click(function(){
-            window.location.replace("/TTCNv2/index.php?page=trangchu");
-        });
-    };
-    var dataType = "json";
-    $.post(url, data, success, dataType);
+    if (hoTenKh == '' || diaChiGiaoHang=='' || dienThoaiKh=='') {
+          if (hoTenKh == '') {
+            $('#hoTenKh').tooltip('show');
+          }
+          if (diaChiGiaoHang=='') {
+            $('#diaChiKh').tooltip('show');
+          }
+          if (dienThoaiKh=='') {
+            $('#soDienThoaiKh').tooltip('show');
+          }
+    }
+    else {
+      var url = "xuly/xulydathang.php";
+      var data = {
+          tenKh : hoTenKh,
+          diaChiKh : diaChiGiaoHang,
+          soDienThoaiKh : dienThoaiKh,
+          email : emailKh,
+          cachThanhToan : hinhThucThanhToan,
+          tongThanhToan : tongHD
+      };
+      var success = function(result){
+          console.log(result);
+          $('#maDonHang').html(result[0]['maDH']);
+          $('#tenKhHd').html(hoTenKh);
+          $('#diaChiKhHd').html(diaChiGiaoHang);
+          $('#soDtKhHd').html(dienThoaiKh);
+          $('#emailKhHd').html(emailKh);
+          $('#cachThanhToanHd').html(hinhThucThanhToan);
+          $('#tongThanhToanHD').html(tongHD);
+          add = '';
+          for (i in result) {
+              add += '<div class="col-md-6"><i>';
+              add += result[i]['tenSP'];
+              add += '</i></div><div class="col-md-3">';
+              add += result[i]['soLuongSp'];
+              add += '</div><div class="col-md-3">';
+              add +=  result[i]['donGia'];
+              add += '</div>';
+          }
+          $('#themTTSoLuongSp').html(add);
+          //--------------------------------------------
+          $('#datHangThanhCong').modal('show');
+          $('#closeDatHangThanhCong').click(function(){
+              window.location.replace("/TTCNv2/index.php?page=trangchu");
+          });
+      };
+      var dataType = "json";
+      $.post(url, data, success, dataType);
+    }
     //-----
   });
 });

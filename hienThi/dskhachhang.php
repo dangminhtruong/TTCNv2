@@ -76,8 +76,11 @@
               </div>
               <!------>
               <div class="col-md-12 text-left" id="luaChonLocKH">
+                  <button type="button" class="btn btn-info" id="xemTatCaKhachHang">
+                    Tất cả khách hàng
+                  </button>
                   <button type="button" class="btn btn-default" id="xemDsKhachQuen">
-                    Danh sách khách hàng quen
+                    Khách hàng quen
                   </button>
                   <button type="button" class="btn btn-default" id="btn-themKhachQuen">
                     Thêm khách hàng quen <i class="fa fa-address-card-o" aria-hidden="true"></i>

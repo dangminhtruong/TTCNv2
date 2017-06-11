@@ -8,7 +8,7 @@
   //---------------------------------------------------------------------
   ?>
     <?php
-        include_once("../xuly/__autoload.php");
+        include_once("../xuLy/__autoload.php");
 
         //-----------------------
         if ($_POST['timTrongTuanThang'] == 'timTrongTuan' && $_POST['timTheoTinhTrang'] !='null') {

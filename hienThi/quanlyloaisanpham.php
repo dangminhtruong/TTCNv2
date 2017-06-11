@@ -25,15 +25,15 @@
   <div class="col-md-8 col-md-push-2">
     <form id="formThemLoaiSP" class="form-horizontal">
       <div class="form-group">
-        <label class="control-label" id="" >Tên loại sản phẩm:</label>
+        <label class="control-label" id="" >Tên loại sản phẩm: <b style="color:red;">*</b></label>
         <div class="">
-          <input type="text" class="form-control" name="tenLoaiSP" id="tenLoaiSP"  data-toggle="tooltip1" data-placement="top" title="Không để trống!" placeholder="Nhập tên sản phẩm">
+          <input type="text" class="form-control" name="tenLoaiSP" id="tenLoaiSP" data-toggle="tooltipppp" title="Không để trống" placeholder="Nhập tên sản phẩm">
         </div>
       </div>
       <div class="form-group">
         <label class="control-label">Mô tả: </label>
         <div class="">
-             <textarea class="form-control" rows="6" id="moTaLoaiSP" name="moTaLoaiSP" data-toggle="tooltip4" data-placement="bottom" title="Không để trống!" placeholder="Thêm mô tả sản phầm"></textarea>
+             <textarea class="form-control" rows="6" id="moTaLoaiSP" name="moTaLoaiSP" placeholder="Thêm mô tả sản phầm"></textarea>
         </div>
       </div>
     </form>

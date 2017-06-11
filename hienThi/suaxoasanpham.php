@@ -65,31 +65,31 @@
                 <label class="control-label" id="" >Tên sản phẩm:</label>
                 <div class="">
                   <input type = "text" hidden id="idSanPham" name = "idSanPham">
-                  <input type="text" class="form-control" name="tenSanPham" id="tenSanPham"  data-toggle="tooltip1" data-placement="top" title="Không để trống!" placeholder="Nhập tên sản phẩm">
+                  <input type="text" class="form-control" name="tenSanPham" id="tenSanPham">
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label" id="">Giá sản phẩm:</label>
                 <div class="">
-                  <input type="text" class="form-control" name="giaSanPham" id="giaSanPham" data-toggle="tooltip2" data-placement="bottom" title="Không để trống!" placeholder="Nhập giá sản phẩm">
+                  <input type="text" class="form-control" name="giaSanPham" id="giaSanPham">
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label" id="">Số lượng:</label>
                 <div class="">
-                  <input type="text" class="form-control" id="soLuongSanPham" name="soLuongSanPham" data-toggle="tooltip3" data-placement="bottom" title="Không để trống!" placeholder="Nhập số lượng sản phẩm">
+                  <input type="text" class="form-control" id="soLuongSanPham" name="soLuongSanPham">
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label">Mô tả: </label>
                 <div class="">
-                     <textarea class="form-control" rows="6" id="moTaSanPham" name="moTaSanPham" data-toggle="tooltip4" data-placement="bottom" title="Không để trống!" placeholder="Thêm mô tả sản phầm"></textarea>
+                     <textarea class="form-control" rows="6" id="moTaSanPham" name="moTaSanPham"></textarea>
                 </div>
               </div>
               <div class="form-group">
                 <label class="control-label" >Thêm ảnh:</label>
                 <div class="">
-                  <input type="file" id="imageUpload"  name="imageUploadEdit" data-toggle="tooltip5" data-placement="left" title="Không để trống!">
+                  <input type="file" id="imageUpload"  name="imageUploadEdit" >
                 </div>
               </div>
             </form>
