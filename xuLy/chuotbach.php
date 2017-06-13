@@ -1,4 +1,6 @@
 <?php
+session_start();
+ob_start();
 include_once('__autoload.php');
 /* date_default_timezone_set('Asia/Ho_Chi_Minh');
 $dauTuan = date("Y-m-d", strtotime("monday this week"));
@@ -30,16 +32,14 @@ $sat=date_create($dauTuan);
 date_add($sat,date_interval_create_from_date_string("5 days"));
 $thuBay = date_format($sat,"d-m-Y");
 echo $thuBay; */
-$themDonHang = new sanpham();
-$sql12 = "SELECT  sanpham.tensp,chitietdonhang.soLuong FROM chitietdonhang INNER JOIN sanpham
-ON (chitietdonhang.masp = sanpham.masp) WHERE chitietdonhang.madh = '11'";
-$themDonHang->myQuery($sql12);
-while ($thongTinSp = $themDonHang->fetchData()) {
-  $result[] = array(
-    'tenSP' => $thongTinSp['tensp'],
-    'soLuong' => $thongTinSp['soLuong']
-  );
+echo $_SESSION['loaiTK'];
+echo $_SESSION['userName'];
+echo $_SESSION['passWord'];
+echo $_SESSION['nhanVien'];
+if ($_SESSION['loaiTK'] == 0) {
+  echo "Admin";
 }
-//-------------------
-echo json_encode($result);
+else {
+  echo "Nhan vien";
+}
 ?>

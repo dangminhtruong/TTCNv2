@@ -90,5 +90,21 @@
       $sql2 = "DELETE FROM taikhoan WHERE maTK = '$maTK'";
       $this->myQuery($sql2);
     }
-  }
+  //---------------------------------------------------------------------
+    public function doiMatKhau($maNV,$matKhauCu,$matKhauMoi){
+      $sql = "SELECT nhanvien.maNV, nhanvien.maTK,taikhoan.tenTK,taikhoan.matkhau FROM nhanvien INNER JOIN taikhoan ON (nhanvien.maTK = taikhoan.maTK)
+      WHERE nhanvien.maNV='$maNV' AND taikhoan.matkhau = '$matKhauCu'";
+      $this->myQuery($sql);
+      if ($this->numRows() > 0) {
+          $tam = $this->fetchData();
+          $maTaiKhoan = $tam['maTK'];
+          $sql = "UPDATE taikhoan SET matKhau = '$matKhauMoi' WHERE maTK = '$maTaiKhoan'";
+          $this->myQuery($sql);
+          return "Doi mat khau thanh cong";
+      }
+      else {
+          return "Mat khau hien tai khong dung";
+      }
+    }
+}
 ?>

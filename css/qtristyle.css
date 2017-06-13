@@ -292,3 +292,21 @@
 	overflow-x: hidden;
 	margin-bottom: 4vh;
 }
+#formDoiMatKhau{
+	text-align: left;
+}
+.btn-xuatHD{
+	margin-left: 2vh;
+	margin-top: 1vh;
+}
+/*----------------------------------------------*/
+#tenHoaDon{
+	text-align: center;
+	font-size: 20px;
+}
+#kyTenKh{
+	text-align: center;
+}
+#kyTenNB{
+	text-align: center;
+}

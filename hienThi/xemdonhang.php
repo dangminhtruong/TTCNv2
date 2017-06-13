@@ -152,7 +152,12 @@ $homNay =  date('Y/m/d');
             <p <?php echo "id=trangThai".$res['madh'] ?>><?php
               if ($res["trangthai"] == "Đang chuyển hàng" || $res["trangthai"] == "Hoàn tất" || $res["trangthai"] == "Đã xác nhận") {
                 echo $res["trangthai"]."<br/>";
-                echo "Mã NV: ".$res['manv'];
+                $hienNV = new user();
+                $maNhanVien = $res['manv'];
+                $sql10 = "SELECT hoTenNV FROM nhanvien WHERE maNV = '$maNhanVien'";
+                $hienNV->myQuery($sql10);
+                $tenNV= $hienNV->fetchData();
+                 echo "Nhân viên xử lý: <br/>".$tenNV['hoTenNV'];
               }
               else {
                 echo $res["trangthai"];
@@ -164,11 +169,14 @@ $homNay =  date('Y/m/d');
               if ($res["trangthai"] == "Đang chuyển hàng" || $res["trangthai"] == "Hoàn tất" ) { ?>
                   <button type="button" disabled class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>
                   <button type="button" disabled class="btn btn-sm btn-danger btn-huyDH" <?php echo "value=". $res['madh'] ?>>Hủy</button>
+                  <a <?php echo "href=xuathoadon.php?madh=".$res['madh'];?>>
+                    <button type="button" class="btn btn-sm btn-default btn-xuatHD">Xuất hóa đơn</button>
+                 </a>
         <?php
               }
             else{ ?>
               <button type="button" class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>
-                <button type="button" class="btn btn-sm btn-danger btn-huyDH" <?php echo "value=". $res['madh'] ?>>Hủy</button>
+              <button type="button" class="btn btn-sm btn-danger btn-huyDH" <?php echo "value=". $res['madh'] ?>>Hủy</button>
           <?php  } ?>
         </div>
     </div>

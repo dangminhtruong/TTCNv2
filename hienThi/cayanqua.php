@@ -7,7 +7,7 @@
     if (!isset($_GET['id'])) {
       $pageId = 1;
     }
-    else {
+    else { 
       $pageId = $_GET['id'];
     }
     $sql2 = "SELECT* FROM sanpham WHERE maLoaiSP = 1";

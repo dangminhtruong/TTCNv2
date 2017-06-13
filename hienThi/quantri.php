@@ -49,7 +49,7 @@
                <a href="#" class="hvr-grow-shadow qtriLeftBarLi">Điều khoản sử dụng</a>
              </div>
              <div class="panel-body">
-               <a href="#" class="hvr-grow-shadow qtriLeftBarLi">Đổi mật khẩu</a>
+               <a href="/TTCNv2/hienThi/quantri.php?page=doimatkhau" class="hvr-grow-shadow qtriLeftBarLi">Đổi mật khẩu</a>
              </div>
              <div class="panel-footer">
                <a href="/TTCNv2/hienThi/quantri.php?page=dangxuat" class="hvr-grow-shadow qtriLeftBarLi">Đăng xuất</a>
@@ -101,6 +101,9 @@
               case 'thongkebanchay' :
                   include_once('thongkebanchay.php');
               break;
+              case 'doimatkhau':
+                  include_once('doimatkhau.php');
+                break;
               case 'dangxuat':
                   header('location:../xuLy/dangxuat.php');
                 break;

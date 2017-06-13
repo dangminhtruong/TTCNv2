@@ -41,44 +41,6 @@ $(document).ready(function(){
 //---------------------------------------------
   });
 });
-/*--------------------------KIEM TRA VALID FROM THEM SAN PHAM--------------------------------------------------*/
-/* $(document).ready(function(){
-  $('#formthemSanPham').submit(function(e){
-    var loaiSP = $('select[name=loaiSanPham]').val();
-    var tenSP = $('#tenSanPham').val();
-    var giaSP = $('#giaSanPham').val();
-    var soLuongSP = $('#soLuongSanPham').val();
-    var moTaSP = $('#moTaSanPham').val();
-    var anhSP = $('#imageUpload').val();
-
-    if (loaiSP == '' || tenSP=='' || giaSP=='' || soLuongSP=='' || moTaSP=='' || anhSP=='') {
-      e.preventDefault();
-
-      if (loaiSP == '') {
-          $('[data-toggle="tooltip0"]').tooltip('show');
-        }
-      if (tenSP == '') {
-          $('[data-toggle="tooltip1"]').tooltip('show');
-        }
-      if (giaSP == '') {
-          $('[data-toggle="tooltip2"]').tooltip('show');
-        }
-      if (soLuongSP == '') {
-          $('[data-toggle="tooltip3"]').tooltip('show');
-        }
-      if (moTaSP == '') {
-          $('[data-toggle="tooltip4"]').tooltip('show');
-        }
-      if (anhSP == '') {
-          $('[data-toggle="tooltip5"]').tooltip('show');
-        }
-    }
-    else {
-      $('#formthemSanPham').unbind('submit').submit();
-    }
-  });
-});
-*/
 //------------------------------XU LY TIM KIEM-----------------------------------------------------------
 $(document).ready(function(){
   $('#timSanPhamCanSua').keyup(function(){
@@ -317,6 +279,12 @@ $(document).ready(function(){
             $('#suaTaiKhoanThanhCong').modal('show');
             $('#resetSuaNguoiDung').click();
             $('#suaNguoiDung').collapse('hide');
+            function myResetFunction() {
+                setTimeout(function(){
+                  window.location.replace("/TTCNv2/hienThi/quantri.php?page=suaxoanguoidung");
+                }, 1000);
+            }
+            myResetFunction();
          }
     }
     var dataType = "text";
@@ -387,8 +355,22 @@ $(document).ready(function(){
       var timTuanThang = $('select[name=timTheoTuanThang]').val();
       var timTuNgay = $('#timTuNgay').val();
       var timDenNgay = $('#timDenNgay').val();
-      //---------------------
-      //---------------------
+      var callback = function(){
+        $('.btn-huyDH').click(function(){
+          if (confirm("Bạn chắc chắn muốn hủy đơn hàng ?") == true) {
+            var maDHHuy = $(this).val();
+            var url = "../xuly/capnhatdonhang.php";
+            var data = {
+                maDhDel : maDHHuy
+            }
+            var success =  function(result){
+              $('#dhCt'+maDHHuy).remove();
+            }
+            var dataType = "text";
+            $.post(url,data,success,dataType);
+          }
+        });
+      }
       var url = "../xuly/locdonhang.php";
       var data = {
         timTheoTinhTrang : timTinhTrang,
@@ -396,7 +378,7 @@ $(document).ready(function(){
         tuNgay  : timTuNgay,
         denNgay : timDenNgay
       }
-      $('#hienThiDonHang').load(url,data);
+      $('#hienThiDonHang').load(url,data,callback);
     });
 });
 //----------------------------------------------------------
@@ -598,7 +580,7 @@ $(document).ready(function(){
   });
 });
 //-------------------------------------------
-$(document).ajaxComplete(function(){
+/*$(document).ajaxComplete(function(){
   $('.btn-huyDH').click(function(){
       var maDHHuy = $(this).val();
       var url = "../xuly/capnhatdonhang.php";
@@ -611,20 +593,22 @@ $(document).ajaxComplete(function(){
       var dataType = "text";
       $.post(url,data,success,dataType);
   });
-});
+});*/
 //-------------------------------------
 $(document).ready(function(){
   $('.btn-huyDH').click(function(){
           var maDHHuy = $(this).val();
-          var url = "../xuly/capnhatdonhang.php";
-          var data = {
-              maDhDel : maDHHuy
-          }
-          var success =  function(result){
-            $('#dhCt'+maDHHuy).remove();
-          }
-          var dataType = "text";
-          $.post(url,data,success,dataType);
+            if (confirm("Bạn chắc chắn muốn hủy đơn hàng ?") == true) {
+              var url = "../xuly/capnhatdonhang.php";
+              var data = {
+                  maDhDel : maDHHuy
+              }
+              var success =  function(result){
+                $('#dhCt'+maDHHuy).remove();
+              }
+              var dataType = "text";
+              $.post(url,data,success,dataType);
+        }
     });
 });
 //---------------------------------------
@@ -873,6 +857,8 @@ $(document).ready(function(){
         $('#xemTatCaKhachHang').attr('class','btn btn-default');
         $('#xemDsKhachQuen').attr('class', 'btn btn-info');
         $('#btn-themKhachQuen').attr('class','btn btn-default');
+        $('#suaKhachQuen').collapse('hide');
+        $('#themKhachQuen').collapse('hide');
       }
       $('#dsKhachQuen').load(url,callback);
   });
@@ -885,6 +871,8 @@ $(document).ready(function(){
           $('#xemTatCaKhachHang').attr('class','btn btn-info');
           $('#xemDsKhachQuen').attr('class', 'btn btn-default');
           $('#btn-themKhachQuen').attr('class','btn btn-default');
+          $('#suaKhachQuen').collapse('hide');
+          $('#themKhachQuen').collapse('hide');
         };
         $('#dsKhachQuen').load(url,callback);
       });
@@ -924,4 +912,39 @@ $(document).ready(function(){
       }
       $('#hienThiTonKho').load(url,callback);
     });
+});
+//-------------------------------------
+$(document).ready(function(){
+  $('#btn-doiMatKhau').click(function(){
+    var matKhauCu = $('#matKhauCu').val();
+    var matKhauMoi = $('#matKhauMoi').val();
+    var xacNhanMatKhauMoi = $('#xacNhanMatKhauMoi').val();
+    if (matKhauMoi != xacNhanMatKhauMoi) {
+        $('#khongTrungXacNhanmatKhau').modal('show');
+    }
+    else {
+      var url = "../xuLy/xulydoimatkhau.php";
+      var data = {
+        matKC : matKhauCu,
+        matKM : matKhauMoi
+      }
+      var success = function(result){
+          console.log(result);
+          if (result == 'Doi mat khau thanh cong') {
+            $('#doiMatkhauthanhcong').modal('show');
+          }
+          else {
+            $('#matKhauHienTaiSai').modal('show');
+          }
+      }
+      var dataType = "text";
+      $.post(url,data,success,dataType);
+    }
+  });
+});
+//--------------------------------------------
+$(document).ready(function(){
+  $('#thongKeDT').click(function(){
+    $('#thongKeDoanhThuTB').modal('show');
+  });
 });

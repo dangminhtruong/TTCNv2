@@ -1,5 +1,13 @@
 <div class="col-md-10" id="qtriRight">
   <!------------------>
+  <div class="modal fade bs-example-modal-sm" id="thongKeDoanhThuTB" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <strong>Xin lỗi, tài khoản của bạn hiện không sử dụng được chức năng này !</strong>
+      </div>
+    </div>
+  </div>
+  <!------------------>
   <div class="col-md-6" id="qLyCay">
     <div class="panel panel-gray">
       <div class="panel-heading"><span><strong>Quản lý sản phẩm</strong></span></div>
@@ -58,12 +66,32 @@
     <div class="panel  panel-gray">
       <div class="panel-heading"><span><strong>Thống kê - báo cáo</strong></span></div>
     </div>
-    <a href="/TTCNv2/hienThi/quantri.php?page=xemdoanhthu">
-      <div class="col-md-4 hvr-grow-shadow">
-        <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i><br/>
-        <span>Thống kê doanh thu</span>
-      </div>
-    </a>
+    <!------>
+    <?php
+        if (isset($_SESSION['loaiTK'])) {
+          if ($_SESSION['loaiTK'] == 0) {
+    ?>
+          <a href="/TTCNv2/hienThi/quantri.php?page=xemdoanhthu">
+            <div class="col-md-4 hvr-grow-shadow">
+              <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i><br/>
+              <span>Thống kê doanh thu</span>
+            </div>
+          </a>
+    <?php
+          }
+          else {
+    ?>
+            <a href="#" id="thongKeDT">
+              <div class="col-md-4 hvr-grow-shadow">
+                <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i><br/>
+                <span>Thống kê doanh thu</span>
+              </div>
+            </a>
+    <?php
+          }
+        }
+    ?>
+    <!------>
     <a href="/TTCNv2/hienThi/quantri.php?page=thongketonkho">
       <div class="col-md-4 hvr-grow-shadow">
           <i class="fa fa-bar-chart fa-5x" aria-hidden="true"></i><br/>

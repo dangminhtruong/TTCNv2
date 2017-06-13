@@ -217,13 +217,30 @@ $(document).ready(function(){
     var indexRows = $('#indexRows').val();
     var loaiSanPham = $('#loaiSanPham').val();
     var url = "xuly/sapxepsanpham.php";
+    var callback = function(){
+      $('.buttonDatMua').click(function(){
+        var idsp = $(this).val();
+        var soLuongTrenGioHang = Number($('#sluong').text());
+        var url = "xuLy/xulythemvaogiohang.php";
+        var data = {
+          maSP : idsp,
+          sanPhamDaChon : soLuongTrenGioHang
+        };
+        var success = function(result){
+          $('#sluong').html(result);
+          $("#giohang").css("color", "yellow");
+        }
+        var dataType = "text";
+        $.post(url, data, success, dataType);
+      });
+    }
     data = {
       maxRes : maxResult,
       indexRow : indexRows,
       sapXepTang : sapXepTheo,
       loaiSP : loaiSanPham
     }
-   $('#loadSapXep').load(url,data);
+   $('#loadSapXep').load(url,data,callback);
   });
   //-------------------------
   $('#sapXepGiam').click(function(){
@@ -232,12 +249,30 @@ $(document).ready(function(){
     var indexRows = $('#indexRows').val();
     var loaiSanPham = $('#loaiSanPham').val();
     var url = "xuly/sapxepsanpham.php";
+    var callback = function(){
+      $('.buttonDatMua').click(function(){
+        var idsp = $(this).val();
+        var soLuongTrenGioHang = Number($('#sluong').text());
+        var url = "xuLy/xulythemvaogiohang.php";
+        var data = {
+          maSP : idsp,
+          sanPhamDaChon : soLuongTrenGioHang
+        };
+        var success = function(result){
+          $('#sluong').html(result);
+          $("#giohang").css("color", "yellow");
+        }
+        var dataType = "text";
+        $.post(url, data, success, dataType);
+      });
+    }
     data = {
       sapXepGiam : sapXepTheo,
       loaiSP : loaiSanPham,
       maxRes : maxResult,
       indexRow : indexRows
     }
-   $('#loadSapXep').load(url,data);
+   $('#loadSapXep').load(url,data,callback);
   });
 });
+//------------------------------------
