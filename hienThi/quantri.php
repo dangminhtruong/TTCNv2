@@ -29,7 +29,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" id="DungHanhBrand" href="#">Dũng Hạnh</a>
+              <a class="navbar-brand" id="DungHanhBrand" href="http://localhost/TTCNv2/index.php?page=trangchu" target="_blank">Dũng Hạnh</a>
             </div>
           </div>
         </nav>

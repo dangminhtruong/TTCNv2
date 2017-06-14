@@ -17,7 +17,7 @@
   }
   else {
     $_SESSION['giohang'][$maSP] = 1;
-    $_SESSION['muaHang'] =1;
+    $_SESSION['muaHang'] = 1;
     echo $_SESSION['muaHang'];
   }
 ?>

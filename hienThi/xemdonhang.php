@@ -169,7 +169,7 @@ $homNay =  date('Y/m/d');
               if ($res["trangthai"] == "Đang chuyển hàng" || $res["trangthai"] == "Hoàn tất" ) { ?>
                   <button type="button" disabled class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>
                   <button type="button" disabled class="btn btn-sm btn-danger btn-huyDH" <?php echo "value=". $res['madh'] ?>>Hủy</button>
-                  <a <?php echo "href=xuathoadon.php?madh=".$res['madh'];?>>
+                  <a <?php echo "href=xuathoadon.php?madh=".$res['madh'];?> target="_blank">
                     <button type="button" class="btn btn-sm btn-default btn-xuatHD">Xuất hóa đơn</button>
                  </a>
         <?php
@@ -177,6 +177,9 @@ $homNay =  date('Y/m/d');
             else{ ?>
               <button type="button" class="btn btn-sm btn-primary btn-capNhatDH" <?php echo "value=". $res['madh'] ?>>Cập nhật</button>
               <button type="button" class="btn btn-sm btn-danger btn-huyDH" <?php echo "value=". $res['madh'] ?>>Hủy</button>
+              <a <?php echo "href=xuathoadon.php?madh=".$res['madh'];?> target="_blank">
+                <button type="button" class="btn btn-sm btn-default btn-xuatHD">Xuất hóa đơn</button>
+             </a>
           <?php  } ?>
         </div>
     </div>

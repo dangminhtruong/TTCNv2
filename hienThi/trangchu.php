@@ -82,9 +82,7 @@
                 $showSPM->connectDb();
                 $sql1 = "SELECT* FROM sanpham";
                 $showSPM->myQuery($sql1);
-                $numR = $showSPM->numRows();
-                $sql2 = "SELECT sanpham.tenSP, sanpham.giaSP, sanpham.anhSP,sanpham.maSP FROM sanpham
-                WHERE sanpham.maSP >=('$numR'-3) AND sanpham.maSP <= '$numR' ";
+                $sql2 = "SELECT * FROM sanpham ORDER BY maSP DESC LIMIT 4";
                 $showSPM->myQuery($sql2);
                 if ($showSPM->numRows() > 0) {
                   while ($rows = $showSPM->fetchData()) {

@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  ob_start();
   include_once('../xuly/__autoload.php');
   if (isset($_GET['madh'])) {
     $maDH = $_GET['madh'];
@@ -122,8 +124,8 @@
                 <div class="col-md-6" id="kyTenNB">
                     <i>Người bán hàng<br/>(Ký tên)</i><br/><br/><br/><br/>
                     <?php
-                      $sql3 = "SELECT hoTenNV FROM nhanvien INNER JOIN donhang ON (donhang.maNV = nhanvien.maNV)
-                      WHERE maDH = '$maDH'";
+                      $maNVXHD = $_SESSION['nhanVien'];
+                      $sql3 = "SELECT hoTenNV FROM nhanvien WHERE maNV = '$maNVXHD'";
                       $xuatDonHang->myQuery($sql3);
                       $tenNV = $xuatDonHang->fetchData();
                       echo $tenNV['hoTenNV'];

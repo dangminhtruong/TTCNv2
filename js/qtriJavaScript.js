@@ -648,7 +648,7 @@ $(document).ready(function(){
               fill: false
             }, {
               data: result['cln'],
-              label: "Cây lấy gỗ",
+              label: "Cây lâm nghiệp",
               borderColor: "#8e5ea2",
               fill: false
             }, {
@@ -944,7 +944,31 @@ $(document).ready(function(){
 });
 //--------------------------------------------
 $(document).ready(function(){
-  $('#thongKeDT').click(function(){
+  $('.thongKeDT').click(function(){
     $('#thongKeDoanhThuTB').modal('show');
+  });
+});
+//-------------------------------------
+$(document).ready(function(){
+  $('.btn-xoaBaiViet').click(function(){
+      var idBaiXoa = $(this).val();
+      var url= "../xuLy/xulyxoabaiviet.php";
+      var data = {
+        idBvDel : idBaiXoa
+      }
+      var success = function(result){
+          console.log(result);
+          if (result == 'Xoa bai viet thanh cong') {
+            $('#xoaBaiVietThanhCong').modal('show');
+            function myFunction() {
+                setTimeout(function(){
+                  window.location.replace("/TTCNv2/hienThi/quantri.php?page=suabaiviet");
+                }, 1000);
+            }
+            myFunction();
+          }
+      }
+      var dataType = "text";
+      $.post(url,data,success,dataType);
   });
 });

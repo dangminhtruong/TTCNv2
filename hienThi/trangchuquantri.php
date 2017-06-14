@@ -48,6 +48,10 @@
     <div class="panel  panel-default">
       <div class="panel-heading"><span><strong>Quản lý người dùng</strong><span></div>
     </div>
+    <?php
+    if (isset($_SESSION['loaiTK'])) {
+      if ($_SESSION['loaiTK'] == 0) {
+    ?>
     <a href="/TTCNv2/hienThi/quantri.php?page=themnguoidung">
       <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
         <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i><br/>
@@ -60,6 +64,26 @@
         <span>Sửa xóa - người dùng</span>
       </div>
     </a>
+    <?php
+      }
+      else {
+    ?>
+    <a href="#" class="thongKeDT">
+      <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
+        <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i><br/>
+        <span>Thêm người dùng</span>
+      </div>
+    </a>
+    <a href="#" class="thongKeDT">
+      <div class="col-md-4 col-md-push-2 hvr-grow-shadow">
+        <i class="fa fa-pencil-square-o fa-5x" aria-hidden="true"></i><br/>
+        <span>Sửa xóa - người dùng</span>
+      </div>
+    </a>
+    <?php
+      }
+    }
+    ?>
   </div>
 <!-------------------------------------->
   <div class="col-md-6" id="qLyThongKe">
@@ -81,7 +105,7 @@
           }
           else {
     ?>
-            <a href="#" id="thongKeDT">
+            <a href="#" class="thongKeDT">
               <div class="col-md-4 hvr-grow-shadow">
                 <i class="fa fa-line-chart fa-5x" aria-hidden="true"></i><br/>
                 <span>Thống kê doanh thu</span>
@@ -98,12 +122,30 @@
         <span>Thống kê tồn kho</span>
       </div>
     </a>
+    <?php
+    if (isset($_SESSION['loaiTK'])) {
+      if ($_SESSION['loaiTK'] == 0) {
+    ?>
     <a href="/TTCNv2/hienThi/quantri.php?page=thongkebanchay">
       <div class="col-md-4 hvr-grow-shadow">
           <i class="fa fa-area-chart fa-5x" aria-hidden="true"></i><br/>
         <span>Sản phẩm bán chạy</span>
       </div>
     </a>
+    <?php
+      }
+      else {
+    ?>
+        <a href="#" class="thongKeDT">
+          <div class="col-md-4 hvr-grow-shadow">
+              <i class="fa fa-area-chart fa-5x" aria-hidden="true"></i><br/>
+            <span>Sản phẩm bán chạy</span>
+          </div>
+        </a>
+    <?php
+      }
+    }
+    ?>
   </div>
 <!----------------------------------->
   <div class="col-md-6" id="qLyThongKe">

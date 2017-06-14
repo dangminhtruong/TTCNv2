@@ -7,7 +7,7 @@
     if (!isset($_GET['id'])) {
       $pageId = 1;
     }
-    else { 
+    else {
       $pageId = $_GET['id'];
     }
     $sql2 = "SELECT* FROM sanpham WHERE maLoaiSP = 1";
@@ -58,10 +58,6 @@
               </div>
               <!---->
               <div class="col-md-12 cayAnQuaMenu hvr-bounce-to-right">
-                <a href="index.php?page=vattunongnghiep">
-                  <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-                  Vật tư nông nghiệp
-                </a>
               </div>
               <!---->
               <div class="col-md-12 cayAnQuaMenu">
