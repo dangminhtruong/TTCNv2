@@ -116,7 +116,7 @@
           Thanh toán
           <i class="fa fa-check-square-o" aria-hidden="true"></i>
         </button>
-        <a href="http://localhost/TTCNv2/index.php?page=trangchu" type="button" class="btn btn-info btn-muaThem">
+        <a href="index.php?page=trangchu" type="button" class="btn btn-info btn-muaThem">
           Mua thêm
           <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i>
         </a>

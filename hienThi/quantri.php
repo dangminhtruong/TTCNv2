@@ -29,7 +29,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
           <div class="container">
             <div class="navbar-header">
-              <a class="navbar-brand" id="DungHanhBrand" href="http://localhost/TTCNv2/index.php?page=trangchu" target="_blank">Dũng Hạnh</a>
+              <a class="navbar-brand" id="DungHanhBrand" href="index.php?page=trangchu" target="_blank">Dũng Hạnh</a>
             </div>
           </div>
         </nav>
@@ -40,7 +40,7 @@
       <div class="col-md-12 qtriLeftBar">
           <div class="panel panel-default row">
              <div class="panel-heading">
-               <a href="/TTCNv2/hienThi/quantri.php" class="hvr-grow-shadow qtriLeftBarLi"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ quản trị</a>
+               <a href="../hienThi/quantri.php" class="hvr-grow-shadow qtriLeftBarLi"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ quản trị</a>
              </div>
              <div class="panel-body">
                <a href="#" class="hvr-grow-shadow qtriLeftBarLi">Hướng dẫn sử dụng</a>
@@ -49,10 +49,10 @@
                <a href="#" class="hvr-grow-shadow qtriLeftBarLi">Điều khoản sử dụng</a>
              </div>
              <div class="panel-body">
-               <a href="/TTCNv2/hienThi/quantri.php?page=doimatkhau" class="hvr-grow-shadow qtriLeftBarLi">Đổi mật khẩu</a>
+               <a href="../hienThi/quantri.php?page=doimatkhau" class="hvr-grow-shadow qtriLeftBarLi">Đổi mật khẩu</a>
              </div>
              <div class="panel-footer">
-               <a href="/TTCNv2/hienThi/quantri.php?page=dangxuat" class="hvr-grow-shadow qtriLeftBarLi">Đăng xuất</a>
+               <a href="../hienThi/quantri.php?page=dangxuat" class="hvr-grow-shadow qtriLeftBarLi">Đăng xuất</a>
              </div>
          </div>
       </div>
@@ -130,7 +130,7 @@
    <?php
      }
      else {
-       header("location:/TTCNv2/hienthi/dangnhap.php");
+       header("location:../hienthi/dangnhap.php");
      }
    ?>
    <?php

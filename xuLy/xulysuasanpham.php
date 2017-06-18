@@ -11,7 +11,7 @@
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
-      header('location:/TTCNv2/hienThi/quantri.php?page=suaxoasanpham');
+      header('location:..hienThi/quantri.php?page=suaxoasanpham');
       $_SESSION['chinhsuathanhcong'] = 'thanhcong';
     }
     //-----------------------------------------------
@@ -21,7 +21,7 @@
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
-      header('location:/TTCNv2/hienThi/quantri.php?page=suaxoasanpham');
+      header('location:../hienThi/quantri.php?page=suaxoasanpham');
       $_SESSION['chinhsuathanhcong'] = 'thanhcong';
     }
     //----------------------------------------------
@@ -31,7 +31,7 @@
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
-      header('location:/TTCNv2/hienThi/quantri.php?page=suaxoasanpham');
+      header('location:../hienThi/quantri.php?page=suaxoasanpham');
       $_SESSION['chinhsuathanhcong'] = 'thanhcong';
     }
     //-----------------------------------------------
@@ -41,7 +41,7 @@
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
-      header('location:/TTCNv2/hienThi/quantri.php?page=suaxoasanpham');
+      header('location:../hienThi/quantri.php?page=suaxoasanpham');
       $_SESSION['chinhsuathanhcong'] = 'thanhcong';
     }
     //------------------------------------------------
@@ -51,7 +51,7 @@
       $themSP = new sanpham();
       $themSP->myQuery($sql);
       $themSP->freeQuery();
-      header('location:/TTCNv2/hienThi/quantri.php?page=suaxoasanpham');
+      header('location:../hienThi/quantri.php?page=suaxoasanpham');
       $_SESSION['chinhsuathanhcong'] = 'thanhcong';
     }
     //-----------------------------------------------------
@@ -68,7 +68,7 @@
         $sql = "UPDATE sanpham SET anhSP = '$tenAnh' WHERE maSP = '$idSanPham' ";
         $themSP = new sanpham();
         $themSP->myQuery($sql);
-        header('location:/TTCNv2/hienThi/quantri.php?page=suaxoasanpham');
+        header('location:../hienThi/quantri.php?page=suaxoasanpham');
         $_SESSION['chinhsuathanhcong'] = 'thanhcong';
       }
   }

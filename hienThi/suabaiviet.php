@@ -66,7 +66,7 @@
           </div>
           <div class="form-group">
               <button type="button" class="btn btn-primary" id="btn-suaBv">Hoàn tất</button>
-              <button type="button" class="btn btn-default" id="btn-ThemBv"><a href="/TTCNv2/hienThi/quantri.php">Thoát</a></button>
+              <button type="button" class="btn btn-default" id="btn-ThemBv"><a href="../hienThi/quantri.php">Thoát</a></button>
           </div>
         </form>
     </div>

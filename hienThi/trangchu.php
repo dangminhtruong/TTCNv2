@@ -272,7 +272,7 @@
        ?>
        <div class="col-md-3 container1 wow bounceInLeft">
          <img src="images/sp3.jpg" alt="anhbv" class="imagebv" style="width:100%">
-         <a href=<?php echo "/TTCNv2/index.php?page=tintuc&idbv=".$bv['id'];?>>
+         <a href=<?php echo "index.php?page=tintuc&idbv=".$bv['id'];?>>
            <div class="middle">
              <div class="text">Xem Thêm</div>
            </div>

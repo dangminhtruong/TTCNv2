@@ -19,11 +19,11 @@
         $anhSP = $file_name ;
         $themSP = new sanpham();
       if ($themSP->themSanPham($tenSP,$soLuongSP,$giaSP,$maLoaiSP,$moTaSP,$anhSP) == 'Them san pham thanh cong') {
-        header("location:/TTCNv2/hienthi/quantri.php?page=themsanpham");
+        header("location:../hienthi/quantri.php?page=themsanpham");
         $_SESSION['themSPThanhCong'] = 'success';
       }
       else {
-          header("location:/TTCNv2/hienthi/quantri.php?page=themsanpham");
+          header("location:../hienthi/quantri.php?page=themsanpham");
         $_SESSION['themSPKhongThanhCong'] = 'no success';
       }
   }

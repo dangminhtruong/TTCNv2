@@ -36,12 +36,12 @@
         mysqli_query($connect, $query);
        }
       }
-      header("location:http://localhost/TTCNv2/hienthi/quantri.php?page=themsanpham");
+      header("location:../hienthi/quantri.php?page=themsanpham");
       $_SESSION['themSPThanhCong'] = 'success';
      }
      else
      {
-       header("location:http://localhost/TTCNv2/hienthi/quantri.php?page=themsanpham");
+       header("location:../hienthi/quantri.php?page=themsanpham");
        $_SESSION['themSPKhongThanhCong'] = 'no success';
      }
     }

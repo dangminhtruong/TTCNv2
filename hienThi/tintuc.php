@@ -48,7 +48,7 @@
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
               <div class="tieude">
-                <a href=<?php echo "/TTCNv2/index.php?page=tintuc&idbv=".$dsBaiViet['id'];?>>
+                <a href=<?php echo "index.php?page=tintuc&idbv=".$dsBaiViet['id'];?>>
                   <p><?php echo $dsBaiViet['tieuDe']; ?><p>
                 </a>
               </div>
